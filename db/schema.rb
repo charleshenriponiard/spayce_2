@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_092305) do
+ActiveRecord::Schema.define(version: 2020_09_08_124804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "company_number"
+    t.string "name"
+    t.string "business_type"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.string "postal_code"
+    t.string "city"
+    t.string "country"
+    t.string "state"
+    t.string "phone_number"
+    t.string "structure"
+    t.string "verification_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +42,18 @@ ActiveRecord::Schema.define(version: 2020_09_07_092305) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "uid"
+    t.string "provider"
+    t.string "access_code"
+    t.string "publishable_key"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.boolean "admin", default: false
+    t.string "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "companies", "users"
 end
