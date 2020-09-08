@@ -11,6 +11,7 @@ cedric = User.create(email: 'cedric@gmail.com', password: 'secret', admin: true)
 fanny = User.create(email: 'fanny@gmail.com', password: 'secret')
 puts "Users creation finished"
 
+puts "Not creating companies, will do directly through Stripe"
 
 puts "All things creation finished"
 
