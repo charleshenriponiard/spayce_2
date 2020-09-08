@@ -28,7 +28,13 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# Authentication
 gem 'devise'
+
+# Stripe and Omniauth
+gem 'stripe'
+gem 'omniauth', '~> 1.9'
+gem 'omniauth-stripe-connect'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
