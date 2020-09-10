@@ -39,6 +39,9 @@ gem 'omniauth-stripe-connect'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
