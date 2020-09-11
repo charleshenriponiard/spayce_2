@@ -2,12 +2,10 @@ class CreateCompanyJob < ApplicationJob
   queue_as :default
 
   def perform(user)
-    @user = user
-    Stripe.api_key = ENV["STRIPE_PRIVATE_KEY"]
-    stripe_account = Stripe::Account.retrieve(@user.uid)
+    stripe_account = Stripe::Account.retrieve(user.uid)
     object = format_hash(stripe_account)
     company = Company.new(object)
-    company.user = @user
+    company.user = user
     company.save
   end
 
