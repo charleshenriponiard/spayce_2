@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
 
   before(:all) do
-    @user1 = create(:user)
+    @user1 = create(:user, email: "test@gmail.com")
+    @user2 = build(:user, email: "test@gmail.com")
+    @user3 = build(:user, password: nil)
+    @user4 = build(:user, email: nil)
   end
 
   it "is valid with valid attributes" do
@@ -11,18 +14,15 @@ RSpec.describe User, type: :model do
   end
 
   it "has a unique email" do
-    user2 = build(:user, email: "test@gmail.com")
-    expect(user2).to_not be_valid
+    expect(@user2).to_not be_valid
   end
 
   it "is not valid without a password" do
-    user2 = build(:user, password: nil)
-    expect(user2).to_not be_valid
+    expect(@user3).to_not be_valid
   end
 
   it "is not valid without an email" do
-    user2 = build(:user, email: nil)
-    expect(user2).to_not be_valid
+    expect(@user4).to_not be_valid
   end
 
   it "should permit to update all the added fields" do
