@@ -1,42 +1,59 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="wrapper">
+  <div class=" container">
+    <div class="card-connexion">
+      <h1 class="text-center mb-5">Update your account</h1>
+      <%= simple_form_for(resource, wrapper: :inline_form, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+        <% resource.errors.full_messages.each do |msg| %>
+            <p class= "alert-error"><%= msg %></p>
+        <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+        <div class="form-inputs">
+          <div class="border p-3 mb-2">
+            <h4 class="text-center">User infos</h4>
+            <%= f.input :email, required: true, autofocus: true %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+            <%= f.input :first_name,
+                        input_html: { placeholder: "First Name" }  %>
+            <%= f.input :last_name,
+                        input_html: { placeholder: "Last Name" }  %>
+          </div>
+          <div class="border p-3 mb-2">
+            <h4 class="text-center">Stripe</h4>
+            <% unless resource.can_receive_payments? %>
+              <div class="d-flex align-items-center justify-content-center">
+              You wont be able to sell items until you register with Stripe!
+                <%= stripe_connect_button %>
+              </div>
+            <% else %>
+              <p>Successfully connected to Stripe ✅</p>
+            <% end %>
+          </div>
+          <div class="border p-3">
+            <h4 class="text-center">Password</h4>
+            <%= f.input :password,
+                        hint: "leave it blank if you don't want to change it",
+                        required: false,
+                        input_html: { placeholder: "Password", autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: false,
+                        input_html: { placeholder: "Confirme your Password", autocomplete: "new-password" } %>
+          </div>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "UPDATE", class: "btn btn-info button-connexion text-white" %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <div class="d-flex align-items-center justify-content-center">
+          Unhappy ? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-secondary m-4" %>
+        </div>
+          <%= link_to "Back", :back %>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-
-  <% unless resource.can_receive_payments? %>
-    <h4>You wont be able to sell items until you register with Stripe!</h4>
-    <%= stripe_connect_button %>
-  <% else %>
-    <h4>Successfully connected to Stripe 👍 ✅</h4>
-  <% end %>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
