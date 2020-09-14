@@ -254,7 +254,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label, class: 'sr-only'
 
-    b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid', wrap_with: { tag: 'div', class: 'd-flex justify-content-center align-items-center' }
     b.use :error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
     b.optional :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
