@@ -3,4 +3,7 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def stripe_connect
+  end
 end
