@@ -3,6 +3,10 @@
     <div class="card-connexion">
       <h1 class="text-center mb-5">Log in to your account</h1>
       <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form, url: session_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <% resource.errors.full_messages.each do |msg| %>
+              <p class= "alert-error"><%= msg %></p>
+          <% end %>
         <div class="form-inputs">
           <%= f.input :email,
                       required: false,
@@ -18,7 +22,7 @@
           </div>
         </div>
         <div class="form-actions text-center">
-          <%= f.button :submit, "Log in", class: "btn btn-info button-connexion text-white " %>
+          <%= f.button :submit, "Log in", class: "btn btn-info button-connexion text-white" %>
         </div>
       <% end %>
       <div class="text-center">
@@ -29,6 +33,3 @@
     </div>
   </div>
 </div>
-
-
-‡
