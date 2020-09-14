@@ -1,18 +1,32 @@
-<h2>Forgot your password?</h2>
+<div class="wrapper">
+  <div class=" container">
+    <div class="card-connexion">
+      <h1 class="text-center mb-3">Memory loss ?</h1>
+      <p class= "text-center"> These are things that happen.</p>
+      <p class= "text-center">Enter yout email address ans we'll send you a link to reset your password</p>
+      <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form, url: password_path(resource_name), html: { method: :post })  do |f| %>
+        <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { placeholder: "Email", autocomplete: "email" } %>
+          <% resource.errors.full_messages.each do |msg| %>
+            <p class= "alert-error"><%= msg %></p>
+          <% end %>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "RESET YOUR PASSWORD", class: "btn btn-info button-connexion text-white" %>
+          <%= f.error_notification %>
+        </div>
+      <% end %>
+      <div class="text-center mt-4">
+        <div class="d-flex align-items-center justify-content-center">
+          Don't have an account yet ? <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-secondary ml-3" %>
+        </div>
+        <%= link_to "Log in", new_user_session_path, class: "nav-btn" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
