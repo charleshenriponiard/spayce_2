@@ -1,0 +1,35 @@
+.card-connexion {
+  width: auto;
+  height: 60%;
+  box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14),
+  0 3px 14px 2px rgba(0, 0, 0, 0.12),
+  0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 25px;
+  .xl-input {
+    width: 80%;
+  }
+  .button-connexion {
+    width: 100%;
+    height: 100%;
+  }
+  .form-actions {
+    height: 50px;
+  }
+  .input-border {
+    border: 1px solid $light-gray;
+    border-radius: 3px;
+    height: 50px;
+    width: auto;
+    margin-bottom: 10px;
+  }
+  label {
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  input {
+    border: none;
+    padding: 0px;
+  }
+}
