@@ -12,14 +12,14 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { placeholder: "Email", autocomplete: "email" }%>
+                        input_html: { placeholder: "Email", autocomplete: "email", class:"xl-input" }%>
             <%= f.input :password,
                         required: true,
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { placeholder: "Password", autocomplete: "new-password" } %>
+                        input_html: { placeholder: "Password", autocomplete: "new-password", class:"xl-input" } %>
             <%= f.input :password_confirmation,
                         required: true,
-                        input_html: { placeholder: "Confirm Password", autocomplete: "new-password" } %>
+                        input_html: { placeholder: "Confirm Password", autocomplete: "new-password", class:"xl-input" } %>
           </div>
         </div>
         <div class="form-actions text-center">
