@@ -16,13 +16,13 @@
           <%= f.input :password,
                       required: false,
                       input_html: { placeholder: "Password", autocomplete: "current-password", class: "xl-input" } %>
-          <div class="text-right mb-2">
+          <div class="text-right mb-2 form-link">
             <%#= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
             <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-decoration-none text-secondary" %>
           </div>
         </div>
         <div class="form-actions text-center">
-          <%= f.button :submit, "Log in", class: "btn btn-info button-connexion text-white" %>
+          <%= f.button :submit, "LOG IN", class: "btn btn-info button-connexion text-white" %>
         </div>
       <% end %>
       <div class="text-center">

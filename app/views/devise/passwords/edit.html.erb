@@ -3,7 +3,7 @@
   <div class=" container">
     <div class="card-connexion">
       <h1 class="text-center mb-3">You want change your password ?</h1>
-      <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form url: password_path(resource_name), html: { method: :put })  do |f| %>
+      <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form, url: password_path(resource_name), html: { method: :put })  do |f| %>
         <%= f.error_notification %>
         <%= f.input :reset_password_token, as: :hidden %>
         <%= f.full_error :reset_password_token %>
@@ -13,12 +13,12 @@
                         label: "New password",
                         required: true,
                         autofocus: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
+                        # hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { placeholder: "Password", autocomplete: "new-password", class:"xl-input" } %>
             <%= f.input :password_confirmation,
                         label: "Confirm your new password",
                         required: true,
-                        input_html: { autocomplete: "new-password" } %>
+                        input_html: { placeholder: "Confirme password", autocomplete: "new-password", class:"xl-input" } %>
           </div>
         </div>
         <div class="form-actions text-center">

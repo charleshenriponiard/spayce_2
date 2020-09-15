@@ -7,8 +7,6 @@
         <% resource.errors.full_messages.each do |msg| %>
             <p class= "alert-error"><%= msg %></p>
         <% end %>
-
-
         <div class="form-inputs">
           <div class="border p-3 mb-2">
             <h4 class="text-center">User infos</h4>
@@ -29,7 +27,7 @@
                 <%= stripe_connect_button %>
               </div>
             <% else %>
-              <p>Successfully connected to Stripe ✅</p>
+              <p class="text-center">Successfully connected to Stripe ✅</p>
             <% end %>
           </div>
           <div class="border p-3">
@@ -53,7 +51,6 @@
         </div>
           <%= link_to "Back", :back %>
       </div>
-
     </div>
   </div>
 </div>

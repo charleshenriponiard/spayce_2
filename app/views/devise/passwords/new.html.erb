@@ -11,7 +11,7 @@
           <%= f.input :email,
                       required: true,
                       autofocus: true,
-                      input_html: { placeholder: "Email", autocomplete: "email" } %>
+                      input_html: { placeholder: "Email", autocomplete: "email", class:"xl-input" } %>
           <% resource.errors.full_messages.each do |msg| %>
             <p class= "alert-error"><%= msg %></p>
           <% end %>
