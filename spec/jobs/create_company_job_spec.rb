@@ -1,4 +1,6 @@
 require "rails_helper"
+require 'sidekiq/testing'
+Sidekiq::Testing.fake!
 
 RSpec.describe CreateCompanyJob, type: :job do
 
