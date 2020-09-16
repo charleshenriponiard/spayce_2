@@ -1,4 +1,5 @@
 puts "Destroying everything"
+Company.destroy_all
 User.destroy_all
 puts "Everything has been destroyed"
 
