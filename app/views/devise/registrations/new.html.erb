@@ -15,7 +15,7 @@
                         input_html: { placeholder: "Email", autocomplete: "email", class:"xl-input" }%>
             <%= f.input :password,
                         required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        # hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { placeholder: "Password", autocomplete: "new-password", class:"xl-input" } %>
             <%= f.input :password_confirmation,
                         required: true,

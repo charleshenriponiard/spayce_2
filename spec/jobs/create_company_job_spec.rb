@@ -3,7 +3,6 @@ require 'sidekiq/testing'
 Sidekiq::Testing.fake!
 
 RSpec.describe CreateCompanyJob, type: :job do
-
   before(:all) do
     @user = create(:user, email: "test_job@gmail.com")
   end

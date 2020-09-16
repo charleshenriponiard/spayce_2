@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: "registrations" }
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: "registrations", confirmations: "confirmations" }
   root to: 'pages#home'
 
   get "/users/stripe-connect", to: "stripes#sign_up", as: "stripe_connect"

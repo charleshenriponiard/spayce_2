@@ -3,10 +3,12 @@
     <div class="card-connexion">
       <h1 class="text-center mb-5">Log in to your Stripe account</h1>
       <% unless current_user.can_receive_payments? %>
-        <h4>You wont be able to sell items until you register with Stripe!</h4>
-        <%= stripe_connect_button %>
+        <div class="text-center">
+          <h4 class="text-center">You wont be able to sell items until you register with Stripe!</h4>
+          <%= stripe_connect_button %>
+        </div>
       <% else %>
-        <h4>Successfully connected to Stripe 👍 ✅</h4>
+        <h4 class="text-center">Successfully connected to Stripe ✅</h4>
       <% end %>
     </div>
   </div>
