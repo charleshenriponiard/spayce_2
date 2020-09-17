@@ -44,6 +44,8 @@ gem 'simple_form'
 
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+
+gem 'wicked'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

@@ -23,6 +23,10 @@
     border-color: $yellow;
     box-shadow: 0 0 0 0.2rem rgba(242, 201, 76, 0.25)
   }
+  .form-headers {
+    color: $light-gray;
+    text-transform: capitalize;
+  }
 
 
   label {

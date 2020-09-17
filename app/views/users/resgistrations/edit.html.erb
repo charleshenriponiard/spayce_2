@@ -9,7 +9,7 @@
         <% end %>
         <div class="form-inputs">
           <div class="border p-3 mb-2">
-            <h4 class="text-center form-headers">User infos</h4>
+            <h4 class="text-center">User infos</h4>
             <%= f.input :email, required: true, autofocus: true %>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -20,7 +20,7 @@
                         input_html: { placeholder: "Last Name" }  %>
           </div>
           <div class="border p-3 mb-2">
-            <h4 class="text-center form-headers">Stripe</h4>
+            <h4 class="text-center">Stripe</h4>
             <% unless resource.can_receive_payments? %>
               <div class="d-flex align-items-center justify-content-center">
               You wont be able to sell items until you register with Stripe!
@@ -31,7 +31,7 @@
             <% end %>
           </div>
           <div class="border p-3">
-            <h4 class="text-center form-headers">Password</h4>
+            <h4 class="text-center">Password</h4>
             <%= f.input :password,
                         hint: "leave it blank if you don't want to change it",
                         required: false,
