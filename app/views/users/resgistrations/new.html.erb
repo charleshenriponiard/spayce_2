@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div class=" container">
+    <div class="card-connexion">
+      <h1 class="text-center mb-5">Create your free account</h1>
+      <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <% resource.errors.full_messages.each do |msg| %>
+            <p class= "alert-error"><%= msg %></p>
+        <% end %>
+        <div class="form-inputs">
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { placeholder: "Email", autocomplete: "email", class:"xl-input" }%>
+            <%= f.input :password,
+                        required: true,
+                        # hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { placeholder: "Password", autocomplete: "new-password", class:"xl-input" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { placeholder: "Confirm Password", autocomplete: "new-password", class:"xl-input" } %>
+          </div>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "CONTINUE", class: "btn btn-info button-connexion text-white" %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <div class="d-flex align-items-center justify-content-center">
+          Already have an account ? <%= link_to "LOG IN", new_user_session_path, class: "btn btn-secondary m-4" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

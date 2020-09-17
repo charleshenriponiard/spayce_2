@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class=" container">
+    <div class="card-connexion">
+      <h1 class="text-center mb-5">Create your free account</h1>
+      <%= simple_form_for(@user, url: wizard_path, method: :put) do |f| %>
+        <div class="form-inputs">
+          <div class="form-inputs">
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.select :country, collection: ["FR", "US"] %>
+          </div>
+        </div>
+        <div class="form-actions text-center">
+          <%= f.button :submit, "CONTINUE", class: "btn btn-info button-connexion text-white" %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <div class="d-flex align-items-center justify-content-center">
+          <%= link_to 'Skip this Page', next_wizard_path %>
+          Already have an account ? <%= link_to "LOG IN", new_user_session_path, class: "btn btn-secondary m-4" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
