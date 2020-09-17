@@ -1,6 +1,5 @@
 class RegistrationStepsController < ApplicationController
   include Wicked::Wizard
-
   steps :user_info
 
   def show

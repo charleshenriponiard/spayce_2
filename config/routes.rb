@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "users/registrations", omniauth_callbacks: "omniauth_callbacks", confirmations: "confirmations" }
+  devise_for :users, controllers: { registrations: "registrations", omniauth_callbacks: "omniauth_callbacks", confirmations: "confirmations" }
   root to: 'pages#home'
 
   resources :registration_steps
