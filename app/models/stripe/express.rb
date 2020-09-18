@@ -11,8 +11,8 @@ class Stripe::Express
     self.uid = account.id
     account_links = Stripe::AccountLink.create({
       account: account["id"],
-      refresh_url: "https://spayce2-staging.herokuapp.com/",
-      return_url: "https://spayce2-staging.herokuapp.com/",
+      refresh_url: "http://localhost:5000/",
+      return_url: "http://localhost:5000/",
       type: 'account_onboarding'
     })
     self.url = account_links["url"]
