@@ -1,17 +1,15 @@
 class StripesController < ApplicationController
+  def dashboard_connect
+    stripe = Stripe::Express.new
+    stripe.dashboard_connect(current_user)
+    redirect_to stripe.dashboard_url
+  end
 
   def sign_up
-    @account = Stripe::Account.create({
-      country: 'FR',
-      type: 'express',
-      requested_capabilities: ['card_payments', 'transfers'],
-    })
-    account_links = Stripe::AccountLink.create({
-      account: @account["id"],
-      refresh_url: 'http://localhost:5000',
-      return_url: 'http://localhost:5000',
-      type: 'account_onboarding',
-    })
-    byebug
+    @user = current_user
+    stripe = Stripe::Express.new
+    object = stripe.sign_up(@user)
+    @user.update(object)
+    redirect_to stripe.url
   end
 end

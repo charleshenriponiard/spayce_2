@@ -1,6 +1,6 @@
 class Stripe::Express
   include ActiveModel::Model
-  attr_accessor :uid, :url
+  attr_accessor :uid, :url, :dashboard_url
 
   def sign_up(user)
     account = Stripe::Account.create({
@@ -11,11 +11,16 @@ class Stripe::Express
     self.uid = account.id
     account_links = Stripe::AccountLink.create({
       account: account["id"],
-      refresh_url: "https://spayce2-staging.herokuapp.com/",
-      return_url: "https://spayce2-staging.herokuapp.com/",
+      refresh_url: ENV['STRIPE_URL_REFRESH'],
+      return_url: ENV['STRIPE_URL_RETURN'],
       type: 'account_onboarding'
     })
     self.url = account_links["url"]
     return object = {uid: uid}
+  end
+
+  def dashboard_connect(user)
+    answer_request = Stripe::Account.create_login_link(user.uid)
+    self.dashboard_url = answer_request["url"]
   end
 end
