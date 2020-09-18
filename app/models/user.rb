@@ -8,4 +8,14 @@ class User < ApplicationRecord
   def can_receive_payments?
     uid? &&  provider? && access_code? && publishable_key?
   end
+
+  def completed_onboarding?
+    if self.uid?
+      stripe = Stripe::Express.new
+      answer = stripe.find_account(uid)
+      answer["details_submitted"]
+    else
+      false
+    end
+  end
 end
