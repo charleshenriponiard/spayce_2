@@ -21,11 +21,11 @@
           </div>
           <div class="border p-3 mb-2 text-center">
             <h4 class="form-headers">Stripe</h4>
-            <% if current_user.uid.nil? %>
-              <p>You need to connect your profile to your a Stripe Account</p>
-              <%= link_to "Connect Stripe Account", stripe_sign_up_path, class:"btn btn-outline-info" %>
-            <% else %>
+            <% if current_user.completed_onboarding? %>
               <%= link_to "Stripe dashboard", stripe_dashboard_path, class:"btn btn-outline-info" %>
+            <% else %>
+              <p>You need to connect spayce to your a Stripe Account</p>
+              <%= link_to "Connect Stripe Account", stripe_sign_up_path, class:"btn btn-outline-info" %>
             <% end %>
             <!--<% unless resource.can_receive_payments? %>
               <div class="d-flex align-items-center justify-content-center">
