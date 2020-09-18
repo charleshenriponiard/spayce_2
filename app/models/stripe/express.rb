@@ -1,6 +1,6 @@
 class Stripe::Express
   include ActiveModel::Model
-  attr_accessor :uid, :url
+  attr_accessor :uid, :url, :dashboard_url
 
   def sign_up(user)
     account = Stripe::Account.create({
@@ -17,5 +17,10 @@ class Stripe::Express
     })
     self.url = account_links["url"]
     return object = {uid: uid}
+  end
+
+  def dashboard_connect(user)
+    answer_request = Stripe::Account.create_login_link(user.uid)
+    self.dashboard_url = answer_request["url"]
   end
 end
