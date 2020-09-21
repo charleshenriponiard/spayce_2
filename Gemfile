@@ -33,8 +33,9 @@ gem 'devise'
 # devise email async sidekiq
 gem "devise-async"
 
-# Stripe and Omniauth
+# Stripe and Webhooks
 gem 'stripe'
+gem 'stripe_event'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
