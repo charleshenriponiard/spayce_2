@@ -6,10 +6,9 @@ class StripesController < ApplicationController
   end
 
   def sign_up
-    @user = current_user
     stripe = Stripe::Express.new
-    object = stripe.sign_up(@user)
-    @user.update(object)
+    object = stripe.sign_up(current_user)
+    current_user.update(object)
     redirect_to stripe.url
   end
 end
