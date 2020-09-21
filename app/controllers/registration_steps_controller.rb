@@ -3,15 +3,13 @@ class RegistrationStepsController < ApplicationController
   steps :user_info
 
   def show
-    @user = current_user
     render_wizard
   end
 
   def update
-    @user = current_user
     stripe = Stripe::Express.new
-    object = stripe.sign_up(@user)
-    if @user.update(user_params.merge(object))
+    uid_hash = stripe.sign_up(current_user)
+    if current_user.update(user_params.merge(uid_hash))
       redirect_to stripe.url
     else
       render :show

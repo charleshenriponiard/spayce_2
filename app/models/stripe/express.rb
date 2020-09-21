@@ -16,7 +16,7 @@ class Stripe::Express
       type: 'account_onboarding'
     })
     self.url = account_links["url"]
-    return object = {uid: uid}
+    return { uid: uid }
   end
 
   def dashboard_connect(user)
