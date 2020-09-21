@@ -35,8 +35,6 @@ gem "devise-async"
 
 # Stripe and Omniauth
 gem 'stripe'
-gem 'omniauth', '~> 1.9'
-gem 'omniauth-stripe-connect'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

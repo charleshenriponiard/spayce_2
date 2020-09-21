@@ -22,19 +22,12 @@
           <div class="border p-3 mb-2 text-center">
             <h4 class="form-headers">Stripe</h4>
             <% if current_user.completed_onboarding? %>
-              <%= link_to "Stripe dashboard", stripe_dashboard_path, class:"btn btn-outline-info" %>
+              <p class="text-center">Successfully connected to Stripe ✅</p>
+              <%= link_to "Stripe dashboard", stripe_dashboard_path, class:"btn btn-outline-info", target: "_blank" %>
             <% else %>
               <p>You need to connect spayce to your a Stripe Account</p>
               <%= link_to "Connect Stripe Account", stripe_sign_up_path, class:"btn btn-outline-info" %>
             <% end %>
-            <!--<% unless resource.can_receive_payments? %>
-              <div class="d-flex align-items-center justify-content-center">
-              You wont be able to sell items until you register with Stripe!
-                <%= stripe_connect_button %>
-              </div>
-            <% else %>
-              <p class="text-center">Successfully connected to Stripe ✅</p>
-            <% end %>-->
           </div>
           <div class="border p-3">
             <h4 class="text-center form-headers">Password</h4>
@@ -45,6 +38,10 @@
             <%= f.input :password_confirmation,
                         required: false,
                         input_html: { placeholder: "Confirme your Password", autocomplete: "new-password" } %>
+            <%= f.input :current_password,
+                        hint: "we need your current password to confirm your changes",
+                        required: true,
+                        input_html: { autocomplete: "current-password" } %>
           </div>
         </div>
         <div class="form-actions text-center mt-2">
