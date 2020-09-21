@@ -12,17 +12,33 @@ module Stripe
       end
     end
 
-    def handle_invoice_payment_failed(event)
-    end
-
-    def handle_balance_available(event)
-    end
-
     def handle_account_updated(event)
+      p "=> UPDATE ACCOUNT _____________________________________________________________________________________________"
+      p event
+    end
+
+    def handle_capability_updated(event)
+      p "=> CAPABILITY UPDATED _____________________________________________________________________________________________"
+      p event
+    end
+
+    def handle_person_created(event)
+      p "=> PERSON CREATED _____________________________________________________________________________________________"
+      p event
+    end
+
+    def handle_account_external_account_created(event)
+      p "=> EXTERNAL ACCOUNT CREATED _____________________________________________________________________________________________"
       p event
     end
 
     def handle_invoice_payment_succeeded(event)
+    end
+
+    def handle_invoice_payment_failed(event)
+    end
+
+    def handle_balance_available(event)
     end
   end
 end
