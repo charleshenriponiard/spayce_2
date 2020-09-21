@@ -39,6 +39,7 @@ module Stripe
     end
 
     def handle_balance_available(event)
+      p "_____________________MICHEK______________________"
     end
   end
 end
