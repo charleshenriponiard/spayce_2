@@ -1,5 +1,5 @@
 class UpdateUserJob < ApplicationJob
-  queue_as :default
+  queue_as :stripe
 
   def perform(user, hash)
     user.update(hash)
