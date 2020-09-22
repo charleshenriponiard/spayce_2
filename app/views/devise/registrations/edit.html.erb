@@ -21,7 +21,7 @@
           </div>
           <div class="border p-3 mb-2 text-center">
             <h4 class="form-headers">Stripe</h4>
-            <% if current_user.onboarded? %>
+            <% unless current_user.no_account? %>
               <p class="text-center">Successfully connected to Stripe ✅</p>
               <%= link_to "Stripe dashboard", stripe_dashboard_path, class:"btn btn-outline-info", target: "_blank" %>
             <% else %>
