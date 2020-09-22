@@ -15,32 +15,19 @@ module Stripe
     def handle_account_updated(event)
       @user = User.find_by_uid(event.account)
       @details_submitted = event.data.object.details_submitted
-      @pending_verification = event.data.object.requirements.pending_verification
+      @currently_due = event.data.object.requirements.currently_due
       @payouts_enabled = event.data.object.payouts_enabled
 
-      if !@user.onboarded && @details_submitted
-        hash = { onboarded: true }
+      if !@user.verified? && @payouts_enabled
+        hash = { verification_status: "verified" }
         UpdateUserJob.perform_later(@user, hash)
-      end
-
-      if !@user.validated? && @payouts_enabled
-        hash = { verification_status: 2 }
+      elsif !@user.onboarded? && @details_submitted
+        hash = { verification_status: "onboarded" }
         UpdateUserJob.perform_later(@user, hash)
-      elsif @user.unvalidated? && @pending_verification.any?
-        hash = { verification_status: 1 }
+      elsif @currently_due.any?
+        hash = { verification_status: "information_needed" }
         UpdateUserJob.perform_later(@user, hash)
       end
     end
-
-    private
-
-    # def check_user_status_change
-    #   byebug
-    #   if !@user.verification_status.validated? && @payouts_enabled
-    #     hash = { verification_status: 2 }
-    #   elsif @user.verification_status.not_validated? && @pending_verification.empty?
-    #     hash = { verification_status: 1 }
-    #   end
-    # end
   end
 end
