@@ -37,6 +37,9 @@ gem "devise-async"
 gem 'stripe'
 gem 'stripe_event'
 
+# Pundit
+gem 'pundit'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
