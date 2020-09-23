@@ -6,7 +6,7 @@ class Stripe::Express
     account = Stripe::Account.create({
       country: user.country,
       type: 'express',
-      requested_capabilities: ['card_payments', 'transfers'],
+      requested_capabilities: ['card_payments', 'transfers']
     })
     self.uid = account.id
     account_links = Stripe::AccountLink.create({

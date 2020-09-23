@@ -78,6 +78,7 @@ group :test do
   gem 'webdrivers'
   gem 'database_cleaner-active_record'
   gem 'simplecov', require: false
+  gem 'stripe-ruby-mock', '~> 3.0.1', :require => 'stripe_mock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
