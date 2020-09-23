@@ -4,7 +4,9 @@ RSpec.describe  Stripe, type: :model do
   before(:all) do
     @user = build(:user)
     @stripe = Stripe::Express.new
-    @stripe.sign_up(@user)
+    VCR.use_cassette 'stripe_sign_up' do
+      @stripe.sign_up(@user)
+    end
   end
 
   describe(:sign_up) do
