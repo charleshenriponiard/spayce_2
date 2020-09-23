@@ -27,5 +27,4 @@ class Stripe::Express
   def find_account(uid)
     Stripe::Account.retrieve(uid)
   end
-
 end
