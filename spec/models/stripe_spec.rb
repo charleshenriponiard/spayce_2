@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe  Stripe, type: :model do
+RSpec.describe Stripe, type: :model do
   before(:all) do
-    @user = build(:user)
+    @user = create(:user)
     @stripe = Stripe::Express.new
     VCR.use_cassette 'stripe_sign_up' do
       @stripe.sign_up(@user)
