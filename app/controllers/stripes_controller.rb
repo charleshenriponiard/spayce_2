@@ -2,7 +2,7 @@ class StripesController < ApplicationController
   before_action :create_stripe_express, only:  [:sign_up, :dashboard_connect]
 
   def dashboard_connect
-    @stripe.dashboard_connect(current_user)
+    @stripe.onboarding(current_user)
     redirect_to @stripe.dashboard_url
   end
 

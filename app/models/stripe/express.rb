@@ -19,12 +19,8 @@ class Stripe::Express
     return { uid: uid }
   end
 
-  def dashboard_connect(user)
+  def onboarding(user)
     answer_request = Stripe::Account.create_login_link(user.uid)
     self.dashboard_url = answer_request["url"]
-  end
-
-  def find_account(uid)
-    Stripe::Account.retrieve(uid)
   end
 end

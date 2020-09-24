@@ -17,4 +17,15 @@ RSpec.describe Stripe, type: :model do
       expect(@stripe.uid).not_to be_nil
     end
   end
+
+  describe(:onboarding) do
+    it "should have a good URL" do
+      @user.update(uid: "acct_1HUEcZLNaxcoqDmg")
+      VCR.use_cassette 'stripe_onboarding' do
+        @stripe.onboarding(@user)
+      end
+      expect(@stripe.dashboard_url).to be_a(String)
+      expect(@stripe.dashboard_url).to eql("https://connect.stripe.com/express/dQ0zAyY5xp8B")
+    end
+  end
 end
