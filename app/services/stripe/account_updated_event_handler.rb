@@ -13,7 +13,7 @@ module Stripe
     end
 
     def handle_account_updated(event)
-      @user = User.find_by_uid(event.account)
+      @user = User.find_by_uid(event.data.object.id)
       @details_submitted = event.data.object.details_submitted
       @currently_due = event.data.object.requirements.currently_due
       @payouts_enabled = event.data.object.payouts_enabled
@@ -21,11 +21,11 @@ module Stripe
       if !@user.verified? && @payouts_enabled
         hash = { verification_status: "verified" }
         UpdateUserJob.perform_later(@user, hash)
-      elsif !@user.onboarded? && @details_submitted
-        hash = { verification_status: "onboarded" }
-        UpdateUserJob.perform_later(@user, hash)
       elsif @currently_due.any?
         hash = { verification_status: "information_needed" }
+        UpdateUserJob.perform_later(@user, hash)
+      elsif !@user.onboarded? && @details_submitted
+        hash = { verification_status: "onboarded" }
         UpdateUserJob.perform_later(@user, hash)
       end
     end
