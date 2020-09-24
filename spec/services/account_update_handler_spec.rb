@@ -88,6 +88,20 @@ RSpec.describe Stripe::AccountUpdatedEventHandler do
       expect(@user.verified?).to be true
     end
   end
-end
 
+  describe "#call" do
+    it "should return an ArgumentError" do
+      expect { @account_event_handler.call }.to raise_error(ArgumentError)
+    end
+
+    it "Error : Wrong number of arguments" do
+      expect { @account_event_handler.call }.to raise_error("wrong number of arguments (given 0, expected 1)")
+    end
+
+    it "Should return an UpdateUserJob" do
+      event = @account_event_handler.call(@event_details_submitted)
+      expect(event).to be_kind_of(UpdateUserJob)
+    end
+  end
+end
 
