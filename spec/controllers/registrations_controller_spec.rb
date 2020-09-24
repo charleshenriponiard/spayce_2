@@ -18,7 +18,7 @@ RSpec.describe RegistrationsController, type: :controller do
 
   describe "#after_sign_up_path_for" do
     login_user
-    it "redirects to the user_root_path" do
+    it "redirects to the registration_steps_path" do
       expect(controller.after_sign_up_path_for(@user)).to eql(registration_steps_path)
     end
   end
