@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Project</h1>
+
+  <%= simple_form_for @project do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+
+    <%= f.input :client_first_name%>
+    <%= f.input :client_last_name %>
+
+    <%= f.input :client_email %>
+    <%= f.input :message %>
+    <%= f.input :amount %>
+    <%= f.submit "bonjour", class:"btn btn-primary" %>
+  <% end %>
+</div>

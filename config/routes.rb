@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # Routes pour multistep form
   resources :registration_steps, only: [:index, :show, :update]
 
+  resources :projects, only: [:new, :create]
+
   # Routes pour Stripe
   get '/stripe/dashboard', to: "stripes#dashboard_connect"
   get '/stripe/sign-up', to: "stripes#sign_up"
