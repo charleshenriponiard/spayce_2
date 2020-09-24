@@ -36,6 +36,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  config.active_job.queue_adapter = :sidekiq
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
