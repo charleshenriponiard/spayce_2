@@ -2,6 +2,8 @@
   <h1>Project</h1>
 
   <%= simple_form_for @project do |f| %>
+    <%= f.input :documents, as: :file, input_html: { multiple: true } %>
+
     <%= f.input :name %>
     <%= f.input :description %>
 
