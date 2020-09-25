@@ -40,6 +40,10 @@ gem 'stripe_event'
 # Pundit
 gem 'pundit'
 
+# Images et documents
+gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
