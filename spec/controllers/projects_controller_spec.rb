@@ -2,7 +2,6 @@ require 'rails_helper'
 require_relative "../support/devise"
 
 RSpec.describe ProjectsController, type: :controller do
-
   before(:each) do
     @user = create(:user)
   end
