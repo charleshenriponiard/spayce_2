@@ -4,6 +4,8 @@ class Project < ApplicationRecord
 
   # validate :acceptable_documents
 
+  WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'watermark.png')
+
   # def acceptable_documents
   #   documents.each do |document|
   #     return unless document.attached?
