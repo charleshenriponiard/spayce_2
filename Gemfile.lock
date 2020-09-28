@@ -396,6 +396,8 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-sass
+  gio2
+  gobject-introspection
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   letter_opener
