@@ -44,6 +44,8 @@ gem 'pundit'
 
 # Images et documents
 gem 'image_processing', '~> 1.2'
+gem 'mini_magick'
+gem 'poppler'
 gem "aws-sdk-s3", require: false
 
 gem 'autoprefixer-rails'
