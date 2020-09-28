@@ -1,0 +1,14 @@
+  <%= simple_form_for project do |f| %>
+    <%= f.input :documents, as: :file, input_html: { multiple: true } %>
+
+    <%= f.input :name %>
+    <%= f.input :description %>
+
+    <%= f.input :client_first_name%>
+    <%= f.input :client_last_name %>
+
+    <%= f.input :client_email %>
+    <%= f.input :message %>
+    <%= f.input :amount %>
+    <%= f.submit "Submit", class:"btn btn-primary" %>
+  <% end %>

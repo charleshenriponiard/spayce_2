@@ -22,9 +22,6 @@ gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -44,7 +41,6 @@ gem 'pundit'
 
 # Images et documents
 gem 'image_processing', '~> 1.2'
-gem 'mini_magick'
 gem "aws-sdk-s3", require: false
 
 gem 'autoprefixer-rails'

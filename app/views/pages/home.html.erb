@@ -1,21 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<ul>
+  <% @projects.each do |project| %>
+    <li>
+      <%= link_to project.name, project_path(project) %>
+    </li>
 
-<% Project.last.documents.each do |document| %>
-  <% if document.variable? %>
-    <%= image_tag document.variant(
-        combine_options: {
-          resize_to_limit: [150, 150],
-          gravity: 'center',
-          draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
-        }
-      )
-    %>
-  <% elsif document.previewable? %>
-    <%= image_tag document.blob.preview(
-          resize_to_limit: [150, 150],
-          gravity: 'center',
-          draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
-        ) %>
   <% end %>
-<% end %>
+</ul>

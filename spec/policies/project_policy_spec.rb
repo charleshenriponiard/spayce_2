@@ -9,9 +9,15 @@ RSpec.describe ProjectPolicy do
     end
   end
 
-  permissions :index?, :show?, :edit?, :update?, :destroy? do
+  permissions :index? do
     it "denies access to any user" do
       expect(subject).not_to permit(User.new, Project.new)
+    end
+  end
+
+  permissions :show?, :edit?, :update?, :destroy? do
+    it "grants access to any user" do
+      expect(subject).to permit(User.new, Project.new)
     end
   end
 end
