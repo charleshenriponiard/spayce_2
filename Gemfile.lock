@@ -361,7 +361,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   gio2
-  gobject-introspection
+  gobject-introspection (~> 3.4.3)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   letter_opener
