@@ -46,9 +46,6 @@ gem 'pundit'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem "aws-sdk-s3", require: false
-gem "gobject-introspection", '~> 3.4.3'
-gem "gio2"
-gem 'poppler'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
