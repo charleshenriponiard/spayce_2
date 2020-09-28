@@ -20,4 +20,12 @@ class ProjectPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def edit?
+    update?
+  end
+
+  def update?
+    true
+  end
 end
