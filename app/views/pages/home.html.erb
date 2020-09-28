@@ -2,8 +2,6 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <% Project.last.documents.each do |document| %>
-  <%#= image_tag document.variant(resize_to_limit: [150, 150]) %>
-
   <% if document.variable? %>
     <%= image_tag document.variant(
         combine_options: {
@@ -19,7 +17,5 @@
           gravity: 'center',
           draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
         ) %>
-  <% elsif document.blob.video? %>
-    <%# raise %>
   <% end %>
 <% end %>
