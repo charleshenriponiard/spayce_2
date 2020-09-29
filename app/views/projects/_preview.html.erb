@@ -1,0 +1,21 @@
+<% @project.documents.each do |document| %>
+  <%= link_to 'Remove', delete_document_project_path( document_id: document.id ),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+  <% if document.variable? %>
+    <%= image_tag document.variant(
+        combine_options: {
+          resize_to_limit: [150, 150],
+          gravity: 'center',
+          draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
+        }
+      )
+    %>
+  <% elsif document.previewable? %>
+    <%= image_tag document.blob.preview(
+          resize_to_limit: [150, 150],
+          gravity: 'center',
+          draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
+        ) %>
+  <% end %>
+<% end %>
