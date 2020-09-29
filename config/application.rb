@@ -21,5 +21,8 @@ module Spayce2
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.active_job.queue_adapter = :sidekiq
+
+    # active storage
+    config.active_storage.replace_on_assign_to_many = false
   end
 end
