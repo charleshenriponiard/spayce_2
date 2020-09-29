@@ -28,4 +28,8 @@ class ProjectPolicy < ApplicationPolicy
   def update?
     true
   end
+
+  def delete_document?
+    true
+  end
 end

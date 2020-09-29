@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # Routes pour multistep form
   resources :registration_steps, only: [:index, :show, :update]
 
-  resources :projects, only: [:new, :create, :show, :destroy, :edit, :update]
+  resources :projects, only: [:new, :create, :show, :destroy, :edit, :update] do
+    member do
+      delete :delete_document
+    end
+  end
 
   # Routes pour Stripe
   get '/stripe/dashboard', to: "stripes#dashboard_connect"
