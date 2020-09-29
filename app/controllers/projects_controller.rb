@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :destroy, :edit, :update]
+  before_action :set_project, only: [:show, :destroy, :edit, :update, :delete_document]
 
   def show
   end
@@ -34,6 +34,13 @@ class ProjectsController < ApplicationController
   def destroy
     @project.delete
     redirect_to root_path
+  end
+
+  def delete_document
+    @document = ActiveStorage::Attachment.find(params[:document_id])
+    @document.purge
+    authorize @document, policy_class: ProjectPolicy
+    redirect_to project_path(@project)
   end
 
   private
