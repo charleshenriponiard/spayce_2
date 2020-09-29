@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
   end
 
   def delete_document
-    @document = ActiveStorage::Attachment.find(document_params[:document_id])
+    @document = ActiveStorage::Attachment.find(params[:document_id])
     @document.purge
     authorize @document, policy_class: ProjectPolicy
     redirect_to project_path(@project)
@@ -47,10 +47,6 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :description, :message, :client_first_name, :client_last_name, :client_email, :amount, :url, documents: [])
-  end
-
-  def document_params
-    params.require(:document).permit(:document_id)
   end
 
   def set_project
