@@ -1,11 +1,12 @@
 require 'zip'
 
 class MultiFileZipperDownload
-  ZIPPED_FILE_NAME = 'Archive.zip'
+  # ZIPPED_FILE_NAME ||= name_zip
 
-  def initialize(documents, bucket)
-    @documents = documents
+  def initialize(project, bucket)
+    @project = project
     @bucket = bucket
+    @zipped_file_name = name_zip
   end
 
   def call
@@ -19,7 +20,7 @@ class MultiFileZipperDownload
   private
 
    def save_file_local
-      @filepaths = @documents.blobs.map do |doc|
+      @filepaths = @project.documents.blobs.map do |doc|
       new_path = "#{tmp_dir}/#{doc.filename}"
       Aws::S3::Bucket.new(ENV["BUCKET"]).object(doc.key).download_file(new_path)
       new_path
@@ -39,14 +40,14 @@ class MultiFileZipperDownload
   end
 
   def zipped_file_path
-    "#{tmp_dir}/#{ZIPPED_FILE_NAME}"
+    "#{tmp_dir}/#{@zipped_file_name}"
   end
 
   def build_zipped_s3_key
     # I use the hash of the file to avoid collisions, but you can change this to whatever you like
     hash = Digest::SHA256.file(zipped_file_path).to_s
 
-    @zipped_s3_key = "multi_downloads/#{hash}/#{ZIPPED_FILE_NAME}"
+    @zipped_s3_key = "multi_downloads/#{hash}/#{@zipped_file_name}"
   end
 
   def upload_zip
@@ -57,5 +58,9 @@ class MultiFileZipperDownload
   def delete_tmp_file
     # Remove all the files to avoid disk usage leaks
     FileUtils.rm_rf(tmp_dir)
+  end
+
+  def name_zip
+    @project.name.split.map{ |el| el.downcase }.join("_")
   end
 end
