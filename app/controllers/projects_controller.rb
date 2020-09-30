@@ -1,6 +1,4 @@
 class ProjectsController < ApplicationController
-require 'aws-sdk-s3'
-require 'zip'
   before_action :set_project, only: [:show, :destroy, :edit, :update, :delete_document]
 
   def show
