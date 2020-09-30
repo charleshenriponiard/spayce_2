@@ -27,7 +27,7 @@ class MultiFileZipperDownload
   end
 
   def zip_files(files)
-    ::Zip::File.open(zipped_file_path, Zip::File::CREATE) do |zipfile|
+    Zip::File.open(zipped_file_path, Zip::File::CREATE) do |zipfile|
       files.each do |filepath|
         zipfile.add(filepath.split('/').last, filepath)
       end
