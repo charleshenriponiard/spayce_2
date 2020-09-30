@@ -14,9 +14,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     authorize(@project)
     if @project.save
-      zipped_key = MultiFileZipperDownload.new(@project.documents, ENV["BUCKET"]).call
-      url = S3Service.get_download_link(zipped_key, bucket: ENV["BUCKET"])
-      byebug
+      ZipDocumentsJob.perform_later(@project)
       redirect_to project_path(@project)
     else
       render :new

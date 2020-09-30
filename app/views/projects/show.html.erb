@@ -1,17 +1,26 @@
-<h1>Project Show count <%= @project.documents.count %></h1>
-<p>NAME => <%= @project.name %></p>
-<p>DESCRIPTION => <%= @project.description %></p>
-<p>amount => <%= @project.amount %></p>
-<p>client_email => <%= @project.client_email %></p>
-<p>client_first_name => <%= @project.client_first_name %></p>
-<p>client_last_name => <%= @project.client_last_name %></p>
-<p>message => <%= @project.message %></p>
-
-<% unless @project.documents.any? %>
-  <p>Pas de document pour ce projet</p>
-<% end %>
-<%= render "preview", project: @project %>
-<%= link_to "Edit", edit_project_path(@project), class:"btn btn-info" %>
-<%= link_to "supp", project_path(@project), method: :delete, class:"btn btn-danger" %>
-
-<%= link_to "Retour", root_path, class: "btn btn-primary" %>
+<div class="container">
+  <h1>Project <%= @project.name %> count <%= @project.documents.count %></h1>
+  <p>NAME => <%= @project.name %></p>
+  <p>DESCRIPTION => <%= @project.description %></p>
+  <p>amount => <%= @project.amount %></p>
+  <p>client_email => <%= @project.client_email %></p>
+  <p>client_first_name => <%= @project.client_first_name %></p>
+  <p>client_last_name => <%= @project.client_last_name %></p>
+  <p>message => <%= @project.message %></p>
+  <div>
+    <% unless @project.url.nil? %>
+      Télécharger => <%= link_to "Upload documents.zip", @project.url, class:"btn btn-info" %>
+    <% end %>
+  </div>
+  <div class="my-5">
+    <% unless @project.documents.any? %>
+      <p>Pas de document pour ce projet</p>
+    <% end %>
+    <%= render "preview", project: @project %>
+  </div>
+  <div>
+    <%= link_to "Edit", edit_project_path(@project), class:"btn btn-info" %>
+    <%= link_to "supp", project_path(@project), method: :delete, class:"btn btn-danger" %>
+    <%= link_to "Retour", root_path, class: "btn btn-primary" %>
+  </div>
+</div>
