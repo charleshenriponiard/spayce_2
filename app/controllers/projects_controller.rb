@@ -16,20 +16,14 @@ require 'zip'
     @project.user = current_user
     authorize(@project)
     if @project.save
-      @filepaths = @project.documents.blobs.map do |doc|
-        @dir = "tmp/bucket"
-        new_path = "#{@dir}/#{doc.filename}"
-        Aws::S3::Bucket.new(ENV["BUCKET"]).object(doc.key).download_file(new_path)
-        new_path
-      end
-      Zip::File.open('Archive.zip', Zip::File::CREATE) do |zipfile|
-        @filepaths.each do |filepath|
-          zipfile.add(filepath.split('/').last, filepath)
-        end
-      end
-      object = Aws::S3::Resource.new.bucket(ENV["BUCKET"]).object('Archive.zip')
-      object.upload_file('Archive.zip')
-      @download_url = object.presigned_url(:get)
+      # @zip_file = ZipService.new(@project.documents)
+      # @zip_file.save_file_local
+      # @zip_file.create_zip
+      # @zip_file.download_link_zip
+
+      zipped_key = MultiFileZipperDownload.new(@project.documents, ENV["BUCKET"]).call
+      url = S3Service.get_download_link(zipped_key, bucket: ENV["BUCKET"])
+      byebug
       redirect_to project_path(@project)
     else
       render :new
