@@ -16,11 +16,6 @@ require 'zip'
     @project.user = current_user
     authorize(@project)
     if @project.save
-      # @zip_file = ZipService.new(@project.documents)
-      # @zip_file.save_file_local
-      # @zip_file.create_zip
-      # @zip_file.download_link_zip
-
       zipped_key = MultiFileZipperDownload.new(@project.documents, ENV["BUCKET"]).call
       url = S3Service.get_download_link(zipped_key, bucket: ENV["BUCKET"])
       byebug
