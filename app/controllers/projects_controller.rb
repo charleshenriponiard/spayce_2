@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+require 'aws-sdk-s3'
+require 'zip'
   before_action :set_project, only: [:show, :destroy, :edit, :update, :delete_document]
 
   def show
@@ -14,20 +16,20 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     authorize(@project)
     if @project.save
-      @filepaths = @project.documents.map do |key|
-        new_path = "#{@dir}/#{key.split('/').last}" # Keep the filename but avoid the fill path
-        # This should go in a separate service
-        Aws::S3::Resource.new.bucket(@bucket).object(key).download_file(new_path)
+      @filepaths = @project.documents.blobs.map do |doc|
+        @dir = "tmp/bucket"
+        new_path = "#{@dir}/#{doc.filename}"
+        Aws::S3::Bucket.new(ENV["BUCKET"]).object(doc.key).download_file(new_path)
         new_path
-        byebug
       end
-      # Zip::File.open('Archive.zip', Zip::File::CREATE) do |zipfile|
-      #   @project.documents.each do |document|
-      #     zipfile.add(document, document)
-      #   end
-      # end
-      # @zip_document = ZipService.new(@project.documents)
-      # @zip_document.save_files_on_server
+      Zip::File.open('Archive.zip', Zip::File::CREATE) do |zipfile|
+        @filepaths.each do |filepath|
+          zipfile.add(filepath.split('/').last, filepath)
+        end
+      end
+      object = Aws::S3::Resource.new.bucket(ENV["BUCKET"]).object('Archive.zip')
+      object.upload_file('Archive.zip')
+      @download_url = object.presigned_url(:get)
       redirect_to project_path(@project)
     else
       render :new
