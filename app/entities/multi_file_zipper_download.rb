@@ -1,7 +1,6 @@
 require 'zip'
 
 class MultiFileZipperDownload
-  # ZIPPED_FILE_NAME ||= name_zip
 
   def initialize(project, bucket)
     @project = project
@@ -61,6 +60,6 @@ class MultiFileZipperDownload
   end
 
   def name_zip
-    @project.name.split.map{ |el| el.downcase }.join("_")
+    @project.name.split.map(&:downcase).join("_")
   end
 end

@@ -1,6 +1,12 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many_attached :documents
+  before_save do
+    if nbr_documents
+      ZipDocumentsJob.perform_later(self)
+      self.update(documents_count: self.documents.attachments.count)
+    end
+  end
 
   # validate :acceptable_documents
 
@@ -20,4 +26,9 @@ class Project < ApplicationRecord
   #     end
   #   end
   # end
+
+  def nbr_documents
+    byebug
+    self.documents_count != self.documents.attachments.count
+  end
 end
