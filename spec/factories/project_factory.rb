@@ -11,7 +11,6 @@ FactoryBot.define do
     client_email { "#{ first_name }.#{ last_name }@gmail.com"}
     client_first_name { first_name }
     client_last_name { last_name }
-    url { Faker::Internet.url }
     message { Faker::Lorem.paragraph }
   end
 end

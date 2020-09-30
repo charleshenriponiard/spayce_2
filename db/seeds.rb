@@ -20,7 +20,6 @@ carlito.save
     client_last_name: last_name,
     description: Faker::Hipster.paragraph,
     amount: rand(100..1000),
-    url: Faker::Internet.url,
     message: Faker::Lorem.paragraph
   )
 end
@@ -39,7 +38,6 @@ benoit.save
     client_last_name: last_name,
     description: Faker::Hipster.paragraph,
     amount: rand(100..1000),
-    url: Faker::Internet.url,
     message: Faker::Lorem.paragraph
   )
 end
@@ -56,7 +54,6 @@ cedric.save
     client_last_name: last_name,
     description: Faker::Hipster.paragraph,
     amount: rand(100..1000),
-    url: Faker::Internet.url,
     message: Faker::Lorem.paragraph
   )
 end
@@ -73,7 +70,6 @@ fanny.save
     client_last_name: last_name,
     description: Faker::Hipster.paragraph,
     amount: rand(100..1000),
-    url: Faker::Internet.url,
     message: Faker::Lorem.paragraph
   )
 end
