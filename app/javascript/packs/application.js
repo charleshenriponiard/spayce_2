@@ -25,10 +25,9 @@ require("channels")
 // External imports
 import "bootstrap";
 
-// Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+
+import direct_upload from '../components/direct_uploads';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  direct_upload;
 });
