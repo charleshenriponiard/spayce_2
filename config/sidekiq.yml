@@ -4,5 +4,7 @@
 :queues:
   - [stripe, 2]
   - zip
+  - active_storage_analysis
+  - active_storage_purge
   - default
   - mailers

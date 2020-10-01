@@ -41,6 +41,8 @@ class ProjectsController < ApplicationController
     @document = ActiveStorage::Attachment.find(params[:document_id])
     @document.purge
     authorize @document, policy_class: ProjectPolicy
+    ZipDocumentsJob.perform_later(@project)
+    @project.update(documents_count: @project.documents.attachments.count)
     redirect_to project_path(@project)
   end
 
