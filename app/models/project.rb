@@ -2,6 +2,13 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many_attached :documents
 
+  after_commit do
+    if nbr_documents
+      ZipDocumentsJob.perform_later(self)
+      self.update(documents_count: self.documents.attachments.count)
+    end
+  end
+
   # validate :acceptable_documents
 
   WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'watermark.png')
@@ -20,4 +27,8 @@ class Project < ApplicationRecord
   #     end
   #   end
   # end
+
+  def nbr_documents
+    self.documents_count != self.documents.attachments.count
+  end
 end
