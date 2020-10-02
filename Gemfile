@@ -43,6 +43,9 @@ gem 'pundit'
 gem 'image_processing', '~> 1.2'
 gem "aws-sdk-s3", require: false
 
+# svg
+gem 'inline_svg'
+
 # zip
 gem 'rubyzip'
 
