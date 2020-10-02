@@ -1,0 +1,38 @@
+.flash {
+  position: relative;
+  top: 0px;
+  padding: 16px 24px;
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 0px 8px;
+  width: 100%;
+  height: 40px;
+  .flash-message {
+    flex-grow: 1;
+    text-align: center;
+    justify-content: space-around;
+  }
+  .alert-link {
+    font-size: $headers-font;
+    color: white;
+    &:hover {
+      color: $info;
+    }
+  }
+}
+
+.flash-success {
+  background-color: $success;
+}
+
+.flash-warning {
+  background-color: $info;
+}
+
+.flash-danger {
+  background-color: $danger;
+}

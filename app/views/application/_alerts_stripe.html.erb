@@ -1,49 +1,24 @@
 <% if current_user %>
   <% if current_user.no_account? %>
     <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-      <span>No account</span>
-      <a data-dismiss="alert" aria-label="Close">
-        <i class="fas fa-times"></i>
-      </a>
+        <span class="flash-message"><b>Welcome on board !</b> To be able to receive payments, your account needs to be verified. This should take just a few minutes.<%= link_to "Verify now", edit_user_registration_path, class:"alert-link"%></span>
+        <a data-dismiss="alert" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </a>
     </div>
   <% elsif current_user.onboarded? || current_user.information_needed? %>
     <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-      <span>Onborded ou Information needed</span>
+      <span class="flash-message">Onborded ou Information needed</span>
       <a data-dismiss="alert" aria-label="Close">
         <i class="fas fa-times"></i>
       </a>
     </div>
   <% elsif current_user.verified? %>
     <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-      <span>Success => Verified</span>
+      <span class="flash-message">Success => Verified</span>
       <a data-dismiss="alert" aria-label="Close">
         <i class="fas fa-times"></i>
       </a>
     </div>
   <% end %>
 <% end %>
-
-<style>
-.flash {
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  border-radius: 4px;
-  margin: 8px;
-}
-
-.flash-success {
-  border: 2px solid #1EDD88;
-}
-
-.flash-warning {
-  border: 2px solid #FFC65A;
-}
-
-.flash-danger {
-  border: 2px solid #FD1015;
-}
-</style>
