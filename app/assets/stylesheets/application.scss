@@ -18,3 +18,11 @@
   align-items: center;
   height: calc(100vh - 100px);
 }
+
+body {
+  color: $body-color;
+}
+
+h1 {
+  font-weight: 700;
+}

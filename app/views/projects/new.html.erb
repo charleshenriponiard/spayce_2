@@ -1,4 +1,29 @@
 <div class="container">
-  <h1>Project</h1>
-  <%= render "form", project: @project %>
+  <h1 class="mt-2 mb-5">Send a new transfer</h1>
+  <div class="row">
+  <div class="col-md-8">
+    <div class="card-body">
+      <%= render "form", project: @project %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center my-2">
+        <span>Price</span><span>$ 0.00</span>
+      </div>
+      <%= bill_details(["Spayce commission", 0.00]) %>
+      <%# <div class="d-flex justify-content-between align-items-center my-2">
+        <span>Spayce commission</span><span>$ 0.00</span>
+      </div> %>
+      <div class="d-flex justify-content-between align-items-center my-2">
+        <span>Promo code</span><span>$ 0.00</span>
+      </div>
+      <div class="d-flex justify-content-between align-items-center border-bottom my-2 pb-3">
+        <span>Taxe</span><span>$ 0.00</span>
+      </div>
+      <p>You will receive on your bank account</p>
+      <h3 class="text-success">$ 0,00</h3>
+    </div>
+  </div>
+  </div>
 </div>
