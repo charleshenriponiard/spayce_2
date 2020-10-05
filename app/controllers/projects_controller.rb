@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
       @projects = policy_scope(Project.search_by_client_and_name(params["search"]))
     else
       @projects = policy_scope(Project.all)
+      @projects = Project.send("filter_by_#{params["filter"]}") if params["filter"]
     end
   end
 

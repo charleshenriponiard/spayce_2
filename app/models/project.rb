@@ -18,6 +18,12 @@ class Project < ApplicationRecord
               }
             }
 
+  enum status: { draft: 0, sent: 1, paid: 2, canceled: 3, expired: 4 }
+
+  scope :filter_by_sent, ->  { where status: "sent" }
+  scope :filter_by_paid, ->  { where status: "paid" }
+  scope :filter_by_canceled, ->  { where status: "canceled" }
+  scope :filter_by_expired, ->  { where status: "expired" }
   # validate :acceptable_documents
 
   WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'watermark.png')
