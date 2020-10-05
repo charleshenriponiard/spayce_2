@@ -8,19 +8,10 @@
   </div>
   <div class="col-md-4">
     <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center my-2">
-        <span>Price</span><span>$ 0.00</span>
-      </div>
-      <%= bill_details(["Spayce commission", 0.00]) %>
-      <%# <div class="d-flex justify-content-between align-items-center my-2">
-        <span>Spayce commission</span><span>$ 0.00</span>
-      </div> %>
-      <div class="d-flex justify-content-between align-items-center my-2">
-        <span>Promo code</span><span>$ 0.00</span>
-      </div>
-      <div class="d-flex justify-content-between align-items-center border-bottom my-2 pb-3">
-        <span>Taxe</span><span>$ 0.00</span>
-      </div>
+      <%= bill_details({ text: "Price", price: 0.00 }) %>
+      <%= bill_details({ text: "Spayce commission", price: 0.00 }) %>
+      <%= bill_details({ text: "Promo code", price: 0.00 }) %>
+      <%= bill_details({ text: "Tax", price: 0.00, class: " bill_detail border-bottom pb-3" }) %>
       <p>You will receive on your bank account</p>
       <h3 class="text-success">$ 0,00</h3>
     </div>
