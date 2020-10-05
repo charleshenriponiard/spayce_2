@@ -7,21 +7,33 @@
       <%= link_to "Paid", "#", class:"btn btn-outline-green mr-2" %>
       <%= link_to "Canceled / Expired", "#", class:"btn btn-outline-red" %>
     </div>
+    <div class="d-flex justify-content-center">
       <%= form_tag(projects_path, method: :get) do  %>
-        <div class="form-group">
-          <%= text_field_tag(:search, params[:search], class:"form-control") %>
-        </div>
-        <div class="form-group">
-          <%= submit_tag ("search"), class:"form-control"  %>
-        </div>
+          <%= text_field_tag(:search, params[:search], placeholder: "Search", class: "form-control") %>
       <% end %>
+      <%= link_to projects_path, class: "close ml-2" do %>
+        <%= inline_svg_tag "close.svg", class:"red-close" %>
+      <% end %>
+    </div>
   </div>
-  <ul>
-    <% @projects.each do |project| %>
-      <li>
-        <%= link_to project.name, project_path(project) %>
-        <%= project.client_last_name %>
-      </li>
-    <% end %>
-  </ul>
+  <table class="table">
+    <thead>
+      <th scope="col" >#id</th>
+      <th scope="col" >Client</th>
+      <th scope="col" >Price</th>
+      <th scope="col" >Sent On</th>
+      <th scope="col" >Status</th>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.id %></td>
+          <td><%= link_to project.client_last_name, project_path(project)%></td>
+          <td><%= project.amount %></td>
+          <td>Update DB</td>
+          <td>Update DB</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

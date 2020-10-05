@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    unless params["search"].empty?
+    if params["search"]
       @projects = policy_scope(Project.search_by_client_and_name(params["search"]))
     else
       @projects = policy_scope(Project.all)
