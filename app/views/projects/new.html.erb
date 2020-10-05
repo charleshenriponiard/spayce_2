@@ -1,4 +1,20 @@
 <div class="container">
-  <h1>Project</h1>
-  <%= render "form", project: @project %>
+  <h1 class="mt-2 mb-5">Send a new transfer</h1>
+  <div class="row">
+  <div class="col-md-8">
+    <div class="card-body">
+      <%= render "form", project: @project %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card-body">
+      <%= bill_details({ text: "Price", price: 0.00 }) %>
+      <%= bill_details({ text: "Spayce commission", price: 0.00 }) %>
+      <%= bill_details({ text: "Promo code", price: 0.00 }) %>
+      <%= bill_details({ text: "Tax", price: 0.00, class: " bill_detail border-bottom pb-3" }) %>
+      <p>You will receive on your bank account</p>
+      <h3 class="text-success">$ 0,00</h3>
+    </div>
+  </div>
+  </div>
 </div>

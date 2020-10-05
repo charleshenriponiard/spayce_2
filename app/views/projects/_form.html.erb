@@ -1,14 +1,17 @@
   <%= simple_form_for project do |f| %>
-    <%= f.input :documents, as: :file, input_html: { multiple: true, direct_upload: true }  %>
-
+    <%= f.input :documents, as: :file, label: false, input_html: { multiple: true, direct_upload: true }  %>
     <%= f.input :name %>
-    <%= f.input :description %>
-
-    <%= f.input :client_first_name%>
-    <%= f.input :client_last_name %>
-
-    <%= f.input :client_email %>
+    <%#= f.input :description %>
+    <%#= f.input :client_first_name%>
+    <div class="row" >
+      <div class="col-6">
+        <%= f.input :client_last_name, label: "Recipient name" %>
+      </div>
+      <div class="col-6">
+        <%= f.input :client_email, label: "Recipient email" %>
+      </div>
+    </div>
     <%= f.input :message %>
-    <%= f.input :amount %>
-    <%= f.submit "Submit", class:"btn btn-primary" %>
+    <%= f.input :amount, label: "Price", hint: "(amount to be paid for the files)" %>
+    <%= f.submit "Submit", class:"btn btn-info w-100 text-white" %>
   <% end %>
