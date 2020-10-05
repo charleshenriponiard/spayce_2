@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations",
                                     confirmations: "confirmations" }
 
-  root to: 'pages#home'
+  root to: 'projects#new'
 
   # Routes pour multistep form
   resources :registration_steps, only: [:index, :show, :update]
 
-  resources :projects, only: [:new, :create, :show, :destroy, :edit, :update] do
+  resources :projects, only: [:index, :create, :show, :destroy, :edit, :update] do
     member do
       delete :delete_document
     end
