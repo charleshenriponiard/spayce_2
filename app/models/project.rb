@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  include PgSearch::Model
+
   belongs_to :user
   has_many_attached :documents
 
@@ -8,6 +10,13 @@ class Project < ApplicationRecord
       self.update(documents_count: self.documents.attachments.count)
     end
   end
+  pg_search_scope :search_by_client_and_name,
+    against: [ :client_last_name, :client_first_name, :name  ],
+    using: {
+              trigram: {
+                threshold: 0.1
+              }
+            }
 
   # validate :acceptable_documents
 
