@@ -16,24 +16,28 @@
       <% end %>
     </div>
   </div>
-  <table class="table">
-    <thead>
-      <th scope="col" >#id</th>
-      <th scope="col" >Client</th>
-      <th scope="col" >Price</th>
-      <th scope="col" >Sent On</th>
-      <th scope="col" >Status</th>
-    </thead>
-    <tbody>
-      <% @projects.each do |project| %>
-        <tr>
-          <td><%= project.id %></td>
-          <td><%= link_to project.client_last_name, project_path(project)%></td>
-          <td><%= project.amount %></td>
-          <td>Update DB</td>
-          <td><%= project.status %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="card-body table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <th scope="col">#id</th>
+        <th scope="col" ><%= sortable("Client", "client_last_name") %></th>
+        <th scope="col" ><%= sortable("Price", "amount") %></th>
+        <th scope="col" >Sent On</th>
+        <th scope="col" >Status</th>
+      </thead>
+      <tbody>
+        <% @projects.each do |project| %>
+          <tr>
+            <td><%= project.id %></td>
+            <td><%= link_to project.client_last_name, project_path(project), class:" text-yellow"%></td>
+            <td><%= project.amount %></td>
+            <td>Update DB</td>
+            <td><%= project.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+
