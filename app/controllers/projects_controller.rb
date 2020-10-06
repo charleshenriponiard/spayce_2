@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :destroy, :edit, :update, :delete_document]
-
+  helper_method :sort_column, :sort_direction
 
   def show
   end
@@ -24,6 +24,8 @@ class ProjectsController < ApplicationController
   def index
     if params["search"]
       @projects = policy_scope(Project.search_by_client_and_name(params["search"]))
+    elsif params["sort"]
+      @projects = policy_scope(sortable_column_order)
     else
       @projects = policy_scope(Project.all)
       @projects = Project.send("filter_by_#{params["filter"]}") if params["filter"]
@@ -64,5 +66,21 @@ class ProjectsController < ApplicationController
   def set_project
     @project = Project.includes(documents_attachments: :blob).find(params[:id])
     authorize(@project)
+  end
+
+  def sortable_column_order
+    Project.order("#{sort_column} #{sort_direction}")
+  end
+
+  def sort_direction
+    %w(asc desc).include?(params[:direction]) ? params[:direction] : nil
+  end
+
+  def sort_column
+    authorize_sortable_column.include?(params[:sort]) ? params[:sort] : "client_last_name"
+  end
+
+  def authorize_sortable_column
+    ["client_last_name", 'amount']
   end
 end

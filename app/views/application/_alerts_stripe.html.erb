@@ -4,7 +4,6 @@
         <span class="flash-message"><b>Welcome on board !</b> To be able to receive payments, your account needs to be verified. This should take just a few minutes.<%= link_to "Verify now", edit_user_registration_path, class:"alert-link"%></span>
         <a data-dismiss="alert" aria-label="Close">
           <%= inline_svg_tag "close.svg", class: "white-close" %>
-          <i class="fas fa-times"></i>
         </a>
     </div>
   <% elsif current_user.onboarded? || current_user.information_needed? %>
