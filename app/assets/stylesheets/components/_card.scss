@@ -1,11 +1,11 @@
 .card-connexion {
-  width: auto;
-  height: 60%;
-  box-shadow: 0 8px 17px 2px rgba(0, 0, 0, 0.14),
-  0 3px 14px 2px rgba(0, 0, 0, 0.12),
-  0 5px 5px -3px rgba(0, 0, 0, 0.2);
   background-color: white;
   padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.04),
+  0 9px 46px 8px rgba(0, 0, 0, 0.04),
+  0 11px 15px -7px rgba(0, 0, 0, 0.04);
+
   .xl-input {
     width: 80%;
   }
@@ -15,6 +15,7 @@
   }
   .button-connexion {
     width: 80%;
+    padding: 5px;
   }
   .form-actions {
     height: 50px;
