@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_project
-    @project = Project.includes(documents_attachments: :blob).find(params[:id])
+    @project = Project.find(params[:id])
     authorize(@project)
   end
 

@@ -1,26 +1,78 @@
 <div class="container">
-  <h1>Project <%= @project.name %> count <%= @project.documents.count %></h1>
-  <p>NAME => <%= @project.name %></p>
-  <p>DESCRIPTION => <%= @project.description %></p>
-  <p>amount => <%= @project.amount %></p>
-  <p>client_email => <%= @project.client_email %></p>
-  <p>client_first_name => <%= @project.client_first_name %></p>
-  <p>client_last_name => <%= @project.client_last_name %></p>
-  <p>message => <%= @project.message %></p>
-  <div>
-    <% unless @project.url.nil? %>
-      Télécharger => <%= link_to "Upload documents.zip", @project.url, class:"btn btn-info" %>
-    <% end %>
+  <h1 class="mt-md-5">Transfer details</h1>
+  <div class="m-3"><%= link_to "< Back", projects_path %></div>
+  <div class="card-body">
+    <section class="border-bottom pb-4 mb-4">
+      <div class="row">
+        <div class="col-4">
+          <div class="font-weight-bold my-2">Client ID</div>
+          <div class="font-weight-bold my-2">Client name</div>
+          <div class="font-weight-bold my-2">Email address</div>
+          <div class="font-weight-bold my-2">Message</div>
+        </div>
+        <div class="col-8">
+          <div class="my-2"><%= @project.id %> </div>
+          <div class="my-2"><%= @project.client_last_name %></div>
+          <div class="my-2"><%= @project.client_email %></div>
+          <div class="mt-2"><%= @project.message %></div>
+        </div>
+      </div>
+    </section>
+    <section class="border-bottom pb-4 mb-4">
+      <div class="row">
+        <div class="col-4">
+          <div class="font-weight-bold my-2">Price asked</div>
+          <div class="font-weight-bold my-2">Spayce commission</div>
+          <div class="font-weight-bold my-2">Promo</div>
+          <div class="font-weight-bold my-2">Your earnings</div>
+        </div>
+        <div class="col-8">
+          <div class="my-2"><%= @project.amount %> </div>
+          <div class="my-2">Stripe info</div>
+          <div class="my-2">Stripe info</div>
+          <div class="mt-2">Stripe info</div>
+        </div>
+      </div>
+    </section>
+    <section class="border-bottom pb-4 mb-4">
+      <div class="row">
+        <div class="col-4">
+          <div class="font-weight-bold my-2">Project name</div>
+          <div class="font-weight-bold my-2">Nomber of files transferred</div>
+          <div>
+            <% unless @project.url.nil? %>
+              <div class="font-weight-bold my-2">Transfer link</div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="my-2"><%= @project.name %></div>
+          <div class="my-2"><%= @project.documents.count %></div>
+          <div>
+            <% unless @project.url.nil? %>
+              <%= link_to "Upload now", @project.url, class:"btn btn-info mt-2" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-4">
+      <div class="row">
+        <div class="col-4">
+          <div class="font-weight-bold my-2">Sent on</div>
+          <div class="font-weight-bold my-2">Expiration date</div>
+          <div class="font-weight-bold my-2">Status</div>
+        </div>
+        <div class="col-8">
+          <div class="my-2">Update DB</div>
+          <div class="my-2">Update DB</div>
+          <div class="my-2"><%= @project.status %></div>
+        </div>
+      </div>
+    </section>
   </div>
-  <div class="my-5">
-    <% unless @project.documents.any? %>
-      <p>Pas de document pour ce projet</p>
-    <% end %>
-    <%= render "preview", project: @project %>
-  </div>
-  <div>
+  <div class="my-3">
     <%= link_to "Edit", edit_project_path(@project), class:"btn btn-info" %>
-    <%= link_to "supp", project_path(@project), method: :delete, class:"btn btn-danger" %>
-    <%= link_to "Retour", root_path, class: "btn btn-primary" %>
+    <%= link_to "Cancel the transfert", project_path(@project), method: :delete, class:"btn btn-danger" %>
   </div>
 </div>
