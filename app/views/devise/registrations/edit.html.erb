@@ -1,53 +1,64 @@
-<div class="wrapper">
-  <div class=" container">
-    <div class="card-connexion">
-      <h1 class="text-center mb-5">Update your account</h1>
-      <%= simple_form_for(resource, wrapper: :inline_form, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= f.error_notification %>
-        <% resource.errors.full_messages.each do |msg| %>
-            <p class= "alert-error"><%= msg %></p>
-        <% end %>
-        <div class="form-inputs">
-          <div class="border p-3 mb-2">
-            <h4 class="text-center form-headers">User infos</h4>
-            <%= f.input :email, required: true, autofocus: true %>
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+
+<div class="container">
+  <h1 class="my-md-5">My account</h1>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="card-connexion">
+        <%= simple_form_for(resource, wrapper: :inline_form, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+            <% resource.errors.full_messages.each do |msg| %>
+                <p class= "alert-error"><%= msg %></p>
             <% end %>
-            <%= f.input :first_name,
-                        input_html: { placeholder: "First Name" }  %>
-            <%= f.input :last_name,
-                        input_html: { placeholder: "Last Name" }  %>
-          </div>
-          <div class="border p-3 mb-2 text-center">
-            <h4 class="form-headers">Stripe</h4>
-            <% unless current_user.no_account? %>
-              <p class="text-center">Successfully connected to Stripe ✅</p>
-              <%= link_to "Stripe dashboard", stripe_dashboard_path, class:"btn btn-outline-info", target: "_blank" %>
-            <% else %>
-              <p>You need to connect spayce to your a Stripe Account</p>
-              <%= link_to "Connect Stripe Account", stripe_sign_up_path, class:"btn btn-outline-info" %>
-            <% end %>
-          </div>
-          <div class="border p-3">
-            <h4 class="text-center form-headers">Password</h4>
-            <%= f.input :password,
-                        hint: "leave it blank if you don't want to change it",
-                        required: false,
-                        input_html: { placeholder: "Password", autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: false,
-                        input_html: { placeholder: "Confirme your Password", autocomplete: "new-password" } %>
-            <%= f.input :current_password,
-                        hint: "we need your current password to confirm your changes",
-                        required: true,
-                        input_html: { autocomplete: "current-password" } %>
-          </div>
+            <div class="form-inputs">
+              <div class="border p-3 mb-2">
+                <h4 class="text-center form-headers">User infos</h4>
+                <%= f.input :email, required: true, autofocus: true %>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                <% end %>
+                <%= f.input :first_name,
+                            input_html: { placeholder: "First Name" }  %>
+                <%= f.input :last_name,
+                            input_html: { placeholder: "Last Name" }  %>
+              </div>
+              <div class="border p-3">
+                <h4 class="text-center form-headers">Password</h4>
+                <%= f.input :password,
+                            hint: "leave it blank if you don't want to change it",
+                            required: false,
+                            input_html: { placeholder: "Password", autocomplete: "new-password" } %>
+                <%= f.input :password_confirmation,
+                            required: false,
+                            input_html: { placeholder: "Confirme your Password", autocomplete: "new-password" } %>
+                <%= f.input :current_password,
+                            hint: "we need your current password to confirm your changes",
+                            required: true,
+                            input_html: { autocomplete: "current-password" } %>
+              </div>
+            </div>
+            <div class="form-actions text-center mt-2">
+              <%= f.button :submit, "SAVE", class: "btn btn-info button-connexion text-white" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-connexion">
+        <div class="border p-3 mb-2 text-center">
+          <h4 class="form-headers">Stripe</h4>
+          <% unless current_user.no_account? %>
+            <p class="text-center">Successfully connected to Stripe ✅</p>
+            <%= link_to "Stripe dashboard", stripe_dashboard_path, class:"btn btn-outline-info", target: "_blank" %>
+          <% else %>
+            <p>You need to connect spayce to your a Stripe Account</p>
+            <%= link_to "Connect Stripe Account", stripe_sign_up_path, class:"btn btn-outline-info" %>
+          <% end %>
         </div>
-        <div class="form-actions text-center mt-2">
-          <%= f.button :submit, "UPDATE", class: "btn btn-info button-connexion text-white" %>
-        </div>
-      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12">
       <div class="text-center">
         <div class="d-flex align-items-center justify-content-center">
           Unhappy ? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-outline-secondary m-4" %>
@@ -57,3 +68,20 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
