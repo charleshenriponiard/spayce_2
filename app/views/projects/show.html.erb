@@ -66,13 +66,15 @@
         <div class="col-8">
           <div class="my-2">Update DB</div>
           <div class="my-2">Update DB</div>
-          <div class="my-2"><%= @project.status %></div>
+          <div class="my-2"><%= badge_for(@project.status) %></div>
         </div>
       </div>
     </section>
   </div>
   <div class="my-3">
-    <%= link_to "Edit", edit_project_path(@project), class:"btn btn-info" %>
-    <%= link_to "Cancel the transfert", project_path(@project), method: :delete, class:"btn btn-danger" %>
+    <% unless @project.canceled? || @project.expired? %>
+      <%= link_to "Edit", edit_project_path(@project), class:"btn btn-info" %>
+      <%= link_to "Cancel the transfert", project_path(@project), method: :delete, class:"btn btn-danger" %>
+    <% end %>
   </div>
 </div>

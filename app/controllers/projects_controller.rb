@@ -23,12 +23,16 @@ class ProjectsController < ApplicationController
 
   def index
     if params["search"]
-      @projects = policy_scope(Project.search_by_client_and_name(params["search"]))
+      @projects = Project.search_by_client_and_name(params["search"])
+      @projects = policy_scope(@projects)
     elsif params["sort"]
-      @projects = policy_scope(sortable_column_order)
+      @projects = sortable_column_order
+      @projects = policy_scope(@projects)
+    elsif params["filter"]
+      @projects = Project.send("filter_by_#{params["filter"]}") if params["filter"]
+      @projects = policy_scope(@projects)
     else
       @projects = policy_scope(Project.all)
-      @projects = Project.send("filter_by_#{params["filter"]}") if params["filter"]
     end
   end
 
