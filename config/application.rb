@@ -24,5 +24,7 @@ module Spayce2
 
     # active storage
     config.active_storage.replace_on_assign_to_many = false
+    config.i18n.available_locales = [:en, :fr]
+    config.i18n.default_locale = :fr
   end
 end

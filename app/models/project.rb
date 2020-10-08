@@ -27,6 +27,7 @@ class Project < ApplicationRecord
   scope :filter_by_canceled_or_expired, -> { filter_by_canceled.or(filter_by_expired) }
 
   # validate :acceptable_documents
+  validates :name, presence: true
 
   WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'watermark.png')
 

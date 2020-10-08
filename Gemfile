@@ -60,6 +60,9 @@ gem 'wicked'
 
 gem 'pg_search'
 
+gem 'rails-i18n', '~> 6.0.0'
+gem 'devise-i18n'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

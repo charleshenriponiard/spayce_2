@@ -1,15 +1,15 @@
 <div class="container">
-  <h1 class="my-md-5">Easily find all your transfers</h1>
+  <h1 class="my-md-5"><%= t('view.project.index.title') %></h1>
   <div class="d-flex justify-content-between my-4">
     <div>
-      <%= link_to "All", projects_path, class:"btn btn-outline-purple mr-2" %>
-      <%= link_to "Sent", projects_path({ filter: "sent" }), class:"btn btn-outline-blue mr-2" %>
-      <%= link_to "Paid", projects_path({ filter: "paid" }), class:"btn btn-outline-green mr-2" %>
-      <%= link_to "Canceled / Expired", projects_path({ filter: "canceled_or_expired" }), class:"btn btn-outline-red" %>
+      <%= link_to t('activerecord.attributes.project.status.all'), projects_path, class:"btn btn-outline-purple mr-2" %>
+      <%= link_to t('activerecord.attributes.project.status.sent'), projects_path({ filter: "sent" }), class:"btn btn-outline-blue mr-2" %>
+      <%= link_to t('activerecord.attributes.project.status.paid'), projects_path({ filter: "paid" }), class:"btn btn-outline-green mr-2" %>
+      <%= link_to t('activerecord.attributes.project.status.canceled_expired'), projects_path({ filter: "canceled_or_expired" }), class:"btn btn-outline-red" %>
     </div>
     <div class="d-flex justify-content-center">
       <%= form_tag(projects_path, method: :get) do  %>
-          <%= text_field_tag(:search, params[:search], placeholder: "Search", class: "form-control") %>
+          <%= text_field_tag(:search, params[:search], placeholder: t('form.placeholder.search'), class: "form-control") %>
       <% end %>
       <%= link_to projects_path, class: "close ml-2" do %>
         <%= inline_svg_tag "close.svg", class:"red-close" %>
@@ -20,10 +20,10 @@
     <table class="table table-striped">
       <thead>
         <th scope="col">#id</th>
-        <th scope="col" ><%= sortable("Client", "client_last_name") %></th>
-        <th scope="col" ><%= sortable("Price", "amount") %></th>
-        <th scope="col" >Sent On</th>
-        <th scope="col" >Status</th>
+        <th scope="col" ><%= sortable(t('view.project.index.client'), "client_last_name") %></th>
+        <th scope="col" ><%= sortable(t('view.project.index.price'), "amount") %></th>
+        <th scope="col" ><%= t('view.project.index.send_on') %></th>
+        <th scope="col" ><%= t('view.project.index.status') %></th>
       </thead>
       <tbody>
         <% @projects.each do |project| %>

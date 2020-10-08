@@ -1,21 +1,21 @@
 <% if current_user %>
   <% if current_user.no_account? %>
     <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-        <span class="flash-message"><b>Welcome on board !</b> To be able to receive payments, your account needs to be verified. This should take just a few minutes.<%= link_to "Verify now", edit_user_registration_path, class:"alert-link"%></span>
+        <span class="flash-message"><%= t('view.application.alerts_stripe.no_account_html')%><%= link_to t('view.application.alerts_stripe.link_alerts_stripe'), edit_user_registration_path, class:"alert-link"%></span>
         <a data-dismiss="alert" aria-label="Close">
           <%= inline_svg_tag "close.svg", class: "white-close" %>
         </a>
     </div>
   <% elsif current_user.onboarded? || current_user.information_needed? %>
     <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-      <span class="flash-message">Onborded ou Information needed</span>
+      <span class="flash-message"><%= t('view.application.alerts_stripe.onboarded') %></span>
       <a data-dismiss="alert" aria-label="Close">
         <%= inline_svg_tag "close.svg", class: "white-close" %>
       </a>
     </div>
   <% elsif current_user.verified? %>
     <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-      <span class="flash-message">Success => Verified</span>
+      <span class="flash-message"><%= t('view.application.alerts_stripe.verified') %></span>
       <a data-dismiss="alert" aria-label="Close">
         <%= inline_svg_tag "close.svg", class: "white-close" %>
       </a>
