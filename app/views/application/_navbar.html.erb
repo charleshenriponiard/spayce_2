@@ -34,6 +34,15 @@
             <%= link_to t('view.application.navbar.contact_us'), "#", class: "nav-link" %>
           </div>
         </li>
+        <li class="nav-item mx-5">
+          <div class="d-flex align-items-center">
+            <% if I18n.locale == I18n.default_locale %>
+              <%= link_to "Français", { :locale=>'fr' }, class: "nav-link" %>
+            <% else %>
+              <%= link_to "English", { :locale=>'en' }, class: "nav-link" %>
+            <% end %>
+          </div>
+        </li>
       </ul>
     </div>
     <div class="navbar-button d-flex">
