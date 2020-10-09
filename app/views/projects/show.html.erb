@@ -1,14 +1,14 @@
 <div class="container">
-  <h1 class="mt-md-5">Transfer details</h1>
-  <div class="m-3"><%= link_to "< Back", projects_path %></div>
+  <h1 class="mt-md-5"><%= t('view.project.show.title') %></h1>
+  <div class="m-3"><%= link_to t('helpers.button.back'), projects_path %></div>
   <div class="card-body">
     <section class="border-bottom pb-4 mb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2">Client ID</div>
-          <div class="font-weight-bold my-2">Client name</div>
-          <div class="font-weight-bold my-2">Email address</div>
-          <div class="font-weight-bold my-2">Message</div>
+          <div class="font-weight-bold my-2"> <%= t('view.project.show.client_id') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.client_name') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.email_address') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.message') %></div>
         </div>
         <div class="col-8">
           <div class="my-2"><%= @project.id %> </div>
@@ -21,10 +21,10 @@
     <section class="border-bottom pb-4 mb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2">Price asked</div>
-          <div class="font-weight-bold my-2">Spayce commission</div>
-          <div class="font-weight-bold my-2">Promo</div>
-          <div class="font-weight-bold my-2">Your earnings</div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.price_asked') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.spayce_commission') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.promo_code') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.your_earnings') %></div>
         </div>
         <div class="col-8">
           <div class="my-2"><%= @project.amount %> </div>
@@ -37,11 +37,11 @@
     <section class="border-bottom pb-4 mb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2">Project name</div>
-          <div class="font-weight-bold my-2">Nomber of files transferred</div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.project_name') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.nbr_files') %></div>
           <div>
             <% unless @project.url.nil? %>
-              <div class="font-weight-bold my-2">Transfer link</div>
+              <div class="font-weight-bold my-2"><%= t('view.project.show.transfer_link') %></div>
             <% end %>
           </div>
         </div>
@@ -50,7 +50,7 @@
           <div class="my-2"><%= @project.documents.count %></div>
           <div>
             <% unless @project.url.nil? %>
-              <%= link_to "Upload now", @project.url, class:"btn btn-info mt-2" %>
+              <%= link_to t('helpers.button.upload'), @project.url, class:"btn btn-info mt-2" %>
             <% end %>
           </div>
         </div>
@@ -59,9 +59,9 @@
     <section class="pb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2">Sent on</div>
-          <div class="font-weight-bold my-2">Expiration date</div>
-          <div class="font-weight-bold my-2">Status</div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.sent_on') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.expiration_date') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.status') %></div>
         </div>
         <div class="col-8">
           <div class="my-2">Update DB</div>
@@ -73,8 +73,8 @@
   </div>
   <div class="my-3">
     <% unless @project.canceled? || @project.expired? %>
-      <%= link_to "Edit", edit_project_path(@project), class:"btn btn-info" %>
-      <%= link_to "Cancel the transfert", project_path(@project), method: :delete, class:"btn btn-danger" %>
+      <%= link_to t('helpers.button.edit'), edit_project_path(@project), class:"btn btn-info" %>
+      <%= link_to t('helpers.button.cancel'), project_path(@project), method: :delete, class:"btn btn-danger" %>
     <% end %>
   </div>
 </div>

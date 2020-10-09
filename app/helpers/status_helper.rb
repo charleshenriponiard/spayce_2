@@ -3,15 +3,15 @@ module StatusHelper
     case status
     when "sent"
       content_tag(:h5, class:"m-0") do
-        content_tag(:span, "Sent", class: "badge badge-pill badge-primary")
+        content_tag(:span, t('activerecord.attributes.project.status.sent'), class: "badge badge-pill badge-primary")
       end
     when "paid"
       content_tag(:h5, class:"m-0") do
-        content_tag(:span, "Paid", class: "badge badge-pill badge-success text-white")
+        content_tag(:span, t('activerecord.attributes.project.status.paid'), class: "badge badge-pill badge-success text-white")
       end
     when "canceled", "expired"
       content_tag(:h5, class:"m-0") do
-        content_tag(:span, "Canceled / Expired", class: "badge badge-pill badge-danger")
+        content_tag(:span, t('activerecord.attributes.project.status.canceled_expired'), class: "badge badge-pill badge-danger")
       end
     end
   end

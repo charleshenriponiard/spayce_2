@@ -5,13 +5,13 @@
     <%#= f.input :client_first_name%>
     <div class="row" >
       <div class="col-6">
-        <%= f.input :client_last_name, label: "Recipient name" %>
+        <%= f.input :client_last_name, label: t('form.label.recipient_name') %>
       </div>
       <div class="col-6">
-        <%= f.input :client_email, label: "Recipient email" %>
+        <%= f.input :client_email, label: t('form.label.recipient_email')%>
       </div>
     </div>
     <%= f.input :message %>
-    <%= f.input :amount, label: "Price", hint: "(amount to be paid for the files)" %>
-    <%= f.submit "Submit", class:"btn btn-info w-100 text-white" %>
+    <%= f.input :amount, label: t('form.label.price'), hint: t('form.hint.price') %>
+    <%= f.submit t('form.button.save', fr_model: "projet", en_model: "project" ), class:"btn btn-info w-100 text-white"%>
   <% end %>

@@ -13,37 +13,46 @@
         <li class="nav-item mx-5">
           <div class="d-flex align-items-center">
             <%= inline_svg_tag "upload.svg" %>
-            <%= link_to "New Transfer", root_path, class: "nav-link" %>
+            <%= link_to t('view.application.navbar.new_transfer'), root_path, class: "nav-link" %>
           </div>
         </li>
         <li class="nav-item mx-5">
           <div class="d-flex align-items-center">
             <%= inline_svg_tag "files.svg" %>
-            <%= link_to "My transfers", projects_path, class: "nav-link" %>
+            <%= link_to t('view.application.navbar.my_transfer'), projects_path, class: "nav-link" %>
           </div>
         </li>
         <li class="nav-item mx-5">
           <div class="d-flex align-items-center">
             <%= inline_svg_tag "config.svg" %>
-            <%= link_to "My Account", edit_user_registration_path, class: "nav-link" %>
+            <%= link_to t('view.application.navbar.my_account'), edit_user_registration_path, class: "nav-link" %>
           </div>
         </li>
         <li class="nav-item mx-5">
           <div class="d-flex align-items-center">
             <%= inline_svg_tag "mail.svg" %>
-            <%= link_to "Contact us", "#", class: "nav-link" %>
+            <%= link_to t('view.application.navbar.contact_us'), "#", class: "nav-link" %>
+          </div>
+        </li>
+        <li class="nav-item mx-5">
+          <div class="d-flex align-items-center">
+            <% if I18n.locale == I18n.default_locale %>
+              <%= link_to "Fr", { :locale=>'fr' }, class: "nav-link" %>
+            <% else %>
+              <%= link_to "En", { :locale=>'en' }, class: "nav-link" %>
+            <% end %>
           </div>
         </li>
       </ul>
     </div>
     <div class="navbar-button d-flex">
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-btn" %>
+      <%= link_to t('view.application.navbar.sign_out'), destroy_user_session_path, method: :delete, class: "nav-btn" %>
     </div>
 
   <% else %>
-    <div class="navbar-button ">
-      <%= link_to "LOG IN", new_user_session_path, class: "nav-btn" %>
-      <%= link_to "SIGN UP", new_user_registration_path, class: "nav-btn" %>
+    <div class="navbar-button">
+      <%= link_to t('view.application.navbar.sign_in'), new_user_session_path, class: "nav-btn" %>
+      <%= link_to t('view.application.navbar.sign_up'), new_user_registration_path, class: "nav-btn" %>
     </div>
   <% end %>
 </div>
