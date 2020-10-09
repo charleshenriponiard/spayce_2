@@ -37,6 +37,9 @@ en:
         my_transfer: "My transfers"
         my_account: "My account"
         contact_us: "Contact us"
+        sign_up: Sign up
+        sign_in: Sign in
+        sign_out: Sign out
       alerts_stripe:
         no_account_html: '<b>Welcome on board !</b> To be able to receive payments, your account needs to be verified. This should take just a few minutes.'
         onboarded: "Onborded ou Information needed"
@@ -254,6 +257,7 @@ en:
       upload: "Upload now"
       edit: "Edit"
       cancel: "Cancel your transfer"
+      continue: "Continue"
   number:
     currency:
       format:

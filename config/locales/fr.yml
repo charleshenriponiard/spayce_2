@@ -6,6 +6,9 @@ fr:
         my_transfer: "Mes transferts"
         my_account: "Mon compte"
         contact_us: "Nous contacter"
+        sign_up: Inscription
+        sign_in: Connexion
+        sign_out: Déconnexion
       alerts_stripe:
         no_account_html: "<b>Bienvenue !</b> Pour pouvoir recevoir les paiements votre compte doit être vérifié. Cela ne prend que quelques minutes."
         onboarded: "Onborded ou Information needed"
@@ -68,7 +71,6 @@ fr:
           canceled: "Annulé"
           expired: "Expiré"
           canceled_expired: 'Annulé / Expiré'
-
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
@@ -228,6 +230,7 @@ fr:
       upload: "Télécharger maintenant"
       edit: "Modifier"
       cancel: "Annuler le transfert"
+      continue: "Continuer"
   number:
     currency:
       format:
