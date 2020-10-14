@@ -27,7 +27,7 @@ RSpec.describe ProjectPolicy do
 
   permissions ".scope" do
     it "Should return the same number of projects I have" do
-      user = create(:user, email: "test@gmail.com")
+      user = create(:user)
       expect(resolve_for(user).count).to eq(user.projects.count)
     end
   end
