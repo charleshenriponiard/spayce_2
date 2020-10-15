@@ -1,0 +1,13 @@
+.dz-clickable {
+  border: 2px dashed $light-gray;
+  border-radius: 20px;
+}
+
+.dropzone .dz-preview .dz-success-mark, .dropzone .dz-preview .dz-error-mark {
+  top: 42%;
+}
+
+.dropzone .dz-preview .dz-details .dz-filename:hover {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

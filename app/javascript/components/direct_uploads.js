@@ -1,4 +1,3 @@
-
 const direct_upload = () => {
 
   addEventListener("direct-upload:initialize", event => {
