@@ -11,10 +11,8 @@ require("channels")
 // External imports
 import "bootstrap"
 import "controllers"
-import direct_upload from '../components/direct_uploads'
 
 document.addEventListener('turbolinks:load', () => {
-  // direct_upload
 });
 
 
