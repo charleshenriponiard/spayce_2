@@ -4,12 +4,17 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many_attached :documents
 
-  after_commit do
+  after_save do
     if nbr_documents
       ZipDocumentsJob.perform_later(self)
       self.update(documents_count: self.documents.attachments.count)
     end
   end
+
+  after_destroy do
+    purge_documents
+  end
+
   pg_search_scope :search_by_client_and_name,
     against: [ :client_last_name, :client_first_name, :name  ],
     using: {
@@ -44,6 +49,10 @@ class Project < ApplicationRecord
   #     end
   #   end
   # end
+
+  def purge_documents
+    self.documents.each{ |document| document.purge_later}
+  end
 
   def nbr_documents
     self.documents_count != self.documents.attachments.count
