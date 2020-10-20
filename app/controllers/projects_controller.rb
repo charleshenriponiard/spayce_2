@@ -48,6 +48,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    @project.purge_documents
     @project.delete
     redirect_to root_path
   end
