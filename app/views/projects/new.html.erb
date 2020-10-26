@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="bill">
   <h1 class="my-md-5"> <%= t('view.project.new.title') %></h1>
   <div class="row">
   <div class="col-md-8">
@@ -8,12 +8,12 @@
   </div>
   <div class="col-md-4">
     <div class="card-body">
-      <%= bill_details({ text: t('view.project.new.bill_price'), price: 0.00 }) %>
-      <%= bill_details({ text: t('view.project.new.bill_spayce_commission'), price: 0.00 }) %>
-      <%= bill_details({ text: t('view.project.new.bill_promo_code'), price: 0.00 }) %>
-      <%= bill_details({ text: t('view.project.new.bill_tax'), price: 0.00, class: " bill_detail border-bottom pb-3" }) %>
+      <%= bill_details({ text: t('view.project.new.bill_price'), price: 0.00 }, "bill.price") %>
+      <%= bill_details({ text: t('view.project.new.bill_spayce_commission'), price: 0.00 }, "bill.spayceCommission") %>
+      <%= bill_details({ text: t('view.project.new.bill_promo_code'), price: 0.00 }, "bill.promoCode") %>
+      <%= bill_details({ text: t('view.project.new.bill_tax'), price: 0.00, class: " bill_detail border-bottom pb-3" }, "bill.billTax") %>
       <p><%=  t('view.project.new.bill_instance') %></p>
-      <h3 class="text-success">$ 0,00</h3>
+      <h3 class="text-success" data-target="bill.total">0.00</h3>
     </div>
   </div>
   </div>
