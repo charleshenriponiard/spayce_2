@@ -11,8 +11,8 @@ class Stripe::Express
     self.uid = account.id
     account_links = Stripe::AccountLink.create({
       account: account["id"],
-      refresh_url: ENV['STRIPE_URL_REFRESH'],
-      return_url: ENV['STRIPE_URL_RETURN'],
+      refresh_url: ENV['BASE_URL'],
+      return_url: ENV['BASE_URL'],
       type: 'account_onboarding'
     })
     self.url = account_links["url"]
