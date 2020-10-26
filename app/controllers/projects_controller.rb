@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     authorize(@project)
     if @project.save
+      CreateCheckoutSessionJob.perform_later(@project)
       redirect_to project_path(@project)
     else
       render :new

@@ -1,0 +1,19 @@
+<p class="">You have received files from <%= @project.user.first_name.capitalize || "Michel" %> <%= @project.user.last_name.upcase || "DURAND" %></p>
+
+<p class="">To be able to download them, you must pay: <%= @project.amount %></p>
+
+<p class="">The transfer will expire on <%= @project.created_at + 7 %>.</p>
+<p class="">After that, you will no longer be able to download the files.</p>
+
+<%= render 'preview', project: @project %>
+
+<script src="https://js.stripe.com/v3/"></script>
+<% if @project.payment_succeeded? %>
+  <p class="">Félicitations votre paiement est validé, vous pouvez télécharger les documents ci-dessous :</p>
+  <%= link_to 'Télécharger les docs', @project.url, class: "btn btn-primary" %>
+<% else %>
+  <button id="checkout-button" data-spk="<%= ENV['STRIPE_PUBLIC_KEY'] %>" data-uid="<%= @project.user.uid %>" data-csid="<%= @project.checkout_session_id %>">Checkout</button>
+  <% if @project.payment_failed?  %>
+    <p class="">Votre paiement n'a pas été pris en compte, veuillez réessayer.</p>
+  <% end %>
+<% end %>

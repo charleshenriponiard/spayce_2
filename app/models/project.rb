@@ -24,6 +24,7 @@ class Project < ApplicationRecord
             }
 
   enum status: { sent: 0, paid: 1, canceled: 2, expired: 3 }
+  enum payment_status: { payment_failed: 0, payment_succeeded: 1 }
 
   scope :filter_by_sent, ->  { where status: "sent" }
   scope :filter_by_paid, ->  { where status: "paid" }

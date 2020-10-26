@@ -1,7 +1,4 @@
-<% @project.documents.each do |document| %>
-  <%= link_to 'Remove', delete_document_project_path( document_id: document.id ),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
+<% project.documents.each do |document| %>
   <% if document.variable? %>
     <%= image_tag document.variant(
         combine_options: {
