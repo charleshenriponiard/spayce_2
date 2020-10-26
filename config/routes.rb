@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace :clients do
+      resources :projects, only: :show
+    end
+
     # Routes pour Stripe
     get '/stripe/dashboard', to: "stripes#dashboard_connect"
     get '/stripe/sign-up', to: "stripes#sign_up"

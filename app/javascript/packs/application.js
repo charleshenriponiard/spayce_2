@@ -11,8 +11,7 @@ require("channels")
 // External imports
 import "bootstrap"
 import "controllers"
+import "components/stripe_checkout_button"
 
 document.addEventListener('turbolinks:load', () => {
 });
-
-
