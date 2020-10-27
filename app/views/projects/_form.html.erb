@@ -1,7 +1,4 @@
   <%= simple_form_for project do |f| %>
-
-
-
     <div class="mb-6">
       <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone">
         <%= f.input :documents, as: :file, label: false, input_html: { multiple: true, direct_upload: true, data: { target: 'dropzone.input' } }  %>
@@ -25,6 +22,10 @@
       </div>
     </div>
     <%= f.input :message %>
-    <%= f.input :amount, label: t('form.label.price'), hint: t('form.hint.price') %>
+    <%= f.input :amount,
+      label: t('form.label.price'),
+      hint: t('form.hint.price'),
+      input_html: { data: { action: "keyup->bill#calculate" } }
+    %>
     <%= f.submit t('form.button.save', fr_model: "projet", en_model: "project" ), class:"btn btn-info w-100 text-white"%>
   <% end %>
