@@ -7,7 +7,7 @@ puts "Everything has been destroyed"
 puts "Creating things"
 
 puts "Creating Users and Projects"
-carlito = User.new(email: 'c.poniard@gmail.com', password: 'secret', admin: true)
+carlito = User.new(email: 'c.poniard@gmail.com', first_name: "Charles-Henri", last_name: "Poniard", password: 'secret', admin: true)
 carlito.skip_confirmation!
 carlito.save
 3.times do
@@ -24,7 +24,7 @@ carlito.save
   )
 end
 
-benoit = User.new(email: 'benoit.calin@gmail.com', password: 'secret', admin: true)
+benoit = User.new(email: 'benoit.calin@gmail.com', first_name: "Benoit", last_name: "Calin", password: 'secret', admin: true)
 benoit.skip_confirmation!
 benoit.save
 
@@ -41,7 +41,7 @@ benoit.save
     message: Faker::Lorem.paragraph
   )
 end
-cedric = User.new(email: 'cedricsauvagetpro@gmail.com', password: 'secret', admin: true)
+cedric = User.new(email: 'cedricsauvagetpro@gmail.com', first_name: "Cédric", last_name: "Sauvaget", password: 'secret', admin: true)
 cedric.skip_confirmation!
 cedric.save
 3.times do
@@ -57,7 +57,7 @@ cedric.save
     message: Faker::Lorem.paragraph
   )
 end
-fanny = User.new(email: 'fanny@gmail.com', password: 'secret')
+fanny = User.new(email: 'fanny@gmail.com', first_name: "Fanny", last_name: "Poniard", password: 'secret')
 fanny.skip_confirmation!
 fanny.save
 3.times do
