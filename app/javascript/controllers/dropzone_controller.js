@@ -17,6 +17,27 @@ export default class extends Controller {
     this.hideFileInput();
     this.bindEvents();
     Dropzone.autoDiscover = false; // necessary quirk for Dropzone error in console
+    this.handleSubmitButton();
+  }
+
+  // Manually added => Disable button in no file or not completed
+  handleSubmitButton = () => {
+    const submitButton = document.querySelector('input[type=submit]')
+    const files = document.querySelectorAll('.dz-preview')
+    submitButton.disabled = true
+    let status = false
+    if (files.length > 0) {
+      status = true
+      files.forEach((file) => {
+        const classList = Array.prototype.slice.call(file.classList)
+        if (!classList.includes('dz-success') || !classList.includes('dz-complete')) {
+          status = false
+        }
+      })
+    }
+    if (status) {
+      submitButton.disabled = false
+    }
   }
 
   // Private
@@ -30,14 +51,21 @@ export default class extends Controller {
       setTimeout(() => {
         file.accepted && createDirectUploadController(this, file).start();
       }, 500);
+      this.handleSubmitButton();
     });
 
     this.dropZone.on("removedfile", file => {
       file.controller && removeElement(file.controller.hiddenInput);
+      this.handleSubmitButton();
     });
 
     this.dropZone.on("canceled", file => {
       file.controller && file.controller.xhr.abort();
+      this.handleSubmitButton();
+    });
+
+    this.dropZone.on("complete", file => {
+      this.handleSubmitButton();
     });
   }
 
