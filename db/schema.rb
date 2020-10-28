@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_092345) do
+ActiveRecord::Schema.define(version: 2020_10_28_141924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_092345) do
     t.bigint "user_id", null: false
     t.string "name"
     t.text "description"
-    t.integer "amount"
+    t.integer "amount_cents"
     t.string "client_email"
     t.string "url"
     t.string "client_first_name"

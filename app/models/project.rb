@@ -4,6 +4,8 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many_attached :documents
 
+  monetize :amount_cents
+
   extend FriendlyId
   friendly_id :random_slug, use: :slugged
 
@@ -35,9 +37,9 @@ class Project < ApplicationRecord
   scope :filter_by_expired, ->  { where status: "expired" }
   scope :filter_by_canceled_or_expired, -> { filter_by_canceled.or(filter_by_expired) }
 
-  # validate :acceptable_documents
-
   WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'watermark.png')
+
+  # validate :acceptable_documents
 
   # def acceptable_documents
   #   documents.each do |document|
