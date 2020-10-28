@@ -70,7 +70,7 @@ class ProjectsController < ApplicationController
   end
 
   def set_project
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find_by_slug(params[:slug])
     authorize(@project)
   end
 

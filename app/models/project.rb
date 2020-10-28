@@ -4,6 +4,9 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many_attached :documents
 
+  extend FriendlyId
+  friendly_id :random_slug, use: :slugged
+
   after_save do
     if nbr_documents
       ZipDocumentsJob.perform_later(self)
@@ -57,5 +60,17 @@ class Project < ApplicationRecord
 
   def nbr_documents
     self.documents_count != self.documents.attachments.count
+  end
+
+  private
+
+  def random_slug
+    maj = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
+    min = "abcdefghijklmnopqrstuvwxyz".split('')
+    num = "1234567890".split('')
+    spe = "&\"'(§],?;.:/=+-_)({}[!*$¨^%£`<>".split('')
+
+    random = [maj.sample, maj.sample, min.sample, maj.sample, min.sample, min.sample, num.sample, num.sample, spe.sample, num.sample, spe.sample, spe.sample].shuffle.join('')
+    return random
   end
 end

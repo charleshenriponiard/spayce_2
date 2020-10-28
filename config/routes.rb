@@ -13,14 +13,14 @@ Rails.application.routes.draw do
     # Routes pour multistep form
     resources :registration_steps, only: [:index, :show, :update]
 
-    resources :projects, only: [:index, :create, :show, :destroy, :edit, :update] do
+    resources :projects, only: [:index, :create, :show, :destroy, :edit, :update], param: :slug do
       member do
         delete :delete_document
       end
     end
 
     namespace :clients do
-      resources :projects, only: :show
+      resources :projects, only: :show, param: :slug
     end
 
     # Routes pour Stripe
