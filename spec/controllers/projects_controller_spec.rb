@@ -21,12 +21,12 @@ RSpec.describe ProjectsController, type: :controller do
   describe "#create" do
     login_user
     it "Should have an id" do
-      project = @user.projects.create!(name: "test")
+      project = @user.projects.create!(name: "test", amount_cents: 100000)
       expect(Project.last.id).to eql(project.id)
     end
     it "Should have +1 project" do
       count = @user.projects.length
-      @user.projects.create!
+      @user.projects.create!(amount_cents: 100000)
       expect(@user.projects.length).to eql(count + 1)
     end
   end

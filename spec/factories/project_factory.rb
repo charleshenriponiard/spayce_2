@@ -7,8 +7,8 @@ FactoryBot.define do
     user_id { user.id }
     name { Faker::Book.title }
     description { Faker::Hipster.paragraph }
-    amount { rand(100..1000)}
-    client_email { "#{ first_name }.#{ last_name }@gmail.com"}
+    amount_cents { 100000 } # Ne fonctionne pas ActiveRecord::RecordInvalid: Validation failed: Amount cents is not a number, Amount is not a number
+    client_email { "#{ first_name }.#{ last_name }@gmail.com" }
     client_first_name { first_name }
     client_last_name { last_name }
     message { Faker::Lorem.paragraph }
