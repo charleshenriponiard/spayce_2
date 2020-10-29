@@ -27,7 +27,7 @@
           <div class="font-weight-bold my-2"><%= t('view.project.show.your_earnings') %></div>
         </div>
         <div class="col-8">
-          <div class="my-2"><%= @project.amount %> </div>
+          <div class="my-2"><%= number_to_currency(@project.amount) %> </div>
           <div class="my-2">Stripe info</div>
           <div class="my-2">Stripe info</div>
           <div class="mt-2">Stripe info</div>

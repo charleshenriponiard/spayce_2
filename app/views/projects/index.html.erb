@@ -30,7 +30,7 @@
           <tr>
             <td><%= project.id %></td>
             <td><%= link_to project.client_last_name, project_path(project), class:" text-yellow"%></td>
-            <td><%= project.amount %></td>
+            <td><%= number_to_currency(project.amount) %></td>
             <td>Update DB</td>
             <td><%= badge_for(project.status) %></td>
           </tr>
