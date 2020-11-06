@@ -54,14 +54,14 @@ class ProjectsController < ApplicationController
     redirect_to root_path
   end
 
-  def delete_document
-    @document = ActiveStorage::Attachment.find(params[:document_id])
-    @document.purge
-    authorize @document, policy_class: ProjectPolicy
-    ZipDocumentsJob.perform_later(@project)
-    @project.update(documents_count: @project.documents.attachments.count)
-    redirect_to project_path(@project)
-  end
+  # def delete_document
+  #   @document = ActiveStorage::Attachment.find(params[:document_id])
+  #   @document.purge
+  #   authorize @document, policy_class: ProjectPolicy
+  #   ZipDocumentsJob.perform_later(@project)
+  #   @project.update(documents_count: @project.documents.attachments.count)
+  #   redirect_to project_path(@project)
+  # end
 
   private
 
@@ -87,6 +87,6 @@ class ProjectsController < ApplicationController
   end
 
   def authorize_sortable_column
-    ["client_last_name", 'amount']
+    ["client_last_name", 'amount_cents']
   end
 end

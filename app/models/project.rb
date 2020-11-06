@@ -9,12 +9,12 @@ class Project < ApplicationRecord
   extend FriendlyId
   friendly_id :random_slug, use: :slugged
 
-  after_save do
-    if nbr_documents
-      ZipDocumentsJob.perform_later(self)
-      self.update(documents_count: self.documents.attachments.count)
-    end
-  end
+  # after_save do
+  #   if nbr_documents
+  #     ZipDocumentsJob.perform_later(self)
+  #     self.update(documents_count: self.documents.attachments.count)
+  #   end
+  # end
 
   after_destroy do
     purge_documents
@@ -23,10 +23,10 @@ class Project < ApplicationRecord
   pg_search_scope :search_by_client_and_name,
     against: [ :client_last_name, :client_first_name, :name  ],
     using: {
-              trigram: {
-                threshold: 0.1
-              }
-            }
+      trigram: {
+        threshold: 0.1
+      }
+    }
 
   enum status: { sent: 0, paid: 1, canceled: 2, expired: 3 }
   enum payment_status: { payment_failed: 0, payment_succeeded: 1 }
@@ -60,9 +60,9 @@ class Project < ApplicationRecord
     self.documents.each{ |document| document.purge_later}
   end
 
-  def nbr_documents
-    self.documents_count != self.documents.attachments.count
-  end
+  # def nbr_documents
+  #   self.documents_count != self.documents.attachments.count
+  # end
 
   private
 

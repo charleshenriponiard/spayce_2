@@ -48,11 +48,6 @@
         <div class="col-8">
           <div class="my-2"><%= @project.name %></div>
           <div class="my-2"><%= @project.documents.count %></div>
-          <div>
-            <% unless @project.url.nil? %>
-              <%= link_to t('helpers.button.upload'), @project.url, class:"btn btn-info mt-2" %>
-            <% end %>
-          </div>
         </div>
       </div>
     </section>

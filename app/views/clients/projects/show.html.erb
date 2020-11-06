@@ -10,7 +10,11 @@
 <script src="https://js.stripe.com/v3/"></script>
 <% if @project.payment_succeeded? %>
   <p class="">Félicitations votre paiement est validé, vous pouvez télécharger les documents ci-dessous :</p>
-  <%= link_to 'Télécharger les docs', @project.url, class: "btn btn-primary" %>
+  <div>
+    <% unless @project.url.nil? %>
+      <%= link_to t('helpers.button.upload'), @project.url, class:"btn btn-info mt-2" %>
+    <% end %>
+  </div>
 <% else %>
   <button id="checkout-button" data-spk="<%= ENV['STRIPE_PUBLIC_KEY'] %>" data-uid="<%= @project.user.uid %>" data-csid="<%= @project.checkout_session_id %>">Checkout</button>
   <% if @project.payment_failed?  %>

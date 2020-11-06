@@ -19,6 +19,7 @@ module Stripe
 
       status_hash = { status: "paid" }
       UpdateProjectJob.perform_later(@project, status_hash)
+      ZipDocumentsJob.perform_later(@project)
     end
 
     def handle_payment_intent_payment_failed(event)
