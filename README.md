@@ -1,5 +1,6 @@
 # Spayce - Readme
 
+
 ## User => verification_status
 
 La colonne `verification status` correspond au statut sur Stripe, c'est un enum comportant quatre statuts, ceux-ci sont modifiés via une écoute des Webhooks de Stripe :
