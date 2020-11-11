@@ -19,8 +19,9 @@ RSpec.describe ProjectPolicy do
     end
   end
 
-  permissions :show?, :edit?, :update?, :destroy? do
-    it "grants access to any user" do
+  permissions :show? do
+    it "grants access to user who created the project only" do
+      byebug
       expect(subject).to permit(User.new, Project.new)
     end
   end
