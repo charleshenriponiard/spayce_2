@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :destroy, :edit, :update, :delete_document]
+  before_action :set_project, only: [:show, :canceled]
   helper_method :sort_column, :sort_direction
 
   def show
@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     authorize(@project)
-    if @project.save
+    if @project.save && current_user.verified?
       CreateCheckoutSessionJob.perform_later(@project)
       redirect_to project_path(@project)
     else
@@ -37,31 +37,11 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-    if @project.update(project_params)
-      redirect_to project_path(@project)
-    else
-      render :edit
-    end
-  end
-
-  def destroy
+  def canceled
     @project.purge_documents
-    @project.delete
+    @project.canceled!
     redirect_to root_path
   end
-
-  # def delete_document
-  #   @document = ActiveStorage::Attachment.find(params[:document_id])
-  #   @document.purge
-  #   authorize @document, policy_class: ProjectPolicy
-  #   ZipDocumentsJob.perform_later(@project)
-  #   @project.update(documents_count: @project.documents.attachments.count)
-  #   redirect_to project_path(@project)
-  # end
 
   private
 

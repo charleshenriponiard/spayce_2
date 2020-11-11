@@ -6,7 +6,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.user == user || user.admin
   end
 
   def new?
@@ -17,19 +17,7 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
-  def destroy?
-    true
-  end
-
-  def edit?
-    update?
-  end
-
-  def update?
-    true
-  end
-
-  def delete_document?
-    true
+  def canceled?
+    record.user == user
   end
 end
