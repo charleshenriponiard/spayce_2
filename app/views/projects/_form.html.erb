@@ -23,7 +23,7 @@
     <%= f.input :amount,
       label: t('form.label.price'),
       hint: t('form.hint.price'),
-      input_html: { data: { action: "keyup->bill#calculate" } }
+      input_html: { data: { action: "keyup->bill#createBill" } }
     %>
     <%= f.submit t('form.button.save', fr_model: "projet", en_model: "project" ), class:"btn btn-info w-100 text-white"%>
   <% end %>

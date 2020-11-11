@@ -18,6 +18,10 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def canceled?
-    record.user == user
+    record.user == user || user.admin
+  end
+
+  def sending?
+    record.user == user || user.admin
   end
 end

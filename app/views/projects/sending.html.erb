@@ -1,0 +1,20 @@
+<div class="container" data-controller="bill">
+  <h1 class="my-md-5"> Your files are alredy be sent</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <%= @project.documents.count %> files / <%= @project.documents.map(&:byte_size).sum %> bytes
+      <div class="p-3 border">
+        <% @project.documents.each do |doc| %>
+        <div class="d-flex justify-content-between align-items-center">
+          <span><%= doc.blob.filename %></span>
+          <span><%= doc.blob.byte_size %> Byte</span>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div data-target="bill.amount"><%= @project.amount_cents / 100 %> </div>
+      <%= render "bill", price: @project.amount_cents / 100 %>
+    </div>
+  </div>
+</div>
