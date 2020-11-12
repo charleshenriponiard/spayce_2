@@ -11,17 +11,27 @@
           </div>
         <% end %>
       </div>
+      <div class="card-body">
+        <div>
+          <%= client_card( "Recipient", @project.client_email) %>
+          <%= client_card( "Messages", @project.message) %>
+        </div>
+      </div>
       <div class="d-flex justify-content-around mt-3">
         <%= link_to "Send email", projects_path, class:"btn btn-primary" %>
-        <button id="clipborad-button" data-attribute=<%= request.host_with_port + clients_project_path%> class="btn btn-primary">Copy</button>
+        <button id="clipborad-button" data-attribute=<%= request.host_with_port + clients_project_path%> class="btn btn-primary">Copy link</button>
       </div>
     </div>
     <div class="col-md-4">
-      <div data-target="bill.amount"><%= @project.amount %> </div>
-      <%= render "bill" %>
+      <div data-target="bill.amount" data-amount=<%= @project.amount %>></div>
+      <%= render "bill", project: @project %>
     </div>
   </div>
 </div>
+
+
+
+
 
 
 

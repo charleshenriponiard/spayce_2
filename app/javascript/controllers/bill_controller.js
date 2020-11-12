@@ -5,7 +5,7 @@ export default class extends Controller {
 
   connect() {
     if(this.hasAmountTarget) {
-      this.calculate(this.amountTarget.innerHTML)
+      this.calculate(this.amountTarget.dataset.amount)
     }
   }
 
