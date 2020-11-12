@@ -12,6 +12,7 @@ require("channels")
 import "bootstrap"
 import "controllers"
 import "components/stripe_checkout_button"
+import "components/clipboard"
 
 document.addEventListener('turbolinks:load', () => {
 });
