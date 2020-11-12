@@ -21,6 +21,10 @@ class ProjectPolicy < ApplicationPolicy
     record.user == user || user.admin
   end
 
+  def recap_project?
+    record.user == user || user.admin
+  end
+
   def sending?
     record.user == user || user.admin
   end

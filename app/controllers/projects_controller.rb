@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :canceled]
+  before_action :set_project, only: [:show, :canceled, :sending]
   helper_method :sort_column, :sort_direction
 
   def show
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     authorize(@project)
     if @project.save && current_user.verified?
       CreateCheckoutSessionJob.perform_later(@project)
-      redirect_to sending_project_path(@project)
+      redirect_to recap_project_project_path(@project)
     else
       render :new
     end
@@ -43,9 +43,14 @@ class ProjectsController < ApplicationController
     redirect_to root_path
   end
 
-  def sending
+  def recap_project
     @project = Project.includes(documents_attachments: :blob).friendly.find_by_slug(params[:slug])
     authorize(@project)
+  end
+
+  def sending
+    ClientMailer.transfert_project_to_client(@project, params[:slug]).deliver_later
+    redirect_to projects_path
   end
 
   private

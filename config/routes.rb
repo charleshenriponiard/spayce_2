@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :create, :show], param: :slug do
       member do
         patch :canceled
+        get :recap_project
         get :sending
       end
     end
@@ -28,6 +29,5 @@ Rails.application.routes.draw do
     get '/stripe/dashboard', to: "stripes#dashboard_connect"
     get '/stripe/sign-up', to: "stripes#sign_up"
     mount StripeEvent::Engine, at: '/webhook'
-    # Routes pour Sidekiq & BackgroundJob
   end
 end
