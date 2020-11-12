@@ -50,6 +50,7 @@ class ProjectsController < ApplicationController
 
   def sending
     ClientMailer.transfert_project_to_client(@project, params[:slug]).deliver_later
+    @project.sent!
     redirect_to projects_path
   end
 
