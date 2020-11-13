@@ -22,6 +22,7 @@
     <%= f.input :message %>
     <%= f.input :amount,
       label: t('form.label.price'),
+      placeholder: "545.00",
       hint: t('form.hint.price'),
       input_html: { data: { action: "keyup->bill#calculate" } }
     %>
