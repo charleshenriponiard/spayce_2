@@ -9,6 +9,6 @@ class Clients::ProjectsController < ApplicationController
 
   def set_project
     @project = Project.includes(documents_attachments: :blob).friendly.find_by_slug(params[:slug])
-    authorize(@project)
+    authorize @project, policy_class: Clients::ProjectPolicy
   end
 end
