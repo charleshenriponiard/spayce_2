@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :canceled]
   helper_method :sort_column, :sort_direction
 
+  include Pagy::Backend
+
   def show
   end
 
@@ -35,6 +37,7 @@ class ProjectsController < ApplicationController
     else
       @projects = policy_scope(Project.all)
     end
+    @pagy, @projects = pagy(@projects, items: 10)
   end
 
   def canceled
