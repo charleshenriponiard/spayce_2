@@ -1,10 +1,20 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "price", "spayceCommission", "promoCode", "billTax", "total" ]
+  static targets = [ "price", "spayceCommission", "promoCode", "billTax", "total", "amount" ]
 
-  calculate(event) {
-    const amount = event.target.value / 1
+  connect() {
+    if(this.hasAmountTarget) {
+      this.calculate(this.amountTarget.dataset.amount)
+    }
+  }
+
+  createBill(event) {
+    this.calculate(event.target.value)
+  }
+
+  calculate(element) {
+    const amount = element / 1
     const commission = amount * 0.1
     const taxes = commission * 0.2
     const total = amount - commission - taxes
