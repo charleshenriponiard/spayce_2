@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_141924) do
+ActiveRecord::Schema.define(version: 2020_11_12_165413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_141924) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "documents_count", default: 0
-    t.integer "status", default: 0
+    t.integer "status"
     t.string "checkout_session_id"
     t.integer "payment_status"
     t.string "payment_intent_id"

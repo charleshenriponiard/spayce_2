@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :canceled]
+  before_action :set_project, only: [:show, :canceled, :sending]
   helper_method :sort_column, :sort_direction
 
   include Pagy::Backend
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     authorize(@project)
     if @project.save && current_user.verified?
       CreateCheckoutSessionJob.perform_later(@project)
-      redirect_to project_path(@project)
+      redirect_to confirmation_project_path(@project)
     else
       render :new
     end
@@ -44,6 +44,17 @@ class ProjectsController < ApplicationController
     @project.purge_documents
     @project.canceled!
     redirect_to root_path
+  end
+
+  def confirmation
+    @project = Project.includes(documents_attachments: :blob).friendly.find_by_slug(params[:slug])
+    authorize(@project)
+  end
+
+  def sending
+    ClientMailer.transfert_project_to_client(@project, params[:slug]).deliver_later
+    @project.sent!
+    redirect_to projects_path
   end
 
   private
