@@ -48,7 +48,7 @@ fr:
     label:
       recipient_name: "Nom du client"
       recipient_email: "Email du client"
-      price: "Prix"
+      price: "Prix (avec un point comme séparateur)"
     hint:
       price: "(montant à payer pour les fichiers)"
     placeholder:
