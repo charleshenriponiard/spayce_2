@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :create, :show], param: :slug do
       member do
         patch :canceled
-        get :recap_project
+        get :confirmation
         get :sending
       end
     end

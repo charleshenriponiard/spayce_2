@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     authorize(@project)
     if @project.save && current_user.verified?
       CreateCheckoutSessionJob.perform_later(@project)
-      redirect_to recap_project_project_path(@project)
+      redirect_to confirmation_project_path(@project)
     else
       render :new
     end
@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
     redirect_to root_path
   end
 
-  def recap_project
+  def confirmation
     @project = Project.includes(documents_attachments: :blob).friendly.find_by_slug(params[:slug])
     authorize(@project)
   end
