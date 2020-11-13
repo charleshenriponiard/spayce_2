@@ -15,13 +15,15 @@ export default class extends Controller {
 
   calculate(element) {
     const amount = element / 1
-    const commission = amount * 0.1
+    const commission = amount * -0.1
     const taxes = commission * 0.2
-    const total = amount - commission - taxes
+    const total = amount + commission + taxes
+    const locale = window.location.pathname.includes('/en') ? 'en-US' : 'fr-FR'
+    const currency = window.location.pathname.includes('/en') ? 'USD' : 'EUR'
 
-    this.priceTarget.innerHTML = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(amount.toFixed(2))
-    this.spayceCommissionTarget.innerHTML = commission.toFixed(2)
-    this.billTaxTarget.innerHTML = taxes.toFixed(2)
-    this.totalTarget.innerHTML = total.toFixed(2)
+    this.priceTarget.innerHTML = new Intl.NumberFormat(locale, { style: 'currency', currency: currency }).format(amount.toFixed(2))
+    this.spayceCommissionTarget.innerHTML = new Intl.NumberFormat(locale, { style: 'currency', currency: currency }).format(commission.toFixed(2))
+    this.billTaxTarget.innerHTML = new Intl.NumberFormat(locale, { style: 'currency', currency: currency }).format(taxes.toFixed(2))
+    this.totalTarget.innerHTML = new Intl.NumberFormat(locale, { style: 'currency', currency: currency }).format(total.toFixed(2))
   }
 }
