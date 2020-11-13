@@ -10,10 +10,10 @@ fr:
         sign_in: Connexion
         sign_out: Déconnexion
       alerts_stripe:
-        no_account_html: "<b>Bienvenue !</b> Pour pouvoir recevoir les paiements votre compte doit être vérifié. Cela ne prend que quelques minutes."
-        onboarded: "Onborded ou Information needed"
-        verified: 'Success => Verified'
-        link_alerts_stripe: "Vérifier maintenant >"
+        no_account_html: "<b>Bienvenue !</b> Pour pouvoir recevoir les paiements, votre compte doit être créé et vérifié. Cela ne prendra que quelques minutes."
+        onboarded: "Stripe a besoin de quelques documents pour valider votre compte, n'hésitez pas à les ajouter rapidement pour pouvoir utiliser <b>Spayce</b>."
+        verified: "<b>Félicitations !</b> Votre compte est vérifié, vous pouvez maintenant créer un projet sur <b>Spayce</b>."
+        link_alerts_stripe: " Accéder à mon profil >"
     project:
       new:
         title: 'Nouveau transfert'
