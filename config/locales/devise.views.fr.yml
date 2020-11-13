@@ -106,6 +106,7 @@ fr:
         stripe_connect: "Me connecter à Stripe"
         stripe_instance: Vous devez vous connecter à votre compte Stripe
         stripe_conected_success: Connexion à Stripe avec succès
+        stripe_document_validation: Cliquez ci-dessous pour valider vos documents
         stripe_dashboard: "Compte Stripe"
         title_edit: Mon compte
         password: Mot de passe

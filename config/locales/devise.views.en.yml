@@ -108,6 +108,7 @@ en:
         stripe_connect: "Connect Stripe Account"
         stripe_instance: You need to connect spayce to your a Stripe Account
         stripe_conected_success: Stripe connected successfuly
+        stripe_document_validation: Click below to validate your documents
         stripe_dashboard: "Stripe dashboard"
         title_edit: My account
         password: Password

@@ -48,6 +48,9 @@
           <h4 class="form-headers">Stripe</h4>
           <% unless current_user.no_account? %>
             <p class="text-center"><%= t('.stripe_conected_success') %> ✅</p>
+            <% if current_user.information_needed? %>
+              <p class="text-center"><%= t('.stripe_document_validation') %> 🚫</p>
+            <% end %>
             <%= link_to t('.stripe_dashboard'), stripe_dashboard_path, class:"btn btn-outline-info", target: "_blank" %>
           <% else %>
             <p><%= t('.stripe_instance') %></p>

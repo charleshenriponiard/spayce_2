@@ -19,7 +19,7 @@ module Stripe
       @payouts_enabled = event.data.object.payouts_enabled
 
       if !@user.verified? && @payouts_enabled
-        hash = { verification_status: "verified" }
+        hash = { verification_status: "verified", verified_status_alert: true }
         UpdateUserJob.perform_later(@user, hash)
       elsif @currently_due.any?
         hash = { verification_status: "information_needed" }

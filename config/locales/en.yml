@@ -41,10 +41,10 @@ en:
         sign_in: Sign in
         sign_out: Sign out
       alerts_stripe:
-        no_account_html: '<b>Welcome on board !</b> To be able to receive payments, your account needs to be verified. This should take just a few minutes.'
-        onboarded: "Onborded ou Information needed"
-        verified: 'Success => Verified'
-        link_alerts_stripe: 'Verify now >'
+        no_account_html: '<b>Welcome on board </b> To be able to receive payments, your account needs to be created and verified on Stripe. This should take just a few minutes.'
+        onboarded: "Stripe needs some documents to validate your account, do not hesitate to add them quickly to access <b>Spayce</b> functionalities."
+        verified: '<b>Congrats!</b> Your account has been verified, you can now create your first project on <b>Spayce</b>.'
+        link_alerts_stripe: 'Go to my profile >'
     project:
       new:
         title: 'Send a new tranfer'
