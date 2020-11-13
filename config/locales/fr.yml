@@ -293,3 +293,11 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
+  mailer:
+    hello: "Bonjour,"
+    sent_project:
+      action: "Récupérez vos fichiers"
+      line_1: "Vous avez reçu un transfert de la part de %{first_name} %{last_name}."
+      line_2: "Ce lien est valide 7 jours et expire le %{date}. Au delà, le transfert est automatiquement désactivé."
+      line_3: 'A très vite pour de nouveaux transferts en toute sécurité !'
+      line_4: 'En savoir plus sur Spayce'
