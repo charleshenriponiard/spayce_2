@@ -320,3 +320,11 @@ en:
       long: "%d %B, %Y %H:%M"
       short: "%d %b %H:%M"
     pm: pm
+  mailer:
+    hello: "Hello"
+    sent_project:
+      action: ""
+      line_1: "%{first_name} %{last_name}."
+      line_2: "%{date}"
+      line_3: ''
+      line_4: ''
