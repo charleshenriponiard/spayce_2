@@ -82,7 +82,7 @@ export default class extends Controller {
   }
 
   get maxFileSize() {
-    return this.data.get("maxFileSize") || 25600;
+    return this.data.get("maxFileSize") || 1000; // Mega-octets
   }
 
   get acceptedFiles() {
@@ -111,6 +111,7 @@ class DirectUploadController {
       } else {
         this.hiddenInput.value = attributes.signed_id;
         this.emitDropzoneSuccess();
+        this.replacePreviewByPlaceholder();
       }
     });
   }
@@ -159,6 +160,47 @@ class DirectUploadController {
     this.file.status = Dropzone.SUCCESS;
     this.source.dropZone.emit("success", this.file);
     this.source.dropZone.emit("complete", this.file);
+  }
+
+  replacePreviewByPlaceholder() {
+    const extension = this.file.name.split('.').slice(-1)[0]
+    const general_type = this.file.type.split('/')
+    const formats = {
+      prproj : "video",
+      pdf: "pdf",
+      xlsx: "excel",
+      xlsm: "excel",
+      xls: "excel",
+      xml: "excel",
+      csv: "excel",
+      ods: "excel",
+      doc: "word",
+      docm: "word",
+      docx: "word",
+      docx: "word",
+      dot: "word",
+      dotm: "word",
+      dotx: "word",
+      odt: "word",
+      pdf: "word",
+      tiff: "tiff",
+      ai: "illustrator",
+      psd: "photoshop",
+      mp4: "video",
+      ppt: "ppt",
+      odp: "ppt",
+      pptx: "ppt",
+      video: "video",
+      image: "image"
+    }
+    const image = this.file.previewElement.childNodes[1].childNodes[0]
+    if (image.currentSrc === '' || extension === 'tiff') {
+      console.log(formats[extension] || formats[general_type])
+      const type = formats[extension] || formats[general_type]
+      image.src = `https://res.cloudinary.com/di2wcculd/image/upload/v1605539317/Test%20images-pholders.%20Spayce/logo-${type}.png`
+      image.style.objectFit = 'cover'
+      image.width = '120'
+    }
   }
 }
 
