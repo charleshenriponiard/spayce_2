@@ -6,5 +6,9 @@ class User < ApplicationRecord
   has_one :company, dependent: :destroy
   has_many :projects, dependent: :destroy
 
+  validates :first_name, presence: true, on: :update
+  validates :last_name, presence: true, on: :update
+  validates :country, presence: true, on: :update
+
   enum verification_status: { no_account: 0, onboarded: 1, information_needed: 2, verified: 3 }
 end
