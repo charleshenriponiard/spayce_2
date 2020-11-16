@@ -7,13 +7,13 @@ class RegistrationStepsController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    stripe = Stripe::Express.new
-    uid_hash = stripe.sign_up(current_user)
-    if current_user.update(user_params.merge(uid_hash))
+    if current_user.update(user_params)
+      stripe = Stripe::Express.new
+      uid_hash = stripe.sign_up(current_user)
+      current_user.update(uid_hash)
       redirect_to stripe.url
     else
-      render :show
+      render_wizard
     end
   end
 
