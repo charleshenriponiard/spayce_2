@@ -1,18 +1,30 @@
 <% project.documents.each do |document| %>
   <% if document.variable? %>
-    <%= image_tag document.variant(
-        combine_options: {
-          resize_to_limit: [150, 150],
-          gravity: 'center',
-          draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
-        }
-      )
-    %>
+    <div>
+      <%= image_tag document.variant(
+          combine_options: {
+            resize_to_limit: [150, 150],
+            gravity: 'center',
+            draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
+          }
+        ), alt: document.blob.filename
+      %>
+      <p class=""><%= document.blob.filename %></p>
+    </div>
   <% elsif document.previewable? %>
-    <%= image_tag document.blob.preview(
-          resize_to_limit: [150, 150],
-          gravity: 'center',
-          draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
-        ) %>
+    <div>
+      <%= image_tag document.blob.preview(
+            resize_to_limit: [150, 150],
+            gravity: 'center',
+            draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
+          ), alt: document.blob.filename
+      %>
+      <p class=""><%= document.blob.filename %></p>
+    </div>
+  <% else %>
+    <div>
+      <%= image_tag get_placeholder(document.blob), alt: document.blob.filename, width: 150 %>
+      <p class=""><%= document.blob.filename %></p>
+    </div>
   <% end %>
 <% end %>
