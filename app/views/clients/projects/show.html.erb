@@ -5,7 +5,9 @@
 <p class="">The transfer will expire on <%= @project.created_at + 7 %>.</p>
 <p class="">After that, you will no longer be able to download the files.</p>
 
-<%= render 'preview', project: @project %>
+<div class="d-flex w-100 flex-wrap">
+  <%= render 'preview', project: @project %>
+</div>
 
 <script src="https://js.stripe.com/v3/"></script>
 <% if @project.payment_succeeded? %>
