@@ -26,12 +26,12 @@
         <th scope="col" ><%= t('view.project.index.status') %></th>
       </thead>
       <tbody>
-        <% @projects.each do |project| %>
+        <% @projects.order('created_at DESC').each do |project| %>
           <tr>
             <td><%= project.id %></td>
             <td><%= link_to project.client_last_name, project_path(project), class:" text-yellow"%></td>
             <td><%= number_to_currency(project.amount) %></td>
-            <td>Update DB</td>
+            <td> <%= project.created_at.strftime("%D") %></td>
             <td><%= badge_for(project.status) %></td>
           </tr>
         <% end %>

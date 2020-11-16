@@ -26,6 +26,7 @@ module Stripe
         UpdateUserJob.perform_later(@user, hash)
       elsif !@user.onboarded? && @details_submitted
         hash = { verification_status: "onboarded" }
+        UserMailer.kyc_validated(@user).deliver_later
         UpdateUserJob.perform_later(@user, hash)
       end
     end

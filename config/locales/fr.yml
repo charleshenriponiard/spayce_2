@@ -303,9 +303,25 @@ fr:
     pm: pm
   mailer:
     hello: "Bonjour,"
+    goodbye: 'En savoir plus sur Spayce'
     sent_project:
       action: "Récupérez vos fichiers"
       line_1: "Vous avez reçu un transfert de la part de %{first_name} %{last_name}."
       line_2: "Ce lien est valide 7 jours et expire le %{date}. Au delà, le transfert est automatiquement désactivé."
       line_3: 'A très vite pour de nouveaux transferts en toute sécurité !'
-      line_4: 'En savoir plus sur Spayce'
+    kyc_validated:
+      action: "C’est parti"
+      line_1: "Bonjour ${first_name}"
+      line_2: "Vos documents ont été validés et vous pouvez désormais utiliser Spayce sans aucune limite !"
+      line_3: "Vous allez pouvoir transférer vos fichiers et être sûr d’être payé."
+      line_4: "Comment ça marche ?"
+      line_5: "Connectez-vous à votre dashboard"
+      line_6: "Sélectionnez les fichiers et entrez les informations du client (nom, email, message, prix)"
+      line_7: "Validez le transfert"
+      line_8: "Le client reçoit le lien du transfert et prévisualise les fichiers"
+      line_9: "Pour les récupérer, il doit payer le prix que vous avez demandé"
+      line_10: "Il peut ensuite les télécharger"
+      line_11: "Le paiement est automatiquement crédité sur votre compte bancaire"
+      line_12: "A très vite pour de nouveaux transferts en toute sécurité !"
+
+

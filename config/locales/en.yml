@@ -330,9 +330,24 @@ en:
     pm: pm
   mailer:
     hello: "Hello"
+    goodbye: "Learn more about Spayce"
     sent_project:
-      action: ""
-      line_1: "%{first_name} %{last_name}."
-      line_2: "%{date}"
-      line_3: ''
-      line_4: ''
+      action: "Download your files"
+      line_1: "You have received a transfer from %{first_name} %{last_name}."
+      line_2: "This link is valid for 7 days and expires on %{date}. Beyond that, the transfer is automatically deactivated."
+      line_3: 'See you soon for new transfers in complete safety!'
+      line_4: 'Learn more about Spayce'
+    kyc_validated:
+      action: "Here we go"
+      line_1: "Hello ${first_name}"
+      line_2: "Your documents have been validated and you can now use Spayce without any limits!"
+      line_3: "You will be able to transfer your files and be sure to get paid."
+      line_4: "How it works ?"
+      line_5: "Log in to your dashboard"
+      line_6: "Select files and enter customer information (name, email, message, price)"
+      line_7: "Validate the transfer"
+      line_8: "The client receives the link of the transfer and previews the files"
+      line_9: "To get them back, he must pay the price you asked for"
+      line_10: "He can then download them"
+      line_11: "See you soon for new transfers in complete safety!"
+      line_12: "A très vite pour de nouveaux transferts en toute sécurité !"
