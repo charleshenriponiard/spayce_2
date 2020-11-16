@@ -7,6 +7,7 @@ class RegistrationStepsController < ApplicationController
   end
 
   def update
+    current_user.update(user_params)
     stripe = Stripe::Express.new
     uid_hash = stripe.sign_up(current_user)
     if current_user.update(user_params.merge(uid_hash))
