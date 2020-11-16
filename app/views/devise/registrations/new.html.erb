@@ -1,12 +1,10 @@
 <div class="wrapper">
-  <div class=" container">
+  <div class="container">
     <div class="card-connexion">
       <h1 class="text-center mb-5"> <%= t('.title') %></h1>
       <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-        <% resource.errors.full_messages.each do |msg| %>
-            <p class= "alert-error"><%= msg %></p>
-        <% end %>
+
         <div class="form-inputs">
           <div class="form-inputs">
             <%= f.input :email,

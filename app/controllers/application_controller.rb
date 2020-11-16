@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  # before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
   include Pundit
@@ -45,10 +45,10 @@ class ApplicationController < ActionController::Base
     accept_language.scan(/^[a-z]{2}/).first
   end
 
-  # protected
+  protected
 
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :country])
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :country])
-  # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :country])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :country])
+  end
 end
