@@ -4,6 +4,23 @@ class ProjectsController < ApplicationController
 
   include Pagy::Backend
 
+  def index
+    if params["search"]
+      @projects = Project.search_by_client_and_name(params["search"])
+      @projects = policy_scope(@projects)
+    elsif params["sort"]
+      @projects = sortable_column_order
+      @projects = policy_scope(@projects)
+    elsif params["filter"]
+      @projects = Project.send("filter_by_#{params["filter"]}") if params["filter"]
+      @projects = policy_scope(@projects)
+    else
+      @projects = policy_scope(Project.all)
+    end
+    @pagy, @projects = pagy(@projects, items: 10)
+    @project_sent = Rails.application.routes.recognize_path(request.referer)[:action] == 'confirmation'
+  end
+
   def show
   end
 
@@ -24,22 +41,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def index
-    if params["search"]
-      @projects = Project.search_by_client_and_name(params["search"])
-      @projects = policy_scope(@projects)
-    elsif params["sort"]
-      @projects = sortable_column_order
-      @projects = policy_scope(@projects)
-    elsif params["filter"]
-      @projects = Project.send("filter_by_#{params["filter"]}") if params["filter"]
-      @projects = policy_scope(@projects)
-    else
-      @projects = policy_scope(Project.all)
-    end
-    @pagy, @projects = pagy(@projects, items: 10)
-  end
-
   def canceled
     @project.purge_documents
     @project.canceled!
@@ -53,7 +54,6 @@ class ProjectsController < ApplicationController
 
   def sending
     ClientMailer.transfert_project_to_client(@project, params[:slug]).deliver_later
-    @project.sent!
     redirect_to projects_path
   end
 
