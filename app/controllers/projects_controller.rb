@@ -18,7 +18,8 @@ class ProjectsController < ApplicationController
       @projects = policy_scope(Project.all)
     end
     @pagy, @projects = pagy(@projects, items: 10)
-    @project_sent = Rails.application.routes.recognize_path(request.referer)[:action] == 'confirmation'
+    @project_sent = session[:email_sent]
+    session.delete(:email_sent)
   end
 
   def show
@@ -54,6 +55,7 @@ class ProjectsController < ApplicationController
 
   def sending
     ClientMailer.transfert_project_to_client(@project, params[:slug]).deliver_later
+    session[:email_sent] = true
     redirect_to projects_path
   end
 
