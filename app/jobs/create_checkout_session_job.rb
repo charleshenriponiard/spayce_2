@@ -2,8 +2,7 @@ class CreateCheckoutSessionJob < ApplicationJob
   queue_as :stripe
 
   def perform(project)
-    # stripe_account = Stripe::Account.retrieve(project.user.uid)
-    fees = project.amount * 0.12
+    fees = project.amount_cents * 0.1 * (1 - project.discount)
     session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [{
@@ -19,7 +18,6 @@ class CreateCheckoutSessionJob < ApplicationJob
       success_url: "#{ENV["BASE_URL"]}clients/projects/#{project.slug}",
       cancel_url: "#{ENV["BASE_URL"]}clients/projects/#{project.slug}",
       }, {stripe_account: project.user.uid})
-
     project.update(checkout_session_id: session.id, payment_intent_id: session.payment_intent)
   end
 end

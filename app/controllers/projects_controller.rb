@@ -42,6 +42,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def promo_code
+    @project = Project.includes(documents_attachments: :blob).friendly.find_by_slug(params[:slug])
+    authorize(@project)
+    begin
+      @retrieved_coupon = Stripe::Coupon.retrieve(params[:coupon][:code])
+      if @retrieved_coupon.valid
+        discount = @retrieved_coupon.percent_off / 100
+        @project.update(discount: discount)
+        CreateCheckoutSessionJob.perform_later(@project)
+      end
+    rescue Stripe::InvalidRequestError => e
+      @stripe_error = e.error
+      @project.update(discount: 0.00)
+    end
+    render :confirmation
+  end
+
   def canceled
     @project.purge_documents
     @project.canceled!

@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-4">
       <div data-target="bill.amount" data-amount=<%= @project.amount %>></div>
-      <%= render "bill", project: @project %>
+      <%= render "bill", project: @project, confirmation: true, stripe_error: @stripe_error, retrieved_coupon: @retrieved_coupon %>
     </div>
   </div>
 </div>

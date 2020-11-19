@@ -25,6 +25,10 @@ class ProjectPolicy < ApplicationPolicy
     record.user == user || user.admin
   end
 
+  def promo_code?
+    record.user == user || user.admin
+  end
+
   def sending?
     record.user == user || user.admin
   end
