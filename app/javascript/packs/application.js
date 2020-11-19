@@ -11,8 +11,12 @@ require("channels")
 // External imports
 import "bootstrap"
 import "controllers"
-import "components/stripe_checkout_button"
-import "components/clipboard"
+import { triggerStripeCheckout } from "../components/stripe_checkout_button"
+import { copyToClipboard } from "components/clipboard"
+import { triggerTooltips } from "../components/trigger_tooltips"
 
 document.addEventListener('turbolinks:load', () => {
+  triggerStripeCheckout();
+  copyToClipboard();
+  triggerTooltips();
 });

@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_11_13_143418) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "documents_count", default: 0
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "checkout_session_id"
     t.integer "payment_status"
     t.string "payment_intent_id"
