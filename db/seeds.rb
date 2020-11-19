@@ -7,7 +7,7 @@ puts "Everything has been destroyed"
 puts "Creating things"
 
 puts "Creating Users and Projects"
-carlito = User.new(email: 'c.poniard@gmail.com', first_name: "Charles-Henri", last_name: "Poniard", country: "FR", password: 'secret', verification_status: "verified", admin: true)
+carlito = User.new(email: 'c.poniard@gmail.com', first_name: "Charles-Henri", last_name: "Poniard", country: "FR", password: 'secret', admin: true)
 carlito.skip_confirmation!
 carlito.save
 3.times do
@@ -24,7 +24,7 @@ carlito.save
   )
 end
 
-benoit = User.new(email: 'benoit.calin@gmail.com', first_name: "Benoit", last_name: "Calin", country: "FR", password: 'secret', verification_status: "verified", admin: true)
+benoit = User.new(email: 'benoit.calin@kedgebs.com', first_name: "Benoit", last_name: "Calin", country: "FR", password: 'secret', admin: true)
 benoit.skip_confirmation!
 benoit.save
 

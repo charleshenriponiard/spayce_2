@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         patch :canceled
         get :confirmation
         get :sending
+        get :promo_code
       end
     end
 

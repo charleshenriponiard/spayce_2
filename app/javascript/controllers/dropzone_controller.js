@@ -195,7 +195,6 @@ class DirectUploadController {
     }
     const image = this.file.previewElement.childNodes[1].childNodes[0]
     if (image.currentSrc === '' || extension === 'tiff') {
-      console.log(formats[extension] || formats[general_type])
       const type = formats[extension] || formats[general_type]
       image.src = `https://res.cloudinary.com/di2wcculd/image/upload/v1605539317/Test%20images-pholders.%20Spayce/logo-${type}.png`
       image.style.objectFit = 'cover'
