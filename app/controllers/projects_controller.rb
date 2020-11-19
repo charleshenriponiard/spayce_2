@@ -62,6 +62,8 @@ class ProjectsController < ApplicationController
   def canceled
     @project.purge_documents
     @project.canceled!
+    ClientMailer.project_canceled(@project).deliver_later
+    UserMailer.freelance_project_canceled(@project).deliver_later
     redirect_to root_path
   end
 

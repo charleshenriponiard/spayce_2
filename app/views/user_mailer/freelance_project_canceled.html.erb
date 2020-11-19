@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <style type="text/css">
+      .container {
+        width: 900px;
+        margin: auto;
+      }
+      .btn {
+        color: white;
+        background-color: #F2C94C;
+        border: 1px solid #F2C94C;
+        padding: 5px 25px;
+        text-decoration: none;
+      }
+
+      .center {
+        text-align: center;
+      }
+      .background {
+        background-color: white;
+        padding: 30px;
+      }
+      body {
+        background-color: #E8EAEC;
+      }
+      .footer {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
+    </div>
+    <div class="background container">
+      <div class="">
+        <h3><%= t("mailer.hello") %></h3>
+        <p><%= t("mailer.freelance_project_canceled.line_1", date: @project.created_at, client_name: @project.client_last_name, amount: @project.amount ) %></p>
+        <p><%= t("mailer.freelance_project_canceled.line_2") %></p>
+        <p><%= t("mailer.freelance_project_canceled.line_3") %></p>
+
+        <%= link_to t('mailer.freelance_project_canceled.action_1'), root_url, class:"btn btn-info mt-2", target: "_blank" %>
+
+
+        <p><%= t("mailer.freelance_project_canceled.line_4") %><%= link_to t('mailer.freelance_project_canceled.action_2'), root_url, target: "_blank" %></p>
+        <p><%= t("mailer.freelance_project_canceled.line_5") %></p>
+        <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "www.fromspayce.com"%></p>
+      </div>
+    </div>
+    <div class="center footer">
+      <p>From Spayce</p>
+      <p>N° siret :84423490600015</p>
+      <p>Forme juridique: Société par actions simplifiée</p>
+      <p>Date immatriculation RCS : 29-11-2018</p>
+    </div>
+  </body>
+</html>
+
+
