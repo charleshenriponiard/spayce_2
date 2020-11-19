@@ -1,9 +1,23 @@
-
 <div class="card-body">
   <%= bill_details({ text: t('view.project.new.bill_price'), price: 0.00 }, "bill.price") %>
   <%= bill_details({ text: t('view.project.new.bill_spayce_commission'), price: 0.00 }, "bill.spayceCommission") %>
-  <%#= bill_details({ text: t('view.project.new.bill_promo_code'), price: 0.00 }, "bill.promoCode") %>
   <%= bill_details({ text: t('view.project.new.bill_tax'), price: 0.00, class: "bill_detail border-bottom pb-3" }, "bill.billTax") %>
   <p><%= t('view.project.new.bill_instance') %></p>
   <h3 class="text-success" data-target="bill.total"><%= number_to_currency(0.00) %></h3>
+  <% if confirmation %>
+    <p>Vous avez un code promo ?</p>
+    <div class="d-flex">
+      <%= simple_form_for :coupon, url: promo_code_project_path(project), method: :get, html: { class: 'd-flex' } do |f| %>
+        <%= f.input :code, as: :string, placeholder: 'PROMOCODE20', label: false %>
+        <%= f.submit 'Appliquer', class: 'btn btn-info text-white', style: 'height: 38px' %>
+      <% end %>
+    </div>
+    <% if stripe_error %>
+      <p class="invalid-feedback"><%= stripe_error.message %></p>
+    <% elsif retrieved_coupon && !retrieved_coupon.valid %>
+      <p class="invalid-feedback">Ce coupon n'est plus valide.</p>
+    <% elsif retrieved_coupon %>
+      <p style="color: green" data-target='bill.coupon' data-discount='<%= retrieved_coupon.percent_off %>'>La réduction de <%= retrieved_coupon.percent_off.to_i %>% a été appliquée</p>
+    <% end %>
+  <% end %>
 </div>

@@ -1,13 +1,13 @@
 <div class="container" data-controller="bill">
   <h1 class="my-md-5"> <%= t('view.project.new.title') %></h1>
   <div class="row">
-  <div class="col-md-8">
-    <div class="card-body">
-      <%= render "form", project: @project %>
+    <div class="col-md-8">
+      <div class="card-body">
+        <%= render "form", project: @project %>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-      <%= render "bill", project: @project%>
-  </div>
+    <div class="col-md-4">
+        <%= render "bill", project: @project, confirmation: false %>
+    </div>
   </div>
 </div>
