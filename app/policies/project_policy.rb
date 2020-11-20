@@ -10,11 +10,11 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def new?
-    create?
+    true
   end
 
   def create?
-    true
+    user.verified?
   end
 
   def canceled?
