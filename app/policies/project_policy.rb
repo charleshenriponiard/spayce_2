@@ -18,7 +18,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def canceled?
-    record.user == user || user.admin
+    record.user == user && record.sent?
   end
 
   def confirmation?
