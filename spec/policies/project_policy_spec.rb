@@ -11,9 +11,16 @@ RSpec.describe ProjectPolicy do
     subject::Scope.new(user, Project).resolve
   end
 
-  permissions :new?, :create? do
+  permissions :new? do
     it "grants access to any user" do
       expect(subject).to permit(User.new, Project.new)
+    end
+  end
+
+  permissions :create? do
+    it "grants access to user with virified status" do
+      @user1.verified!
+      expect(subject).to permit(@user1, @user1.projects.first)
     end
   end
 

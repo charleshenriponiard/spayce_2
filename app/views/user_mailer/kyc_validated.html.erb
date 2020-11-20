@@ -35,8 +35,7 @@
       <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
     </div>
     <div class="background container">
-      <div class="">
-        <%= @user %>
+      <div>
         <h3><%= t("mailer.kyc_validated.line_1", first_name: @user.first_name) %></h3>
         <p><%= t("mailer.kyc_validated.line_2")%></p>
         <p><%= t("mailer.kyc_validated.line_3")%></p>
@@ -52,7 +51,7 @@
           <li><%= t("mailer.kyc_validated.line_11") %></li>
         </ul>
         <p><%= t("mailer.kyc_validated.line_12") %></p>
-        <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "www.fromspayce.com"%></p>
+        <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "https://www.fromspayce.com/"%></p>
       </div>
     </div>
     <div class="center footer">
