@@ -372,3 +372,11 @@ en:
       line_4: "Beyond that, the link will be automatically deactivated."
       line_5: "Attached you will find the invoice for your payment."
       line_6: "See you soon for new transfers in complete safety!"
+    accepted_payment:
+      action: "Spayce dashboard"
+      line_1: "Thanks for using Spayce!"
+      line_2: "Your transfer has been downloaded and paid for by %{client_name}"
+      line_3: "The money will automatically be paid into the bank account you indicated in your "
+      line_4: "The amount you will receive in your account %{amount} corresponding to the asking price minus our commission."
+      line_5: "Attached you will find the invoice for the Spayce commission."
+      line_6: "See you soon for new transfers in complete safety!"

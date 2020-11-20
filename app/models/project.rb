@@ -60,9 +60,8 @@ class Project < ApplicationRecord
 
   def paid
     if self.payment_succeeded?
-      p self
-      p '===' * 50
       ClientMailer.payment_validation(self).deliver_later
+      UserMailer.accepted_payment(self).deliver_later
     end
   end
 
