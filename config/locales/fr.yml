@@ -344,3 +344,11 @@ fr:
       line_4: "Au delà, le lien sera automatiquement désactivé."
       line_5: "En pièce jointe, vous trouverez la facture de votre paiement."
       line_6: "A très vite pour de nouveaux transferts en toute sécurité !"
+    accepted_payment:
+      action: "votre espace Spayce"
+      line_1: "Merci d’avoir utilisé Spayce !"
+      line_2: "Votre transfert a bien été téléchargé et payé par %{client_name}"
+      line_3: "L’argent sera automatiquement versé sur le compte bancaire que vous avez indiqué sur "
+      line_4: "Le montant que vous allez recevoir sur votre compte %{amount} correspondant au prix demandé moins notre commission."
+      line_5: "Vous trouverez en pièce jointe la facture de la commission Spayce."
+      line_6: "A très vite pour de nouveaux transferts en toute sécurité !"
