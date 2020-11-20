@@ -36,13 +36,22 @@
     </div>
     <div class="background container">
       <div class="">
-        <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.sent_project.line_1", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
-        <p><%= @project.message %></p>
-        <p><%= link_to t("mailer.sent_project.action"), clients_project_url(slug: @slug), class:"btn", target: "_blank" %></p>
-        <p><%= link_to clients_project_url(slug: @slug), clients_project_url(slug: @slug), target: "_blank" %></p>
-        <p><%= t("mailer.sent_project.line_2", date: @project.created_at + 7 ) %></p>
-        <p><%= t("mailer.sent_project.line_3") %></p>
+        <%= @user %>
+        <h3><%= t("mailer.kyc_validated.line_1", first_name: @user.first_name) %></h3>
+        <p><%= t("mailer.kyc_validated.line_2")%></p>
+        <p><%= t("mailer.kyc_validated.line_3")%></p>
+        <p><%= link_to t("mailer.kyc_validated.action"), root_url, class:"btn", target: "_blank" %></p>
+        <p><%= t("mailer.kyc_validated.line_4") %></p>
+        <ul>
+          <li><%= t("mailer.kyc_validated.line_5") %></li>
+          <li><%= t("mailer.kyc_validated.line_6") %></li>
+          <li><%= t("mailer.kyc_validated.line_7") %></li>
+          <li><%= t("mailer.kyc_validated.line_8") %></li>
+          <li><%= t("mailer.kyc_validated.line_9") %></li>
+          <li><%= t("mailer.kyc_validated.line_10") %></li>
+          <li><%= t("mailer.kyc_validated.line_11") %></li>
+        </ul>
+        <p><%= t("mailer.kyc_validated.line_12") %></p>
         <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "www.fromspayce.com"%></p>
       </div>
     </div>

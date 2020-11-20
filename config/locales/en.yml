@@ -330,9 +330,45 @@ en:
     pm: pm
   mailer:
     hello: "Hello"
+    goodbye: "Learn more about Spayce"
     sent_project:
-      action: ""
-      line_1: "%{first_name} %{last_name}."
-      line_2: "%{date}"
-      line_3: ''
-      line_4: ''
+      action: "Download your files"
+      line_1: "You have received a transfer from %{first_name} %{last_name}."
+      line_2: "This link is valid for 7 days and expires on %{date}. Beyond that, the transfer is automatically deactivated."
+      line_3: 'See you soon for new transfers in complete safety!'
+      line_4: 'Learn more about Spayce'
+    kyc_validated:
+      action: "Here we go"
+      line_1: "Hello %{first_name}"
+      line_2: "Your documents have been validated and you can now use Spayce without any limits!"
+      line_3: "You will be able to transfer your files and be sure to get paid."
+      line_4: "How it works ?"
+      line_5: "Log in to your dashboard"
+      line_6: "Select files and enter customer information (name, email, message, price)"
+      line_7: "Validate the transfer"
+      line_8: "The client receives the link of the transfer and previews the files"
+      line_9: "To get them back, he must pay the price you asked for"
+      line_10: "He can then download them"
+      line_11: "Payment is automatically credited to your bank account"
+      line_12: "See you soon for new transfers in complete safety!"
+    project_canceled:
+      line_1: "The transfer sent on  %{date} was canceled by %{first_name} %{last_name}."
+      line_2: "The link has been disabled and you can no longer retrieve sent files."
+      line_3: "We recommend that you contact %{first_name} %{last_name} directly for additional information."
+      line_4: "See you soon for new transfers in complete safety!"
+    freelance_project_canceled:
+      action_1: "Make a transfer"
+      action_2: "Contact us"
+      line_1: "Your transfer sent on %{date} to %{client_name} in the amount of %{amount} has been canceled."
+      line_2: "The link has been disabled and your customer will no longer be able to preview or download files. We will notify your client."
+      line_3: "Do you want to make a new transfer?"
+      line_4: "If you have had any problems using Spayce, please do not hesitate to "
+      line_5: "See you soon for new transfers in complete safety!"
+    payment_validation:
+      action: "Download link"
+      line_1: "Your payment of %{amount} has been taken into account, thank you."
+      line_2: "%{first_name} %{last_name} has received a confirmation email."
+      line_3: "The download link remains valid until %{date}."
+      line_4: "Beyond that, the link will be automatically deactivated."
+      line_5: "Attached you will find the invoice for your payment."
+      line_6: "See you soon for new transfers in complete safety!"

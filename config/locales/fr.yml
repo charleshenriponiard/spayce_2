@@ -303,9 +303,45 @@ fr:
     pm: pm
   mailer:
     hello: "Bonjour,"
+    goodbye: 'En savoir plus sur Spayce'
     sent_project:
       action: "Récupérez vos fichiers"
       line_1: "Vous avez reçu un transfert de la part de %{first_name} %{last_name}."
       line_2: "Ce lien est valide 7 jours et expire le %{date}. Au delà, le transfert est automatiquement désactivé."
       line_3: 'A très vite pour de nouveaux transferts en toute sécurité !'
-      line_4: 'En savoir plus sur Spayce'
+    kyc_validated:
+      action: "C’est parti"
+      line_1: "Bonjour %{first_name}"
+      line_2: "Vos documents ont été validés et vous pouvez désormais utiliser Spayce sans aucune limite !"
+      line_3: "Vous allez pouvoir transférer vos fichiers et être sûr d’être payé."
+      line_4: "Comment ça marche ?"
+      line_5: "Connectez-vous à votre dashboard"
+      line_6: "Sélectionnez les fichiers et entrez les informations du client (nom, email, message, prix)"
+      line_7: "Validez le transfert"
+      line_8: "Le client reçoit le lien du transfert et prévisualise les fichiers"
+      line_9: "Pour les récupérer, il doit payer le prix que vous avez demandé"
+      line_10: "Il peut ensuite les télécharger"
+      line_11: "Le paiement est automatiquement crédité sur votre compte bancaire"
+      line_12: "A très vite pour de nouveaux transferts en toute sécurité !"
+    project_canceled:
+      line_1: "Le transfert envoyé le %{date} a été annulé par %{first_name} %{last_name}."
+      line_2: "Le lien a été désactivé et vous ne pouvez plus récupérer les fichiers envoyés."
+      line_3: "Nous vous conseillons de contacter directement %{first_name} %{last_name} pour avoir des renseignements supplémentaires."
+      line_4: "A très vite pour de nouveaux transferts en toute sécurité !"
+    freelance_project_canceled:
+      action_1: "Faire un transfert"
+      action_2: "Contacter"
+      line_1: "Votre transfert envoyé le %{date} à %{client_name} d’un montant de %{amount} a bien été annulé."
+      line_2: "Le lien a été désactivé et votre client ne pourra plus prévisualiser les fichiers ni les télécharger. Nous allons prévenir votre client."
+      line_3: "Vous souhaitez faire un nouveau transfert ?"
+      line_4: "Si vous avez eu des problèmes lors de l’utilisation de Spayce, n’hésitez pas à nous "
+      line_5: "A très vite pour de nouveaux transferts en toute sécurité !"
+      payment_validation:
+      action: "Lien de téléchargement"
+      line_1: "Votre paiement de %{amount} a bien été pris en compte, merci."
+      line_2: "%{first_name} %{last_name} a reçu un mail de confirmation."
+      line_3: "Le lien de téléchargement reste valide jusqu’au %{date}."
+      line_4: "Au delà, le lien sera automatiquement désactivé."
+      line_5: "En pièce jointe, vous trouverez la facture de votre paiement."
+      line_6: "A très vite pour de nouveaux transferts en toute sécurité !"
+

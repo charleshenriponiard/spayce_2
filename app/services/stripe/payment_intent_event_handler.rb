@@ -16,10 +16,10 @@ module Stripe
       @project = Project.find_by_payment_intent_id(event.data.object.id)
       hash = { payment_status: "payment_succeeded" }
       UpdateProjectJob.perform_later(@project, hash)
-
       status_hash = { status: "paid" }
       UpdateProjectJob.perform_later(@project, status_hash)
       ZipDocumentsJob.perform_later(@project)
+      ClientMailer.payment_validation(@project).deliver_later
     end
 
     def handle_payment_intent_payment_failed(event)

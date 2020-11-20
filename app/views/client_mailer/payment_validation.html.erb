@@ -37,12 +37,13 @@
     <div class="background container">
       <div class="">
         <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.sent_project.line_1", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
-        <p><%= @project.message %></p>
-        <p><%= link_to t("mailer.sent_project.action"), clients_project_url(slug: @slug), class:"btn", target: "_blank" %></p>
-        <p><%= link_to clients_project_url(slug: @slug), clients_project_url(slug: @slug), target: "_blank" %></p>
-        <p><%= t("mailer.sent_project.line_2", date: @project.created_at + 7 ) %></p>
-        <p><%= t("mailer.sent_project.line_3") %></p>
+        <p><%= t("mailer.payment_validation.line_1", amount: number_to_currency(@project.amount)) %></p>
+        <p><%= t("mailer.payment_validation.line_2", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
+        <%= link_to t('mailer.payment_validation.action'), @project.url, class:"btn btn-info mt-2", target: "_blank" %>
+        <p><%= t("mailer.payment_validation.line_3", date: @project.created_at + 7) %></p>
+        <p><%= t("mailer.payment_validation.line_4") %></p>
+        <p><%= t("mailer.payment_validation.line_5") %></p>
+        <p><%= t("mailer.payment_validation.line_6") %></p>
         <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "www.fromspayce.com"%></p>
       </div>
     </div>
