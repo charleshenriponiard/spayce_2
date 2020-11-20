@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   include PgSearch::Model
 
+  after_save :paid, if: :saved_change_to_payment_status?
+
   belongs_to :user
   has_many_attached :documents
 
@@ -9,12 +11,6 @@ class Project < ApplicationRecord
   extend FriendlyId
   friendly_id :random_slug, use: :slugged
 
-  # after_save do
-  #   if nbr_documents
-  #     ZipDocumentsJob.perform_later(self)
-  #     self.update(documents_count: self.documents.attachments.count)
-  #   end
-  # end
 
   after_destroy do
     purge_documents
@@ -60,11 +56,15 @@ class Project < ApplicationRecord
     self.documents.each{ |document| document.purge_later}
   end
 
-  # def nbr_documents
-  #   self.documents_count != self.documents.attachments.count
-  # end
-
   private
+
+  def paid
+    if self.payment_succeeded?
+      p self
+      p '===' * 50
+      ClientMailer.payment_validation(self).deliver_later
+    end
+  end
 
   def random_slug
     maj = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')

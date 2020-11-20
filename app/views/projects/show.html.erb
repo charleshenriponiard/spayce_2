@@ -69,8 +69,10 @@
     </section>
   </div>
   <div class="my-3">
-    <% unless @project.canceled? || @project.expired? %>
+    <% if policy(@project).canceled? %>
       <%= link_to t('helpers.button.cancel'), canceled_project_path(@project), method: :patch, class:"btn btn-danger" %>
     <% end %>
+    <%# unless @project.canceled? || @project.expired? %>
+    <%# end %>
   </div>
 </div>
