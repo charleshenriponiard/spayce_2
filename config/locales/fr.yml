@@ -336,7 +336,7 @@ fr:
       line_3: "Vous souhaitez faire un nouveau transfert ?"
       line_4: "Si vous avez eu des problèmes lors de l’utilisation de Spayce, n’hésitez pas à nous "
       line_5: "A très vite pour de nouveaux transferts en toute sécurité !"
-      payment_validation:
+    payment_validation:
       action: "Lien de téléchargement"
       line_1: "Votre paiement de %{amount} a bien été pris en compte, merci."
       line_2: "%{first_name} %{last_name} a reçu un mail de confirmation."
