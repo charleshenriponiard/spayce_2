@@ -30,9 +30,8 @@
         </div>
         <div class="col-8">
           <div class="my-2"><%= number_to_currency(@project.amount) %> </div>
-          <div class="my-2">Stripe info</div>
-          <div class="my-2">Stripe info</div>
-          <div class="mt-2">Stripe info</div>
+          <div class="my-2"><%= number_to_currency(@commission) %></div>
+          <div class="my-2"><%= number_to_currency(@total) %></div>
         </div>
       </div>
     </section>
@@ -61,8 +60,8 @@
           <div class="font-weight-bold my-2"><%= t('view.project.show.status') %></div>
         </div>
         <div class="col-8">
-          <div class="my-2">Update DB</div>
-          <div class="my-2">Update DB</div>
+          <div class="my-2"><%= l(@project.created_at, format: :long) %></div>
+          <div class="my-2"> <%= l((@project.created_at + 7.day), format: :long) %></div>
           <div class="my-2"><%= badge_for(@project.status) %></div>
         </div>
       </div>
@@ -72,7 +71,5 @@
     <% if policy(@project).canceled? %>
       <%= link_to t('helpers.button.cancel'), canceled_project_path(@project), method: :patch, class:"btn btn-danger" %>
     <% end %>
-    <%# unless @project.canceled? || @project.expired? %>
-    <%# end %>
   </div>
 </div>
