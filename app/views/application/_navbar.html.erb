@@ -49,8 +49,8 @@
       </div>
     <% else %>
       <div>
-        <%= link_to t('view.application.navbar.sign_in'), new_user_session_path, class: "nav-btn" %>
-        <%= link_to t('view.application.navbar.sign_up'), new_user_registration_path, class: "nav-btn" %>
+        <%= link_to t('view.application.navbar.sign_in'), new_user_session_path, class: "nav-btn", id:"sign-in" %>
+        <%= link_to t('view.application.navbar.sign_up'), new_user_registration_path, class: "nav-btn", id:"sign-up" %>
       </div>
     <% end %>
   </div>

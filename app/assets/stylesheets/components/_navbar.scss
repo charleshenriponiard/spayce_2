@@ -22,4 +22,8 @@
   .navbar-brand img {
     width: 150px;
   }
+  .active {
+    background-color: $info;
+    color: white;
+  }
 }
