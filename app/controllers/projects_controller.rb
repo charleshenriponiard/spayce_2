@@ -23,6 +23,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @commission = @project.amount.to_f * 0.1 - @project.discount
+    @taxe = @commission * 0.2
+    @total = @project.amount.to_f - @commission - @taxe
   end
 
   def new

@@ -297,9 +297,9 @@ fr:
   time:
     am: am
     formats:
-      default: "%d %B %Y %Hh %Mmin %Ss"
-      long: "%A %d %B %Y %Hh%M"
-      short: "%d %b %Hh%M"
+      default: "%d %B %Y"
+      long: "%A %d %B "
+      short: "%d %b %Y"
     pm: pm
   mailer:
     hello: "Bonjour,"
