@@ -27,7 +27,7 @@
         <th scope="col" ><%= t('view.project.index.status') %></th>
       </thead>
       <tbody>
-        <% @projects.order('created_at DESC').each do |project| %>
+        <% @projects.each do |project| %>
           <tr>
             <td><%= project.id %></td>
             <td><%= link_to project.client_last_name, project_path(project), class:" text-yellow"%></td>
