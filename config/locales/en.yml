@@ -74,7 +74,8 @@ en:
         email_address: "Client email"
         message: 'Message'
         price_asked: 'Price asked'
-        spayce_commission: "Spayce commission "
+        spayce_commission: "Spayce commission"
+        spayce_taxes: "Taxes"
         promo_code: "Promo Code"
         your_earnings: "Your earnings"
         project_name: "Project name"

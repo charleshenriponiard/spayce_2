@@ -44,6 +44,7 @@ fr:
         message: 'Message'
         price_asked: 'Prix demandé'
         spayce_commission: "Commission Spayce"
+        spayce_taxes: "Taxes"
         promo_code: "Code promo"
         your_earnings: "Vos gains"
         project_name: "Nom du projet"

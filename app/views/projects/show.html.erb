@@ -21,6 +21,7 @@
         <div class="col-4">
           <div class="font-weight-bold my-2"><%= t('view.project.show.price_asked') %></div>
           <div class="font-weight-bold my-2"><%= t('view.project.show.spayce_commission') %></div>
+          <div class="font-weight-bold my-2"><%= t('view.project.show.spayce_taxes') %></div>
           <%# <div class="font-weight-bold my-2"> %>
             <%#= t('view.project.show.promo_code') %>
           <%# </div> %>
@@ -29,6 +30,7 @@
         <div class="col-8">
           <div class="my-2"><%= number_to_currency(@project.amount) %> </div>
           <div class="my-2"><%= number_to_currency(@commission) %></div>
+          <div class="my-2"><%= number_to_currency(@taxe) %></div>
           <div class="my-2"><%= number_to_currency(@total) %></div>
         </div>
       </div>
