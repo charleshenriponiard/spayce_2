@@ -10,15 +10,8 @@ const copyToClipboard = () => {
     }
 
     function copyNode(node) {
-      var selection = getSelection();
-      selection.removeAllRanges();
-
-      var range = document.createRange();
-      range.selectNodeContents(node);
-      selection.addRange(range);
-
-      document.execCommand('copy');
-      selection.removeAllRanges();
+      document.execCommand("copy")
+      navigator.clipboard.writeText(`http://${node.innerText}`)
     }
 
   function copyText(text) {
