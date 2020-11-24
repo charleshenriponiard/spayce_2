@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
       CreateCheckoutSessionJob.perform_later(@project)
       # ExpiringSoonMailer.deliver_later(wait_until: 6.days.from_now)
       ExpireProjectJob.set(wait_until: 7.days.from_now).perform_later(@project)
+      # ExpireProjectJob.set(wait_until: 1.minutes.from_now).perform_later(@project)
       redirect_to confirmation_project_path(@project)
     else
       render :new

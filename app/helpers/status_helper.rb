@@ -5,11 +5,11 @@ module StatusHelper
       content_tag(:h5, class:"m-0") do
         content_tag(:span, t('activerecord.attributes.project.status.sent'), class: "badge badge-pill badge-primary")
       end
-    when "paid"
+    when "paid", "paid_expired"
       content_tag(:h5, class:"m-0") do
         content_tag(:span, t('activerecord.attributes.project.status.paid'), class: "badge badge-pill badge-success text-white")
       end
-    when "canceled", "expired"
+    when "canceled", "unpaid_expired"
       content_tag(:h5, class:"m-0") do
         content_tag(:span, t('activerecord.attributes.project.status.canceled_expired'), class: "badge badge-pill badge-danger")
       end

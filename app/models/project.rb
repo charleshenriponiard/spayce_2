@@ -24,33 +24,18 @@ class Project < ApplicationRecord
       }
     }
 
-  enum status: { sent: 0, paid: 1, canceled: 2, expired: 3 }
+  enum status: { sent: 0, paid: 1, canceled: 2, paid_expired: 3, unpaid_expired: 4 }
   enum payment_status: { payment_failed: 0, payment_succeeded: 1 }
 
   scope :filter_by_sent, ->  { where status: "sent" }
   scope :filter_by_paid, ->  { where status: "paid" }
   scope :filter_by_canceled, ->  { where status: "canceled" }
-  scope :filter_by_expired, ->  { where status: "expired" }
-  scope :filter_by_canceled_or_expired, -> { filter_by_canceled.or(filter_by_expired) }
+  scope :filter_by_paid_expired, ->  { where status: "paid_expired" }
+  scope :filter_by_unpaid_expired, ->  { where status: "unpaid_expired" }
+  scope :filter_by_canceled_or_unpaid_expired, -> { filter_by_canceled.or(filter_by_unpaid_expired) }
+  scope :filter_by_paid_or_paid_expired, -> { filter_by_paid.or(filter_by_paid_expired) }
 
   WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'watermark.png')
-
-  # validate :acceptable_documents
-
-  # def acceptable_documents
-  #   documents.each do |document|
-  #     return unless document.attached?
-
-  #     unless document.byte_size <= 1.megabyte
-  #       errors.add(:document, "le fichier est trop volumineux")
-  #     end
-
-  #     acceptable_types = ["image/jpeg", "image/png"]
-  #     unless acceptable_types.include?(main_image.content_type)
-  #       errors.add(:main_image, "must be a JPEG or PNG")
-  #     end
-  #   end
-  # end
 
   def purge_documents
     self.documents.each{ |document| document.purge_later}
