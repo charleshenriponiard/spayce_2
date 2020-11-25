@@ -14,9 +14,7 @@ class UserMailer < ApplicationMailer
 
   def accepted_payment(project)
     @project = project
+    attachments['attachment.pdf'] = Dhalang::PDF.get_from_url("http://localhost:5000/projects/#{@project.slug}/invoices/#{@project.invoice.id}")
     mail(to: @project.user.email, subject: 'Congratulation you have a new payment!')
   end
 end
-
-
-Dhalang::PDF.get_from_html("<html><head></head><body><h1>examplestring</h1></body></html>"

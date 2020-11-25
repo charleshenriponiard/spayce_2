@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :registration_steps, only: [:index, :show, :update]
 
     resources :projects, only: [:index, :create, :show], param: :slug do
+      resources :invoices, only: :show
       member do
         patch :canceled
         get :confirmation
