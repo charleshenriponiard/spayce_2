@@ -17,3 +17,6 @@ class UserMailer < ApplicationMailer
     mail(to: @project.user.email, subject: 'Congratulation you have a new payment!')
   end
 end
+
+
+Dhalang::PDF.get_from_html("<html><head></head><body><h1>examplestring</h1></body></html>"
