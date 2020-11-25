@@ -1,17 +1,70 @@
-
-
 <div class="container">
-  <div class="d-flex justify-content-around align-items-center">
+  <div class="my-5 d-flex justify-content-around align-items-center border-bottom pb-3">
     <%= image_tag "logo.png", width: 300 %>
     <div>
-      <p>SAS BRIDGE - Spayce</p>
-      <p>54 cours Victor Hugo, 33150 Cenon</p>
-      <p>fromspayce@gmail.com</p>
-      <%= link_to 'www.fromspayce.com', "https://www.fromspayce.com/" %>
+      <p class="font-weight-bolder"> SAS BRIDGE - Spayce</p>
+      <p class="text_address_spacing">54 cours Victor Hugo, 33150 Cenon</p>
+      <p class="text_address_spacing">fromspayce@gmail.com</p>
+      <%= link_to 'www.fromspayce.com', "https://www.fromspayce.com/", class:"text-decoration-none text_address_spacing" %>
     </div>
   </div>
 
-  <%= @project.name %>
+  <div class="d-flex justify-content-between align-items-center mx-5">
+    <p>For: </p>
+    <p class="text-primary">Invoice N° <%= @project.invoice.id %></p>
+  </div>
+  <div class="d-flex justify-content-between align-items-center mx-5">
+    <p>Prénom Nom/Société </p>
+    <p class="font-weight-bolder">Date of issue: <%= l(@project.invoice.created_at, format: :short) %></p>
+  </div>
+  <div class="d-flex justify-content-between align-items-center mx-5">
+    <div>
+      <p>Adress </p>
+      <p>Adress mail </p>
+      <p>Siret</p>
+    </div>
+    <%= badge_for(@project.status) %>
+  </div>
+
+  <div class="row mb-1 mt-5">
+    <div class="col-6 bg-light-gray p-2"></div>
+    <div class="col-6 text-center bg-green text-white p-2">
+      <p>All taxes included Price</p>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-6 text-center bg-light-gray text-white p-2">
+      <p>Transfer ref: </p>
+    </div>
+    <div class="col-6 text-center bg-green text-white p-2">
+      <p><%= @project.amount %></p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-6 bg-light-gray p-2">
+      <p class="text-right text-white pr-2">Spayce Commision</p>
+    </div>
+    <div class="col-6 text-center bg-light-gray text-white p-2">
+      <p>Montant de la commision en €</p>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-6 bg-light-gray text-white p-2">
+      <p class="text-right pr-2">VAT (20%) </p>
+    </div>
+    <div class="col-6 text-center bg-light-gray text-white p-2">
+      <p> Montant de la TVA en €</p>
+    </div>
+  </div>
+  <div class="row mb-5">
+    <div class="col-6 p-2">
+      <p class="text-right text-green font-weight-bolder pr-2">TOTAL </p>
+    </div>
+    <div class=" text-center col-6 font-weight-bolder text-green p-2">
+      <p> Montant TTC de la commission en euros</p>
+    </div>
+  </div>
 </div>
 
 

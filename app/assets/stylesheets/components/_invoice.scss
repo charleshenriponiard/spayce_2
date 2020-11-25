@@ -1,0 +1,13 @@
+.text_address_spacing {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
