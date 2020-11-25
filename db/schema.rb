@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_100444) do
+ActiveRecord::Schema.define(version: 2020_11_25_161642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(version: 2020_11_25_100444) do
     t.string "payment_intent_id"
     t.string "slug"
     t.float "discount", default: 0.0
+    t.float "spayce_commission", default: 0.0
+    t.float "tax", default: 0.0
+    t.float "total", default: 0.0
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end

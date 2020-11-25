@@ -57,6 +57,18 @@ class Project < ApplicationRecord
     self.documents.each{ |document| document.purge_later}
   end
 
+  def tax
+    commission * 0.20
+  end
+
+  def commission
+    self.amount * 0.10
+  end
+
+  def total
+    self.amount - commission - tax
+  end
+
   private
 
   def paid
