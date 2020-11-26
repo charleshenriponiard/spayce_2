@@ -22,14 +22,14 @@ module Stripe
                 spayce_commission: @project.commission,
                 total: @project.total
               }
-      UpdateProjectJob.perform_later(@project, hash)
+      UpdateProjectJob.perform_now(@project, hash)
       ZipDocumentsJob.perform_later(@project)
     end
 
     def handle_payment_intent_payment_failed(event)
       @project = Project.find_by_payment_intent_id(event.data.object.id)
       hash = { payment_status: "payment_failed" }
-      UpdateProjectJob.perform_later(@project, hash)
+      UpdateProjectJob.perform_now(@project, hash)
     end
   end
 end

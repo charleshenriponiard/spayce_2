@@ -62,11 +62,11 @@ class Project < ApplicationRecord
   end
 
   def commission
-    self.amount * 0.10
+    amount * 0.10 * (1 - discount)
   end
 
   def total
-    self.amount - commission - tax
+    amount - commission - tax
   end
 
   private
