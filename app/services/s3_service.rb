@@ -11,6 +11,18 @@ module S3Service
       object.download_file(to)
     end
 
+    def delete_object(key:, bucket:)
+      bucket(bucket).delete_objects({
+        delete: { # required
+          objects: [ # required
+            {
+              key: key # required
+            },
+          ],
+        },
+      })
+    end
+
     def get_download_link(file_name, bucket:)
       object(file_name, bucket: bucket).presigned_url(:get).to_s
     end
