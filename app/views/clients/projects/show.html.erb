@@ -10,7 +10,7 @@
 </div>
 
 <script src="https://js.stripe.com/v3/"></script>
-<% if @project.payment_succeeded? %>
+<% if @project.payment_succeeded? && !@project.paid_expired? %>
   <p class="">Félicitations votre paiement est validé, vous pouvez télécharger les documents ci-dessous :</p>
   <div>
     <% unless @project.url.nil? %>

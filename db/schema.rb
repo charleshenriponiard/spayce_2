@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_11_25_161642) do
 
   # These are extensions that must be enabled in order to support this database
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_161642) do
     t.float "spayce_commission", default: 0.0
     t.float "tax", default: 0.0
     t.float "total", default: 0.0
+    t.string "zipped_key"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
