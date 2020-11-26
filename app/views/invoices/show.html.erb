@@ -37,7 +37,7 @@
       <p>Transfer ref: </p>
     </div>
     <div class="col-6 text-center bg-green text-white p-2">
-      <p><%= @project.amount %></p>
+      <p><%= @project.id %></p>
     </div>
   </div>
 
@@ -46,7 +46,7 @@
       <p class="text-right text-white pr-2">Spayce Commision</p>
     </div>
     <div class="col-6 text-center bg-light-gray text-white p-2">
-      <p>Montant de la commision en €</p>
+      <p><%= number_to_currency(@project.commission) %></p>
     </div>
   </div>
   <div class="row mb-5">
@@ -54,7 +54,7 @@
       <p class="text-right pr-2">VAT (20%) </p>
     </div>
     <div class="col-6 text-center bg-light-gray text-white p-2">
-      <p> Montant de la TVA en €</p>
+      <p><%= number_to_currency(@project.tax) %></p>
     </div>
   </div>
   <div class="row mb-5">
@@ -62,7 +62,7 @@
       <p class="text-right text-green font-weight-bolder pr-2">TOTAL </p>
     </div>
     <div class=" text-center col-6 font-weight-bolder text-green p-2">
-      <p> Montant TTC de la commission en euros</p>
+      <p><%= number_to_currency(@project.tax + @project.commission ) %></p>
     </div>
   </div>
 </div>

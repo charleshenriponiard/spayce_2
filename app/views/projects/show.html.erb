@@ -29,9 +29,9 @@
         </div>
         <div class="col-8">
           <div class="my-2"><%= number_to_currency(@project.amount) %> </div>
-          <div class="my-2"><%= number_to_currency(@commission) %></div>
-          <div class="my-2"><%= number_to_currency(@taxe) %></div>
-          <div class="my-2"><%= number_to_currency(@total) %></div>
+          <div class="my-2"><%= number_to_currency(@project.commission) %></div>
+          <div class="my-2"><%= number_to_currency(@project.tax) %></div>
+          <div class="my-2"><%= number_to_currency(@project.total) %></div>
         </div>
       </div>
     </section>
