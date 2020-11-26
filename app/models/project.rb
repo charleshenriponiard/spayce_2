@@ -1,8 +1,6 @@
 class Project < ApplicationRecord
   include PgSearch::Model
 
-  after_save :paid, if: :saved_change_to_payment_status?
-
   belongs_to :user
   has_many_attached :documents
   has_one :invoice
@@ -55,13 +53,6 @@ class Project < ApplicationRecord
   end
 
   private
-
-  def paid
-    if self.payment_succeeded?
-      ClientMailer.payment_validation(self).deliver_later
-      UserMailer.accepted_payment(self).deliver_later
-    end
-  end
 
   def random_slug
     maj = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
