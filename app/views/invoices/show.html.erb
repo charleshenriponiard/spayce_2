@@ -14,14 +14,19 @@
     <p class="text-primary">Invoice N° <%= @project.invoice.id %></p>
   </div>
   <div class="d-flex justify-content-between align-items-center mx-5">
-    <p>Prénom Nom/Société </p>
+    <p><%= @project.user.entity_name %></p>
     <p class="font-weight-bolder">Date of issue: <%= l(@project.invoice.created_at, format: :short) %></p>
   </div>
   <div class="d-flex justify-content-between align-items-center mx-5">
     <div>
-      <p>Address </p>
-      <p>Address mail</p>
-      <p>Siret</p>
+      <p><%= @project.user.address_line1 %></p>
+      <% if @project.user.address_line2 %>
+        <p><%= @project.user.address_line2 %></p>
+      <% end %>
+      <p><%= @project.user.city %></p>
+      <p><%= @project.user.state %></p>
+      <p><%= @project.user.email %></p>
+      <p><%= @project.user.siret %></p>
     </div>
     <%= badge_for(@project.status) %>
   </div>

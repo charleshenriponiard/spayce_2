@@ -20,6 +20,6 @@ class RegistrationStepsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :country)
+    params.require(:user).permit(:first_name, :last_name, :country, :entity_name, :siret, :address_line1, :address_line2, :city, :state)
   end
 end

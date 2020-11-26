@@ -1,4 +1,3 @@
-
 <div class="container">
   <h1 class="my-md-5"> <%= t('.title_edit') %></h1>
   <div class="row">
@@ -16,6 +15,21 @@
                             input_html: { placeholder: t('activerecord.attributes.user.first_name') }  %>
                 <%= f.input :last_name,
                             input_html: { placeholder: t('activerecord.attributes.user.last_name') }  %>
+                <%= f.input :entity_name,
+                            input_html: { placeholder: t('activerecord.attributes.user.entity_name') }  %>
+                <%= f.input :siret,
+                            input_html: { placeholder: t('activerecord.attributes.user.siret') }  %>
+                <%= f.input :address_line1,
+                            input_html: { placeholder: t('activerecord.attributes.user.address_line1') }  %>
+                <%= f.input :address_line2,
+                            input_html: { placeholder: t('activerecord.attributes.user.address_line2') }  %>
+                <%= f.input :city,
+                            input_html: { placeholder: t('activerecord.attributes.user.city') }  %>
+                <%= f.input :state,
+                            input_html: { placeholder: t('activerecord.attributes.user.state') }  %>
+                <%= f.input :country,
+                            collection: ["FR", "US"],
+                            prompt: 'Select your country' %>
               </div>
               <div class="border p-3">
                 <h4 class="text-center form-headers"><%= t('.password') %></h4>
@@ -67,20 +81,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

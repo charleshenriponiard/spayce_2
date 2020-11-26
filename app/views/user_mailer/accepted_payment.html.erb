@@ -41,9 +41,9 @@
         <p><%= t("mailer.accepted_payment.line_2", client_name: @project.client_last_name ) %></p>
         <p><%= t("mailer.accepted_payment.line_3") %></p>
         <p><%= link_to t("mailer.accepted_payment.action"), edit_user_registration_url, class:"btn", target: "_blank"%></p>
-        <p><%= t("mailer.accepted_payment.line_4", amount: @project.amount ) %></p>
+        <p><%= t("mailer.accepted_payment.line_4", amount: @project.total ) %></p>
         <p><%= t("mailer.accepted_payment.line_5") %></p>
-        <p><%= t("mailer.accepted_payment.line_5") %></p>
+        <p><%= t("mailer.accepted_payment.line_6") %></p>
         <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "https://www.fromspayce.com/"%></p>
       </div>
     </div>

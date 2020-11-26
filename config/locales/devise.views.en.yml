@@ -4,6 +4,12 @@ en:
       user:
         first_name: First name
         last_name: Last name
+        siret: Company ID
+        entity_name: Company name
+        address_line1: Address - line 1
+        address_line2: Address - line 2 (optionnal)
+        city: City
+        state: State / Region
         confirm_password:  "Confirme your password"
         confirmation_sent_at: Confirmation sent at
         confirmation_token: Confirmation token
@@ -28,6 +34,15 @@ en:
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
         updated_at: Updated at
+    placeholders:
+      user:
+        first_name: Richard
+        last_name: Hendricks
+        siret: '123123123'
+        entity_name: Pied Piper
+        address_line1: 123 Albright Way
+        city: Los Angeles
+        state: California
     models:
       user:
         one: User

@@ -4,7 +4,13 @@ fr:
       user:
         last_name: Nom
         first_name: Prénom
-        confirm_password:  "Confirmez votre mot de passe"
+        siret: Numéro d'immatriculation
+        entity_name: Nom de la société
+        address_line1: Adresse - ligne 1
+        address_line2: Adresse - ligne 2 (optionnel)
+        city: Ville
+        state: État / Département
+        confirm_password: "Confirmez votre mot de passe"
         confirmation_sent_at: Date d'envoi de la confirmation
         confirmation_token: Clé de confirmation du mot de passe
         confirmed_at: Confirmé à
@@ -28,6 +34,15 @@ fr:
         unconfirmed_email: Email non confirmé
         unlock_token: Clé de déverrouillage
         updated_at: Date de mise à jour
+    placeholders:
+      user:
+        first_name: Richard
+        last_name: Hendricks
+        siret: '123123123'
+        entity_name: Pied Piper
+        address_line1: 123 Cours Alsace Lorraine
+        city: Bordeaux
+        state: Gironde
     models:
       user: Utilisateur
   devise:

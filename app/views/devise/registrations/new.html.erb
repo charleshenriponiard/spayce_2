@@ -10,14 +10,14 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { placeholder: t('activerecord.attributes.user.email'), autocomplete: "email", class:"xl-input" }%>
+                        input_html: { placeholder: t('activerecord.attributes.user.email'), autocomplete: "email" }%>
             <%= f.input :password,
                         required: true,
                         hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length),
-                        input_html: { placeholder: t('activerecord.attributes.user.password'), autocomplete: "new-password", class:"xl-input" } %>
+                        input_html: { placeholder: t('activerecord.attributes.user.password'), autocomplete: "new-password" } %>
             <%= f.input :password_confirmation,
                         required: true,
-                        input_html: { placeholder: t('activerecord.attributes.user.confirm_password'), autocomplete: "new-password", class:"xl-input" } %>
+                        input_html: { placeholder: t('activerecord.attributes.user.confirm_password'), autocomplete: "new-password" } %>
           </div>
         </div>
         <div class="form-actions text-center">
