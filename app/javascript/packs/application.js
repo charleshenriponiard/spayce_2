@@ -14,6 +14,7 @@ import "controllers"
 import { triggerStripeCheckout } from "../components/stripe_checkout_button"
 import { copyToClipboard } from "components/clipboard"
 import { triggerTooltips } from "../components/trigger_tooltips"
+import { initProjectCable } from "../channels/project_channel"
 import active from "../components/active_class"
 
 document.addEventListener('turbolinks:load', () => {
@@ -21,4 +22,5 @@ document.addEventListener('turbolinks:load', () => {
   copyToClipboard();
   triggerTooltips();
   active();
+  initProjectCable();
 });

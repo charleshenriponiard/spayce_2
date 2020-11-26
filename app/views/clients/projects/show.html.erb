@@ -12,9 +12,13 @@
 <script src="https://js.stripe.com/v3/"></script>
 <% if @project.payment_succeeded? && !@project.paid_expired? %>
   <p class="">Félicitations votre paiement est validé, vous pouvez télécharger les documents ci-dessous :</p>
-  <div>
+  <div id="download_button" data-project-id=<%= @project.id %>>
     <% unless @project.url.nil? %>
-      <%= link_to t('helpers.button.upload'), @project.url, class:"btn btn-info mt-2" %>
+      <%= render 'button', project: @project %>
+    <% else %>
+      <div class="spinner-border text-info" role="status">
+        <span class="sr-only">En cours de chargement...</span>
+      </div>
     <% end %>
   </div>
 <% else %>
