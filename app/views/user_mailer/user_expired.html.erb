@@ -35,15 +35,11 @@
       <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
     </div>
     <div class="background container">
-      <div class="">
+      <div>
         <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.payment_validation.line_1", amount: number_to_currency(@project.amount)) %></p>
-        <p><%= t("mailer.payment_validation.line_2", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
-        <%= link_to t('mailer.payment_validation.action'), clients_project_url(slug: @project.slug), class:"btn btn-info mt-2" %>
-        <p><%= t("mailer.payment_validation.line_3", date: l((@project.created_at + 7.day), format: :short)) %></p>
-        <p><%= t("mailer.payment_validation.line_4") %></p>
-        <p><%= t("mailer.payment_validation.line_5") %></p>
-        <p><%= t("mailer.payment_validation.line_6") %></p>
+        <p><%= t("mailer.user_expired.line_1", date: l(@project.created_at, format: :long)) %></p>
+        <p><%= t("mailer.user_expired.line_2") %></p>
+        <p><%= t("mailer.user_expired.line_3") %></p>
         <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "https://www.fromspayce.com/"%></p>
       </div>
     </div>

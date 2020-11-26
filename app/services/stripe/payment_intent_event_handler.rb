@@ -5,11 +5,9 @@ module Stripe
         method = "handle_" + event.type.tr('.', '_')
         self.send method, event
       rescue JSON::ParserError => e
-        p e
         # handle the json parsing error here
         raise # re-raise the exception to return a 500 error to stripe
       rescue NoMethodError => e
-        p e
         #code to run when handling an unknown event
       end
     end
@@ -23,6 +21,10 @@ module Stripe
                 total: @project.total
               }
       UpdateProjectJob.perform_now(@project, hash)
+      puts "start"  * 50
+      ClientMailer.payment_validation(@project).deliver_later
+      UserMailer.accepted_payment(@project).deliver_later
+      puts "end" * 50
       ZipDocumentsJob.perform_later(@project)
     end
 
