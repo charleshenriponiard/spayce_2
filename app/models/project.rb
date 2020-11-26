@@ -5,6 +5,7 @@ class Project < ApplicationRecord
 
   belongs_to :user
   has_many_attached :documents
+  has_one :invoice
 
   monetize :amount_cents
 
@@ -39,6 +40,18 @@ class Project < ApplicationRecord
 
   def purge_documents
     self.documents.each{ |document| document.purge_later}
+  end
+
+  def tax
+    commission * 0.20
+  end
+
+  def commission
+    amount * 0.10 * (1 - discount)
+  end
+
+  def total
+    amount - commission - tax
   end
 
   private
