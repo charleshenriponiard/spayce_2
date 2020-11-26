@@ -353,3 +353,28 @@ fr:
       line_4: "Le montant que vous allez recevoir sur votre compte %{amount} correspondant au prix demandé moins notre commission."
       line_5: "Vous trouverez en pièce jointe la facture de la commission Spayce."
       line_6: "A très vite pour de nouveaux transferts en toute sécurité !"
+    client_reminder:
+      subject: "Rappel - Le transfert expire dans 24h"
+      action: "Télécharger"
+      line_1: "Nous vous rappelons que le transfert envoyé le %{date} va expirer dans 24h"
+      line_2: "Voici le lien de téléchargement des fichiers :"
+      line_3: "Passé le délai, le lien sera automatiquement désactivé et le téléchargement deviendra impossible."
+      line_4: "Bonne journée et à très vite pour de nouveaux transferts en toute sécurité !"
+    user_reminder:
+      subject: "Rappel - Le transfert expire dans 24h"
+      action: "Télécharger"
+      line_1: "Nous vous rappelons que le transfert envoyé le %{date} va expirer dans 24h"
+      line_2: "Voici le lien de téléchargement des fichiers :"
+      line_3: "Passé le délai, le lien sera automatiquement désactivé et le téléchargement deviendra impossible."
+      line_4: "Bonne journée et à très vite pour de nouveaux transferts en toute sécurité !"
+    client_expired:
+      subject: "Lien de transfert expiré"
+      line_1: "Le transfert envoyé le %{date} vient d’expirer."
+      line_2: "Le lien est maintenant désactivé et le téléchargement est impossible."
+      line_3: "Bonne journée et à très vite pour de nouveaux transferts en toute sécurité !"
+    user_expired:
+      subject: "Lien de transfert expiré"
+      line_1: "Le transfert envoyé le %{date} vient d’expirer."
+      line_2: "Le lien est maintenant désactivé et le téléchargement est impossible."
+      line_3: "Bonne journée et à très vite pour de nouveaux transferts en toute sécurité !"
+

@@ -381,3 +381,27 @@ en:
       line_4: "The amount you will receive in your account %{amount} corresponding to the asking price minus our commission."
       line_5: "Attached you will find the invoice for the Spayce commission."
       line_6: "See you soon for new transfers in complete safety!"
+    client_reminder:
+      subject: "Reminder - The transfer expires in 24 hours"
+      action: "Download link"
+      line_1: "We remind you that the transfer sent on %{date} will expire in 24 hours."
+      line_2: "Here is the download link for the files:"
+      line_3: "After the deadline, the link will be automatically deactivated and the download will become impossible."
+      line_4: "Have a nice day and see you soon for new transfers in complete safety!"
+    user_reminder:
+      subject: "Reminder - The transfer expires in 24 hours"
+      action: "Download link"
+      line_1: "We remind you that the transfer sent on %{date} will expire in 24 hours."
+      line_2: "Here is the download link for the files:"
+      line_3: "After the deadline, the link will be automatically deactivated and the download will become impossible."
+      line_4: "Have a nice day and see you soon for new transfers in complete safety!"
+    client_expired:
+      subject: "Transfer link expired"
+      line_1: "The transfer sent on %{date} has just expired"
+      line_2: "The link is now disabled and the download is not possible."
+      line_3: "Have a nice day and see you soon for new transfers in complete safety!"
+    user_expired:
+      subject: "Transfer link expired"
+      line_1: "The transfer sent on %{date} has just expired"
+      line_2: "The link is now disabled and the download is not possible."
+      line_3: "Have a nice day and see you soon for new transfers in complete safety!"

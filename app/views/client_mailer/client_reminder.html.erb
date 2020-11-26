@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <style type="text/css">
+      .container {
+        width: 900px;
+        margin: auto;
+      }
+      .btn {
+        color: white;
+        background-color: #F2C94C;
+        border: 1px solid #F2C94C;
+        padding: 5px 25px;
+        text-decoration: none;
+      }
+
+      .center {
+        text-align: center;
+      }
+      .background {
+        background-color: white;
+        padding: 30px;
+      }
+      body {
+        background-color: #E8EAEC;
+      }
+      .footer {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
+    </div>
+    <div class="background container">
+      <div>
+        <h3><%= t("mailer.hello") %></h3>
+        <p><%= t("mailer.client_reminder.line_1", date: l(@project.created_at, format: :long)) %></p>
+        <p><%= t("mailer.client_reminder.line_2") %></p>
+        <%= link_to t('mailer.client_reminder.action'), clients_project_url(slug: @project.slug), class:"btn btn-info mt-2" %>
+        <p><%= t("mailer.client_reminder.line_3") %></p>
+        <p><%= t("mailer.client_reminder.line_4") %></p>
+        <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "https://www.fromspayce.com/"%></p>
+      </div>
+    </div>
+    <div class="center footer">
+      <p>From Spayce</p>
+      <p>N° siret :84423490600015</p>
+      <p>Forme juridique: Société par actions simplifiée</p>
+      <p>Date immatriculation RCS : 29-11-2018</p>
+    </div>
+  </body>
+</html>
+
+

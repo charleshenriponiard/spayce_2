@@ -17,4 +17,14 @@ class ClientMailer < ApplicationMailer
     @project = project
     mail(to: @project.client_email, subject: 'Thanks for the paiment')
   end
+
+  def client_reminder(project)
+    @project = project
+    mail(to: @project.client_email, subject: t('mailer.client_reminder.subject'))
+  end
+
+  def client_expired(project)
+    @project = project
+    mail(to: @project.client_email, subject: t('mailer.client_expired.subject'))
+  end
 end

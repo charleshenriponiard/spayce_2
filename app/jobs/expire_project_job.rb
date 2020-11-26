@@ -6,7 +6,8 @@ class ExpireProjectJob < ApplicationJob
       project.paid? ? project.paid_expired! : project.unpaid_expired!
       project.purge_documents
       S3Service.delete_object(key: project.zipped_key, bucket: ENV["BUCKET"])
-      # Envoyer un mail
+      ClientMailer.client_expired(project).deliver_later
+      UserMailer.user_expired(project).deliver_later
     end
   end
 end
