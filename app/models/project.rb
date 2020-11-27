@@ -4,12 +4,15 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many_attached :documents
   has_one :invoice, dependent: :destroy
-
   monetize :amount_cents
+
+  validates :amount_cents, presence: true
+  validates :name, presence: true
+  validates :client_email, presence: true
+  validates :client_last_name, presence: true
 
   extend FriendlyId
   friendly_id :random_slug, use: :slugged
-
 
   after_destroy do
     purge_documents

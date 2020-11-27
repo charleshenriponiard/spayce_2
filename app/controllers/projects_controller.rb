@@ -23,9 +23,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @commission = @project.amount.to_f * 0.1 - @project.discount
-    @taxe = @commission * 0.2
-    @total = @project.amount.to_f - @commission - @taxe
   end
 
   def new
@@ -42,7 +39,6 @@ class ProjectsController < ApplicationController
       ClientMailer.client_reminder(@project).deliver_later(wait_until: 6.days.from_now)
       UserMailer.user_reminder(@project).deliver_later(wait_until: 6.days.from_now)
       ExpireProjectJob.set(wait_until: 7.days.from_now).perform_later(@project)
-      # ExpireProjectJob.set(wait_until: 1.minutes.from_now).perform_later(@project)
       redirect_to confirmation_project_path(@project)
     else
       render :new
