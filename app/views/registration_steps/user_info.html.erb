@@ -6,16 +6,37 @@
         <div class="form-inputs">
           <div class="border p-3 mb-3">
           <h4 class="text-center form-headers">Personal information</h4>
-            <%= f.input :first_name,
-                          autofocus: true,
-                          input_html: { placeholder: "First Name", class:"xl-input" } %>
-              <%= f.input :last_name,
-                          autofocus: true,
-                          input_html: { placeholder: "Last Name", class:"xl-input" }  %>
-              <%= f.input :country,
-                          collection: ["FR", "US"],
-                          prompt: 'Select your country',
-                          input_html: { placeholder: "Last Name", class:"xl-input" } %>
+          <%= f.input :first_name,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.first_name') } %>
+          <%= f.input :last_name,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.last_name') } %>
+          <%= f.input :entity_name,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.entity_name') } %>
+          <%= f.input :siret,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.siret') } %>
+          <%= f.input :address_line1,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.address_line1') } %>
+          <%= f.input :address_line2,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.address_line2') } %>
+          <%= f.input :zipcode,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.zipcode') } %>
+          <%= f.input :city,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.city') } %>
+          <%= f.input :state,
+                      autofocus: true,
+                      input_html: { placeholder: t('activerecord.attributes.user.state') } %>
+          <%= f.input :country,
+                      autofocus: true,
+                      collection: ["FR", "US"],
+                      prompt: 'Select your country' %>
           </div>
         </div>
         <div class="border p-3">

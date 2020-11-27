@@ -3,7 +3,7 @@ class Project < ApplicationRecord
 
   belongs_to :user
   has_many_attached :documents
-  has_one :invoice
+  has_one :invoice, dependent: :destroy
 
   monetize :amount_cents
 
