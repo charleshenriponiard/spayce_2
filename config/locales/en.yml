@@ -339,6 +339,7 @@ en:
       line_3: 'See you soon for new transfers in complete safety!'
       line_4: 'Learn more about Spayce'
     kyc_validated:
+      subject: "Spayce registration validated"
       action: "Here we go"
       line_1: "Hello %{first_name}"
       line_2: "Your documents have been validated and you can now use Spayce without any limits!"
@@ -358,6 +359,7 @@ en:
       line_3: "We recommend that you contact %{first_name} %{last_name} directly for additional information."
       line_4: "See you soon for new transfers in complete safety!"
     freelance_project_canceled:
+      subject: "Transfer canceled"
       action_1: "Make a transfer"
       action_2: "Contact us"
       line_1: "Your transfer sent on %{date} to %{client_name} in the amount of %{amount} has been canceled."
@@ -374,6 +376,7 @@ en:
       line_5: "Attached you will find the invoice for your payment."
       line_6: "See you soon for new transfers in complete safety!"
     accepted_payment:
+      subject: "Transfer downloaded"
       action: "Spayce dashboard"
       line_1: "Thanks for using Spayce!"
       line_2: "Your transfer has been downloaded and paid for by %{client_name}"

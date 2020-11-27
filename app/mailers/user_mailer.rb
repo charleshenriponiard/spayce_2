@@ -2,20 +2,20 @@ class UserMailer < ApplicationMailer
   default from: 'cedricsauvagetpro@gmail.com'
   layout 'mailer'
 
-  def kyc_validated
-    @user = params[:user]
-    mail(to: @user.email, subject: 'Congratulation your KYC is valide!')
+  def kyc_validated(user)
+    @user = user
+    mail(to: @user.email, subject: t('mailer.kyc_validated.subject'))
   end
 
   def freelance_project_canceled(project)
     @project = project
-    mail(to: @project.user.email, subject: 'Your project was canceled')
+    mail(to: @project.user.email, subject: t('mailer.freelance_project_canceled.subject'))
   end
 
   def accepted_payment(project)
     @project = project
-    attachments['attachment.pdf'] = Dhalang::PDF.get_from_url("#{ENV['INVOICE_URL'] + @project.slug}/invoices/#{@project.invoice.id}")
-    mail(to: @project.user.email, subject: 'Congratulation you have a new payment!')
+    attachments['invoice.pdf'] = Dhalang::PDF.get_from_url("#{ENV['INVOICE_URL'] + @project.slug}/invoices/#{@project.invoice.id}")
+    mail(to: @project.user.email, subject: t('mailer.accepted_payment.subject'))
   end
 
   def user_reminder(project)
