@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 2020_11_27_090827) do
     t.string "payment_intent_id"
     t.string "slug"
     t.float "discount", default: 0.0
-    t.string "zipped_key"
     t.float "spayce_commission", default: 0.0
     t.float "tax", default: 0.0
     t.float "total", default: 0.0
+    t.string "zipped_key"
     t.index ["slug"], name: "index_projects_on_slug", unique: true
     t.index ["user_id"], name: "index_projects_on_user_id"
   end

@@ -21,10 +21,8 @@ module Stripe
                 total: @project.total
               }
       UpdateProjectJob.perform_now(@project, hash)
-      puts "start"  * 50
       ClientMailer.payment_validation(@project).deliver_later
       UserMailer.accepted_payment(@project).deliver_later
-      puts "end" * 50
       ZipDocumentsJob.perform_later(@project)
     end
 
