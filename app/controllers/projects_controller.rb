@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
   end
 
   def sending
-    ClientMailer.transfert_project_to_client(@project, params[:slug]).deliver_later
+    ClientMailer.transfert_project_to_client(@project).deliver_later
     session[:email_sent] = true
     redirect_to projects_path
   end

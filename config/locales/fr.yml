@@ -306,11 +306,13 @@ fr:
     hello: "Bonjour,"
     goodbye: 'En savoir plus sur Spayce'
     sent_project:
+      subject: "Nouveau transfert de fichiers"
       action: "Récupérez vos fichiers"
       line_1: "Vous avez reçu un transfert de la part de %{first_name} %{last_name}."
       line_2: "Ce lien est valide 7 jours et expire le %{date}. Au delà, le transfert est automatiquement désactivé."
       line_3: 'A très vite pour de nouveaux transferts en toute sécurité !'
     kyc_validated:
+      subject: "Inscription à Spayce validée"
       action: "C’est parti"
       line_1: "Bonjour %{first_name}"
       line_2: "Vos documents ont été validés et vous pouvez désormais utiliser Spayce sans aucune limite !"
@@ -325,11 +327,13 @@ fr:
       line_11: "Le paiement est automatiquement crédité sur votre compte bancaire"
       line_12: "A très vite pour de nouveaux transferts en toute sécurité !"
     project_canceled:
+      subject: "Annulation de transfert"
       line_1: "Le transfert envoyé le %{date} a été annulé par %{first_name} %{last_name}."
       line_2: "Le lien a été désactivé et vous ne pouvez plus récupérer les fichiers envoyés."
       line_3: "Nous vous conseillons de contacter directement %{first_name} %{last_name} pour avoir des renseignements supplémentaires."
       line_4: "A très vite pour de nouveaux transferts en toute sécurité !"
     freelance_project_canceled:
+      subject: "Transfert annulé"
       action_1: "Faire un transfert"
       action_2: "Contacter"
       line_1: "Votre transfert envoyé le %{date} à %{client_name} d’un montant de %{amount} a bien été annulé."
@@ -338,6 +342,7 @@ fr:
       line_4: "Si vous avez eu des problèmes lors de l’utilisation de Spayce, n’hésitez pas à nous "
       line_5: "A très vite pour de nouveaux transferts en toute sécurité !"
     payment_validation:
+      subject: "Paiement du transfert validé"
       action: "Lien de téléchargement"
       line_1: "Votre paiement de %{amount} a bien été pris en compte, merci."
       line_2: "%{first_name} %{last_name} a reçu un mail de confirmation."
@@ -346,6 +351,7 @@ fr:
       line_5: "En pièce jointe, vous trouverez la facture de votre paiement."
       line_6: "A très vite pour de nouveaux transferts en toute sécurité !"
     accepted_payment:
+      subject: "Transfert téléchargé"
       action: "votre espace Spayce"
       line_1: "Merci d’avoir utilisé Spayce !"
       line_2: "Votre transfert a bien été téléchargé et payé par %{client_name}"
