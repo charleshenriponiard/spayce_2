@@ -333,6 +333,7 @@ en:
     hello: "Hello"
     goodbye: "Learn more about Spayce"
     sent_project:
+      subject: "New file transfer"
       action: "Download your files"
       line_1: "You have received a transfer from %{first_name} %{last_name}."
       line_2: "This link is valid for 7 days and expires on %{date}. Beyond that, the transfer is automatically deactivated."
@@ -354,6 +355,7 @@ en:
       line_11: "Payment is automatically credited to your bank account"
       line_12: "See you soon for new transfers in complete safety!"
     project_canceled:
+      subject: "Transfer cancellation"
       line_1: "The transfer sent on  %{date} was canceled by %{first_name} %{last_name}."
       line_2: "The link has been disabled and you can no longer retrieve sent files."
       line_3: "We recommend that you contact %{first_name} %{last_name} directly for additional information."
@@ -368,6 +370,7 @@ en:
       line_4: "If you have had any problems using Spayce, please do not hesitate to "
       line_5: "See you soon for new transfers in complete safety!"
     payment_validation:
+      subject: "Transfer payment validated"
       action: "Download link"
       line_1: "Your payment of %{amount} has been taken into account, thank you."
       line_2: "%{first_name} %{last_name} has received a confirmation email."

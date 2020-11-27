@@ -2,20 +2,19 @@ class ClientMailer < ApplicationMailer
   default from: 'cedricsauvagetpro@gmail.com'
   layout 'mailer'
 
-  def transfert_project_to_client(project, slug)
+  def transfert_project_to_client(project)
     @project = project
-    @slug = slug
-    mail(to: @project.client_email, subject: 'New tranfer for you')
+    mail(to: @project.client_email, subject: t('mailer.sent_project.subject'))
   end
 
   def project_canceled(project)
     @project = project
-    mail(to: @project.client_email, subject: 'We are sorry but the transfer is canceled')
+    mail(to: @project.client_email, subject: t('mailer.project_canceled.subject'))
   end
 
   def payment_validation(project)
     @project = project
-    mail(to: @project.client_email, subject: 'Thanks for the paiment')
+    mail(to: @project.client_email, subject: t('mailer.payment_validation.subject'))
   end
 
   def client_reminder(project)
