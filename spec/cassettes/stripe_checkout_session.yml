@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/checkout/sessions
+    body:
+      encoding: UTF-8
+      string: payment_method_types[0]=card&line_items[0][name]=A+great+Project&line_items[0][amount]=100000&line_items[0][currency]=eur&line_items[0][quantity]=1&payment_intent_data[application_fee_amount]=10000&mode=payment&success_url=http%3A%2F%2Flocalhost%3A5000%2Fclients%2Fprojects%2Fa1nsu-j0g3&cancel_url=http%3A%2F%2Flocalhost%3A5000%2Fclients%2Fprojects%2Fa1nsu-j0g3
+    headers:
+      User-Agent:
+      - Stripe/v1 RubyBindings/5.28.0
+      Authorization:
+      - Bearer sk_test_51HOlJuETJcLHIQqMAVYHjrz4yYgGCiF6dzydPHqBTvPA8IxIEzR92txS2maJXAZhsZSFYUfw9d5tMHxxx1HqnqpS00HnfDbL0B
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"5.28.0","lang":"ruby","lang_version":"2.6.3 p62 (2019-04-16)","platform":"x86_64-darwin18","engine":"ruby","publisher":"stripe","uname":"Darwin
+        MBP-de-Benoit-2 20.1.0 Darwin Kernel Version 20.1.0: Sat Oct 31 00:07:11 PDT
+        2020; root:xnu-7195.50.7~2/RELEASE_X86_64 x86_64","hostname":"MBP-de-Benoit-2"}'
+      Stripe-Account:
+      - acct_1Hr2QtRLEyCi9Muf
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 27 Nov 2020 15:44:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '884'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Request-Id:
+      - req_IOjVpV6lKVXGL8
+      Stripe-Account:
+      - acct_1Hr2QtRLEyCi9Muf
+      Stripe-Version:
+      - '2020-08-27'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "cs_test_a1HE06dmEy0qbjspCf9YJdyyezLwVfIeuKTn4O133KnPemY5qlmQ5TA3r0",
+          "object": "checkout.session",
+          "allow_promotion_codes": null,
+          "amount_subtotal": 100000,
+          "amount_total": 100000,
+          "billing_address_collection": null,
+          "cancel_url": "http://localhost:5000/clients/projects/a1nsu-j0g3",
+          "client_reference_id": null,
+          "currency": "eur",
+          "customer": null,
+          "customer_email": null,
+          "livemode": false,
+          "locale": null,
+          "metadata": {
+          },
+          "mode": "payment",
+          "payment_intent": "pi_1Hs980RLEyCi9MufyUv0GJwo",
+          "payment_method_types": [
+            "card"
+          ],
+          "payment_status": "unpaid",
+          "setup_intent": null,
+          "shipping": null,
+          "shipping_address_collection": null,
+          "submit_type": null,
+          "subscription": null,
+          "success_url": "http://localhost:5000/clients/projects/a1nsu-j0g3",
+          "total_details": {
+            "amount_discount": 0,
+            "amount_tax": 0
+          }
+        }
+    http_version:
+  recorded_at: Fri, 27 Nov 2020 15:44:56 GMT
+recorded_with: VCR 5.1.0
