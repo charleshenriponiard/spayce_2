@@ -8,6 +8,7 @@ fr:
         entity_name: Nom de la société
         address_line1: Adresse - ligne 1
         address_line2: Adresse - ligne 2 (optionnel)
+        zipcode: Code Postal
         city: Ville
         state: État / Département
         confirm_password: "Confirmez votre mot de passe"
@@ -41,6 +42,7 @@ fr:
         siret: '123123123'
         entity_name: Pied Piper
         address_line1: 123 Cours Alsace Lorraine
+        zipcode: '33000'
         city: Bordeaux
         state: Gironde
     models:

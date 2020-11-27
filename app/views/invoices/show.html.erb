@@ -23,7 +23,7 @@
       <% if @project.user.address_line2 %>
         <p><%= @project.user.address_line2 %></p>
       <% end %>
-      <p><%= @project.user.city %></p>
+      <p><%= @project.user.zipcode %> <%= @project.user.city %></p>
       <p><%= @project.user.state %></p>
       <p><%= @project.user.email %></p>
       <p><%= @project.user.siret %></p>

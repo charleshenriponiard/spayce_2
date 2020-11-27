@@ -35,6 +35,11 @@ RSpec.describe User, type: :model do
       phone_number: "test",
       first_name: "test",
       last_name: "test",
+      siret: "test",
+      entity_name: "test",
+      address_line1: "test",
+      city: "test",
+      state: "test",
       admin: true
     )
     expect(@user1).to be_valid

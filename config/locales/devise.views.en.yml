@@ -8,6 +8,7 @@ en:
         entity_name: Company name
         address_line1: Address - line 1
         address_line2: Address - line 2 (optionnal)
+        zipcode: ZipCode
         city: City
         state: State / Region
         confirm_password:  "Confirme your password"
@@ -41,6 +42,7 @@ en:
         siret: '123123123'
         entity_name: Pied Piper
         address_line1: 123 Albright Way
+        zipcode: '123456'
         city: Los Angeles
         state: California
     models:
