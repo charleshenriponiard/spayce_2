@@ -14,7 +14,11 @@ class UserMailer < ApplicationMailer
 
   def accepted_payment(project)
     @project = project
-    attachments['invoice.pdf'] = Dhalang::PDF.get_from_url("#{ENV['INVOICE_URL'] + @project.slug}/invoices/#{@project.invoice.id}")
+    if Rails.env.test?
+      attachments['invoice.pdf'] = Dhalang::PDF.get_from_url("https://en.wikipedia.org/wiki/Ruby_on_Railshttps://en.wikipedia.org/wiki/Ruby_on_Rails")
+    else
+      attachments['invoice.pdf'] = Dhalang::PDF.get_from_url("#{ENV['INVOICE_URL'] + @project.slug}/invoices/#{@project.invoice.id}")
+    end
     mail(to: @project.user.email, subject: t('mailer.accepted_payment.subject'))
   end
 
