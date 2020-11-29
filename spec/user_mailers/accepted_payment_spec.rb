@@ -10,7 +10,7 @@ RSpec.describe UserMailer, :type => :mailer do
       @user = create(:user, :with_project)
       @invoice = Invoice.create(project: @user.projects.last)
       @mail = UserMailer.accepted_payment(@user.projects.last)
-      @mail.attachments['invoice.pdf'] = 'https://en.wikipedia.org/wiki/Ruby_on_Railshttps://en.wikipedia.org/wiki/Ruby_on_Rails'
+      @mail.attachments['invoice.pdf'] = 'This is an invoice'
     end
 
     it 'renders the subject in french' do
@@ -20,7 +20,7 @@ RSpec.describe UserMailer, :type => :mailer do
     it 'renders the subject in english' do
       I18n.locale = :en
       @mail = UserMailer.accepted_payment(@user.projects.last)
-      @mail.attachments['invoice.pdf'] = 'https://en.wikipedia.org/wiki/Ruby_on_Railshttps://en.wikipedia.org/wiki/Ruby_on_Rails'
+      @mail.attachments['invoice.pdf'] = 'This is an invoice'
 
       expect(@mail.subject).to eq("Transfer downloaded")
     end

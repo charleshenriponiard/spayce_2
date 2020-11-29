@@ -17,14 +17,6 @@ jobs:
         ports: ["6379:6379"]
 
     steps:
-    - uses: actions/checkout@master
-    - name: Install Dependencies
-      uses: actions/npm@master
-      env:
-        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
-      with:
-        args: install
-
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
         with:
