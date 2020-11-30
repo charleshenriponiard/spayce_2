@@ -18,8 +18,8 @@ class MultiFileZipperDownload
 
   private
 
-   def save_file_local
-      @filepaths = @project.documents.blobs.map do |doc|
+  def save_file_local
+    @filepaths = @project.documents.blobs.map do |doc|
       new_path = "#{tmp_dir}/#{doc.filename}"
       Aws::S3::Bucket.new(ENV["BUCKET"]).object(doc.key).download_file(new_path)
       new_path
@@ -45,7 +45,6 @@ class MultiFileZipperDownload
   def build_zipped_s3_key
     # I use the hash of the file to avoid collisions, but you can change this to whatever you like
     hash = Digest::SHA256.file(zipped_file_path).to_s
-
     @zipped_s3_key = "multi_downloads/#{hash}/#{@zipped_file_name}"
   end
 
