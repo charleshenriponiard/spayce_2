@@ -55,7 +55,7 @@ fr:
         promo_code_submit: 'Appliquer'
         promo_code_invalid: "Ce coupon n'est plus valide."
         promo_code_valid: 'La réduction de %{percent_off}% a été appliquée.'
-        tax: 'Taxe'
+        tax: 'TVA'
         instance: "Vous allez recevoir sur votre compte bancaire"
       email_sent_alert:
         alert: 'LE TRANSFERT A BIEN ÉTÉ ENVOYÉ !'
@@ -110,15 +110,17 @@ fr:
         skip: 'Passer cette page'
   form:
     label:
+      name: "Donnez un nom à votre transfert"
       recipient_name: "Nom du client"
       recipient_email: "Email du client"
       price: "Prix (avec un point comme séparateur)"
     hint:
       price: "(montant à payer pour les fichiers)"
     placeholder:
+      name: "Logo pour M Dupon"
       search: 'Rechercher'
     button:
-      save: "Créer le %{fr_model}"
+      save: "Valider le transfert"
   activerecord:
     models:
       project: "Projet"
