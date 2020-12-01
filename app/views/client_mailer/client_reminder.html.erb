@@ -28,6 +28,9 @@
       .footer {
         color: gray;
       }
+      .text-info {
+        color: #F2C94C;
+      }
     </style>
   </head>
   <body>
@@ -37,7 +40,7 @@
     <div class="background container">
       <div>
         <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.client_reminder.line_1", date: l(@project.created_at, format: :long)) %></p>
+        <p><%== t("mailer.client_reminder.line_1", date: l(@project.created_at, format: :long)) %></p>
         <p><%= t("mailer.client_reminder.line_2") %></p>
         <%= link_to t('mailer.client_reminder.action'), clients_project_url(slug: @project.slug), class:"btn btn-info mt-2" %>
         <p><%= t("mailer.client_reminder.line_3") %></p>

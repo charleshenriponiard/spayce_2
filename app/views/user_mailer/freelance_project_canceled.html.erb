@@ -28,16 +28,19 @@
       .footer {
         color: gray;
       }
+      .text-info {
+        color: #F2C94C;
+      }
     </style>
   </head>
   <body>
-    <div class="center">
-      <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
-    </div>
     <div class="background container">
+      <div class="center">
+        <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
+      </div>
       <div class="">
         <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.freelance_project_canceled.line_1", date: l(@project.created_at, format: :long), client_name: @project.client_last_name, amount: @project.amount ) %></p>
+        <p><%== t("mailer.freelance_project_canceled.line_1", date: l(@project.created_at, format: :long), client_name: @project.client_last_name, amount: number_to_currency(@project.amount)) %></p>
         <p><%= t("mailer.freelance_project_canceled.line_2") %></p>
         <p><%= t("mailer.freelance_project_canceled.line_3") %></p>
         <%= link_to t('mailer.freelance_project_canceled.action_1'), root_url, class:"btn btn-info mt-2", target: "_blank" %>

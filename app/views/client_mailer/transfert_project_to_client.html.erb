@@ -28,6 +28,9 @@
       .footer {
         color: gray;
       }
+      .text-info {
+        color: #F2C94C;
+      }
     </style>
   </head>
   <body>
@@ -37,11 +40,11 @@
     <div class="background container">
       <div class="">
         <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.sent_project.line_1", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
+        <p><%== t("mailer.sent_project.line_1", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
         <p><%= @project.message %></p>
         <p><%= link_to t("mailer.sent_project.action"), clients_project_url(slug: @project.slug), class:"btn", target: "_blank" %></p>
         <p><%= link_to clients_project_url(slug: @project.slug), clients_project_url(slug: @project.slug), target: "_blank" %></p>
-        <p><%= t("mailer.sent_project.line_2", date: l((@project.created_at + 7.day), format: :long) ) %></p>
+        <p><%== t("mailer.sent_project.line_2", date: l((@project.created_at + 7.day), format: :long) ) %></p>
         <p><%= t("mailer.sent_project.line_3") %></p>
         <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "https://www.fromspayce.com/"%></p>
       </div>

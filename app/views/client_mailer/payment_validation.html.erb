@@ -28,6 +28,9 @@
       .footer {
         color: gray;
       }
+      .text-info {
+        color: #F2C94C;
+      }
     </style>
   </head>
   <body>
@@ -37,10 +40,10 @@
     <div class="background container">
       <div class="">
         <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.payment_validation.line_1", amount: number_to_currency(@project.total)) %></p>
-        <p><%= t("mailer.payment_validation.line_2", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
+        <p><%== t("mailer.payment_validation.line_1", amount: number_to_currency(@project.total)) %></p>
+        <p><%== t("mailer.payment_validation.line_2", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
         <%= link_to t('mailer.payment_validation.action'), clients_project_url(slug: @project.slug), class:"btn btn-info mt-2" %>
-        <p><%= t("mailer.payment_validation.line_3", date: l((@project.created_at + 7.day), format: :short)) %></p>
+        <p><%== t("mailer.payment_validation.line_3", date: l((@project.created_at + 7.day), format: :short)) %></p>
         <p><%= t("mailer.payment_validation.line_4") %></p>
         <p><%= t("mailer.payment_validation.line_5") %></p>
         <p><%= t("mailer.payment_validation.line_6") %></p>
