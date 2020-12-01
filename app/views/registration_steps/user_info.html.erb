@@ -1,7 +1,13 @@
 <div class="wrapper">
   <div class=" container">
     <div class="card-connexion">
-      <h1 class="text-center mb-5">Create your free account</h1>
+      <h1 class="text-center mb-2">Create your free account</h1>
+      <div class="row mb-3">
+        <div class="col-4 offset-2 progress-bar progress-bar-yellow ">
+        </div>
+        <div class="col-4 progress-bar progress-bar-yellow">
+        </div>
+      </div>
       <%= simple_form_for(current_user, wrapper: :inline_form, url: wizard_path, method: :put) do |f| %>
         <div class="form-inputs">
           <div class="border p-3 mb-3">
