@@ -26,6 +26,7 @@ en:
         last_sign_in_ip: Last sign in IP
         locked_at: Locked at
         password: Password
+        custom_password: Edit your password
         password_confirmation: Password confirmation
         remember_created_at: Remember created at
         remember_me: Remember me
@@ -35,6 +36,7 @@ en:
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
         updated_at: Updated at
+        current_password: "Current password"
     placeholders:
       user:
         first_name: Richard
@@ -138,6 +140,7 @@ en:
         stripe_dashboard: "Stripe dashboard"
         title_edit: My account
         password: Password
+        custom_password: "Edit your password"
         user: User infos
         are_you_sure: Are you sure?
         cancel_my_account: Cancel my account
