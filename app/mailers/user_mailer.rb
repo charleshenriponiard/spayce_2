@@ -22,6 +22,11 @@ class UserMailer < ApplicationMailer
     mail(to: @project.user.email, subject: t('mailer.accepted_payment.subject'))
   end
 
+  def user_sent_project(project)
+    @project = project
+    mail(to: @project.user.email, subject: t('mailer.user_sent_project.subject'))
+  end
+
   def user_reminder(project)
     @project = project
     mail(to: @project.user.email, subject: t('mailer.user_reminder.subject'))
