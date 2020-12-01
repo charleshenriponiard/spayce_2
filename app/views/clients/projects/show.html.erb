@@ -1,9 +1,9 @@
-<p class="">You have received files from <%= @project.user.first_name.capitalize || "Michel" %> <%= @project.user.last_name.upcase || "DURAND" %></p>
+<p><%= t('views.clients.projects.show.received_from') %> <%= @project.user.first_name.capitalize || "Michel" %> <%= @project.user.last_name.upcase || "DURAND" %></p>
 
-<p class="">To be able to download them, you must pay: <%= number_to_currency(@project.amount) %></p>
+<p><%= t('views.clients.projects.show.to_be_paid') %> <%= number_to_currency(@project.amount) %></p>
 
-<p class="">The transfer will expire on <%= @project.created_at + 7 %>.</p>
-<p class="">After that, you will no longer be able to download the files.</p>
+<p><%= t('views.clients.projects.show.expiration') %> <%= @project.created_at + 7 %>.</p>
+<p><%= t('views.clients.projects.show.expiration_info') %></p>
 
 <div class="d-flex w-100 flex-wrap">
   <%= render 'preview', project: @project %>
@@ -11,23 +11,23 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <% if @project.payment_succeeded? && !@project.paid_expired? %>
-  <p class="">Félicitations votre paiement est validé, vous pouvez télécharger les documents ci-dessous :</p>
+  <p><%= t('views.clients.projects.show.payemnt_successful') %></p>
   <div id="download_button" data-project-id=<%= @project.id %>>
     <% unless @project.url.nil? %>
       <%= render 'button', project: @project %>
     <% else %>
       <div class="spinner-border text-info" role="status">
-        <span class="sr-only">En cours de chargement...</span>
+        <span class="sr-only"><%= t('views.clients.projects.show.loading') %></span>
       </div>
     <% end %>
   </div>
 <% else %>
   <% if @project.sent? %>
-    <button id="checkout-button" data-spk="<%= ENV['STRIPE_PUBLIC_KEY'] %>" data-uid="<%= @project.user.uid %>" data-csid="<%= @project.checkout_session_id %>">Checkout</button>
+    <button id="checkout-button" data-spk="<%= ENV['STRIPE_PUBLIC_KEY'] %>" data-uid="<%= @project.user.uid %>" data-csid="<%= @project.checkout_session_id %>"><%= t('views.clients.projects.show.checkout') %></button>
   <% else %>
-    <p>Vous de pouvez plus accéder au paiement de ce transfert nous vous invitons de prendre contact avec <%= @project.user.first_name %> <%= @project.user.last_name %></p>
+    <p><%= t('views.clients.projects.show.expired') %> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
   <% end %>
   <% if @project.payment_failed?  %>
-    <p class="">Votre paiement n'a pas été pris en compte, veuillez réessayer.</p>
+    <p><%= t('views.clients.projects.show.payemnt_failed') %></p>
   <% end %>
 <% end %>

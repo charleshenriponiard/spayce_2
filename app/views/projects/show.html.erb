@@ -1,13 +1,13 @@
 <div class="container">
-  <h1 class="mt-md-5"><%= t('view.project.show.title') %></h1>
+  <h1 class="mt-md-5"><%= t('views.projects.show.title') %></h1>
   <div class="m-3"><%= link_to t('helpers.button.back'), projects_path %></div>
   <div class="card-body">
     <section class="border-bottom pb-4 mb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2"><%= t('view.project.show.client_name') %></div>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.email_address') %></div>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.message') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.client_name') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.email_address') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.message') %></div>
         </div>
         <div class="col-8">
           <div class="my-2"><%= @project.client_last_name %></div>
@@ -19,13 +19,10 @@
     <section class="border-bottom pb-4 mb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2"><%= t('view.project.show.price_asked') %></div>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.spayce_commission') %></div>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.spayce_taxes') %></div>
-          <%# <div class="font-weight-bold my-2"> %>
-            <%#= t('view.project.show.promo_code') %>
-          <%# </div> %>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.your_earnings') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.price_asked') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.spayce_commission') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.spayce_taxes') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.your_earnings') %></div>
         </div>
         <div class="col-8">
           <div class="my-2"><%= number_to_currency(@project.amount) %> </div>
@@ -38,11 +35,11 @@
     <section class="border-bottom pb-4 mb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2"><%= t('view.project.show.project_name') %></div>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.nbr_files') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.project_name') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.nbr_files') %></div>
           <div>
             <% unless @project.url.nil? %>
-              <div class="font-weight-bold my-2"><%= t('view.project.show.transfer_link') %></div>
+              <div class="font-weight-bold my-2"><%= t('views.projects.show.transfer_link') %></div>
             <% end %>
           </div>
         </div>
@@ -55,9 +52,9 @@
     <section class="pb-4">
       <div class="row">
         <div class="col-4">
-          <div class="font-weight-bold my-2"><%= t('view.project.show.sent_on') %></div>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.expiration_date') %></div>
-          <div class="font-weight-bold my-2"><%= t('view.project.show.status') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.sent_on') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.expiration_date') %></div>
+          <div class="font-weight-bold my-2"><%= t('views.projects.show.status') %></div>
         </div>
         <div class="col-8">
           <div class="my-2"><%= l(@project.created_at, format: :long) %></div>
