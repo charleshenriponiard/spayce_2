@@ -1,0 +1,16 @@
+.pagination {
+  justify-content: center;
+  .page-item.active .page-link {
+    background-color: $info;
+  }
+  .page-link {
+    border: none;
+    color: $info;
+    &:hover {
+      background-color: #FCF3D9;
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(242, 201, 76, 0.25);
+    }
+  }
+}
