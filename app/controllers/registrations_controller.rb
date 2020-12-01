@@ -1,5 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :send_email_to_admin, only: :destroy
+
   protected
+
+  def send_email_to_admin
+    byebug
+    AdminMailer.remove_account(resource).deliver_later
+  end
 
   def after_sign_up_path_for(resource)
     registration_steps_path
