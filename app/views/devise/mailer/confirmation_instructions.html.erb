@@ -2,40 +2,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style type="text/css">
-      #container {
-        margin: 10px auto;
-      }
-      #message_headers {
-        background: #fff;
-        font-size: 12px;
-        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-        border-bottom: 1px solid #dedede;
-        margin-bottom: 10px;
-        overflow: auto;
-      }
-
-      #message_headers dl {
-        float: left;
-        line-height: 1.3em;
-        padding: 0;
-      }
-
-      #message_headers dt {
-        width: 92px;
-        margin: 0;
-        float: left;
-        text-align: right;
-        font-weight: bold;
-        color: #7f7f7f;
-      }
-
-      #message_headers dd {
-        margin: 0 0 0 102px;
-      }
-
-      #message_headers p.alternate {
-        float: right;
-        margin: 0;
+      .container {
+        width: 900px;
+        margin: auto;
       }
       .btn {
         color: white;
@@ -44,54 +13,61 @@
         padding: 5px 25px;
         text-decoration: none;
       }
+
       .center {
         text-align: center;
       }
-
-      #message_headers p.alternate a {
-        color: #09c;
+      .background {
+        background-color: white;
+        padding: 30px;
       }
-
-      pre#message_body {
-        padding: 4px;
-        white-space: pre-wrap;
-        border: 1px solid #eee;
-        background-color: #fcfcfc;
+      body {
+        background-color: #E8EAEC;
       }
-
-      iframe {
-        border: 0;
-        width: 100%;
-        height: 100%;
+      .footer {
+        color: gray;
       }
     </style>
   </head>
   <body>
-    <div class="center">
-      <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
+
+    <div class="background container">
+      <div class="center">
+        <%= image_tag attachments['logo.jpg'].url%>
+      </div>
+      <div>
+        <p>Bienvenue et merci <%= @resource.email %></p>
+
+        <p>Afin de finaliser votre inscription et pouvoir vous connecter à votre compte Spayce, nous devons vérifier votre adresse email. Merci !</p>
+
+        <p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token), class:"btn" %></p>
+        <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>"><%= confirmation_url(@resource, confirmation_token: @token)%></a>
+
+        <p>A très vite sur Spayce !</p>
+        <p><%= link_to "En savoir plus sur Spayce", "https://www.fromspayce.com/" %></p>
+
+        <hr>
+
+        <p>Welcome and thank you<%= @resource.email %></p>
+
+        <p>In order to complete your registration and be able to log into your Spayce account, we need to verify your email address. Thank you !</p>
+
+        <p><%= link_to 'Check my email', confirmation_url(@resource, confirmation_token: @token), class:"btn" %></p>
+        <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>"><%= confirmation_url(@resource, confirmation_token: @token)%></a>
+
+        <p>See you soon on Spayce!</p>
+        <p><%= link_to "Learn more about Spayce", "https://www.fromspayce.com/" %></p>
+      </div>
     </div>
-
-    <p>Bienvenue et merci <%= @resource.email %></p>
-
-    <p>Afin de finaliser votre inscription et pouvoir vous connecter à votre compte Spayce, nous devons vérifier votre adresse email. Merci !</p>
-
-    <p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token), class:"btn" %></p>
-    <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>"><%= confirmation_url(@resource, confirmation_token: @token)%></a>
-
-    <p>A très vite sur Spayce !</p>
-    <p><%= link_to "En savoir plus sur Spayce", "https://www.fromspayce.com/" %></p>
-
-    <hr>
-
-    <p>Welcome and thank you<%= @resource.email %></p>
-
-    <p>In order to complete your registration and be able to log into your Spayce account, we need to verify your email address. Thank you !</p>
-
-    <p><%= link_to 'Check my email', confirmation_url(@resource, confirmation_token: @token), class:"btn" %></p>
-    <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>"><%= confirmation_url(@resource, confirmation_token: @token)%></a>
-
-    <p>See you soon on Spayce!</p>
-    <p><%= link_to "Learn more about Spayce", "https://www.fromspayce.com/" %></p>
-
+    <div class="center footer">
+      <p>From Spayce</p>
+      <p>N° siret :84423490600015</p>
+      <p>Forme juridique: Société par actions simplifiée</p>
+      <p>Date immatriculation RCS : 29-11-2018</p>
+    </div>
   </body>
 </html>
+
+
+
+
