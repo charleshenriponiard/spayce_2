@@ -1,0 +1,25 @@
+<h1 class='pt-3'>Contact Us</h1>
+<p>Can't find an answer in the FAQ? How can we help you?</p>
+
+<%= simple_form_for @message, url: messages_url do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs p-2">
+    <%= f.input :subject,
+      label: 'Subject:',
+      required: true,
+      error: 'Subject is mandatory'
+    %>
+    <%= f.input :body,
+      as: :text,
+      label: 'Message:',
+      required: true,
+      error: 'Message is mandatory'
+    %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "SEND", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
