@@ -1,19 +1,22 @@
 .nav-container {
-  width: 70vw;
+  width: 100vw;
   height: 100px;
   margin: 0px auto;
+  background-color: #FBFBFD;
+  display: flex;
+  justify-content: center;
 }
+
 .navbar {
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
   .nav-btn {
     color: $info;
     border: 1px solid $info;
     padding: 5px 25px;
     text-decoration: none;
-    margin-right: 10px;
     &:hover {
       background-color: $info;
       color: white;
@@ -25,5 +28,47 @@
   .active {
     background-color: $info;
     color: white;
+  }
+}
+
+.navbar-collapse {
+  background-color: #FBFBFD;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  li {
+    margin: 0 40px;
+  }
+}
+
+.nav-active {
+  background-color: #F2F2F2;
+  border-radius: 5px;
+}
+
+@media(max-width: 893px) {
+  .navbar-collapse svg {
+    margin-right: 10px;
+  }
+}
+
+@media(max-width: 1330px) {
+  .navbar-collapse li {
+    margin: 0 20px;
+  }
+}
+
+@media(max-width: 1093px) {
+  .navbar-collapse li {
+    margin: 0 20px;
+  }
+  .navbar {
+    width: 100vw;
+  }
+}
+
+@media(max-width: 910px) {
+  .navbar-collapse li {
+    margin: 0 10px;
   }
 }

@@ -1,50 +1,70 @@
 <div class="nav-container">
-  <div class="navbar navbar-expand-sm navbar-light mb-4">
+  <div class="navbar navbar-expand-lg navbar-light">
     <%= link_to root_path, class: "navbar-brand d-flex mt-2" do %>
       <%= image_tag "logo.jpg", width: 200 %>
     <% end %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="d-flex d-lg-none">
+      <div class="d-flex align-items-center mr-5">
+        <% if I18n.locale == I18n.default_locale %>
+          <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
+            <%= image_tag 'fr.png' %>
+          <% end %>
+        <% else %>
+          <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
+            <%= image_tag 'en.png' %>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
     <% if user_signed_in? %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-          <li class="nav-item mx-5">
-            <div class="d-flex align-items-center">
+          <li class="nav-item nav-item-activable">
+            <div class="d-flex align-items-center px-2">
               <%= inline_svg_tag "upload.svg" %>
               <%= link_to t('views.application.navbar.new_transfer'), root_path, class: "nav-link" %>
             </div>
           </li>
-          <li class="nav-item mx-5">
+          <li class="nav-item nav-item-activable px-2">
             <div class="d-flex align-items-center">
               <%= inline_svg_tag "files.svg" %>
               <%= link_to t('views.application.navbar.my_transfer'), projects_path, class: "nav-link" %>
             </div>
           </li>
-          <li class="nav-item mx-5">
+          <li class="nav-item nav-item-activable px-2">
             <div class="d-flex align-items-center">
               <%= inline_svg_tag "config.svg" %>
               <%= link_to t('views.application.navbar.my_account'), edit_user_registration_path, class: "nav-link" %>
             </div>
           </li>
-          <li class="nav-item mx-5">
+          <li class="nav-item nav-item-activable px-2">
             <div class="d-flex align-items-center">
               <%= inline_svg_tag "mail.svg" %>
               <%= link_to t('views.application.navbar.contact_us'), "#", class: "nav-link" %>
             </div>
           </li>
-          <li class="nav-item mx-5">
+          <li class="nav-item d-flex d-lg-none">
             <div class="d-flex align-items-center">
-              <% if I18n.locale == I18n.default_locale %>
-                <%= link_to "Fr", { :locale=>'fr' }, class: "nav-link" %>
-              <% else %>
-                <%= link_to "En", { :locale=>'en' }, class: "nav-link" %>
-              <% end %>
+              <%= link_to t('views.application.navbar.sign_out'), destroy_user_session_path, method: :delete, class: "nav-btn" %>
             </div>
           </li>
         </ul>
       </div>
-      <div>
+      <div class="d-none d-lg-flex">
+        <div class="d-flex align-items-center mr-2">
+          <% if I18n.locale == I18n.default_locale %>
+            <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
+              <%= image_tag 'fr.png' %>
+            <% end %>
+          <% else %>
+            <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
+              <%= image_tag 'en.png' %>
+            <% end %>
+          <% end %>
+        </div>
         <%= link_to t('views.application.navbar.sign_out'), destroy_user_session_path, method: :delete, class: "nav-btn" %>
       </div>
     <% else %>
