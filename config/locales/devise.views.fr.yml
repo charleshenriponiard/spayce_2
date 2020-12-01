@@ -35,6 +35,7 @@ fr:
         unconfirmed_email: Email non confirmé
         unlock_token: Clé de déverrouillage
         updated_at: Date de mise à jour
+        current_password: "Mot de passe actuel"
     placeholders:
       user:
         first_name: Richard
@@ -45,6 +46,7 @@ fr:
         zipcode: '33000'
         city: Bordeaux
         state: Gironde
+        new_password: "Nouveau mot de passe"
     models:
       user: Utilisateur
   devise:
@@ -136,6 +138,7 @@ fr:
         stripe_dashboard: "Compte Stripe"
         title_edit: Mon compte
         password: Mot de passe
+        custom_password: "Modifier votre mot de passe"
         user: Vos infos
         are_you_sure: Êtes-vous sûr ?
         cancel_my_account: Supprimer mon compte
