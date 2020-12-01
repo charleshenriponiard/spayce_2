@@ -4,7 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def send_email_to_admin
-    byebug
     AdminMailer.remove_account(resource).deliver_later
   end
 
