@@ -4,8 +4,8 @@
         <%= f.input :documents, as: :file, label: false, input_html: { multiple: true, direct_upload: true, data: { target: 'dropzone.input' } }  %>
         <div class="dropzone-msg dz-message needsclick text-gray-600">
           <%= inline_svg_tag "dropzone.svg" %>
-          <h3 class="">Drag & drop your files</h3>
-          <span class="">or click to browse files on your computer</span>
+          <h3 class=""><%= t('views.projects.form.drag_and_drop') %></h3>
+          <span class=""><%= t('views.projects.form.browse') %></span>
         </div>
       </div>
     </div>

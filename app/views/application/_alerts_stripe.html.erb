@@ -1,14 +1,14 @@
 <% if current_user %>
   <% if current_user.no_account? %>
     <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
-        <span class="flash-message"><%== t('view.application.alerts_stripe.no_account_html')%><%= " " %><%= link_to t('view.application.alerts_stripe.link_alerts_stripe'), edit_user_registration_path, class:"alert-link"%></span>
+        <span class="flash-message"><%== t('views.application.alerts_stripe.no_account_html')%><%= " " %><%= link_to t('views.application.alerts_stripe.link_alerts_stripe'), edit_user_registration_path, class:"alert-link"%></span>
         <a data-dismiss="alert" aria-label="Close">
           <%= inline_svg_tag "close.svg", class: "white-close" %>
         </a>
     </div>
   <% elsif current_user.onboarded? || current_user.information_needed? %>
     <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-      <span class="flash-message"><%== t('view.application.alerts_stripe.onboarded') %><%= " " %><%= link_to t('view.application.alerts_stripe.link_alerts_stripe'), edit_user_registration_path, class:"alert-link"%></span>
+      <span class="flash-message"><%== t('views.application.alerts_stripe.onboarded') %><%= " " %><%= link_to t('views.application.alerts_stripe.link_alerts_stripe'), edit_user_registration_path, class:"alert-link"%></span>
       <a data-dismiss="alert" aria-label="Close">
         <%= inline_svg_tag "close.svg", class: "white-close" %>
       </a>
@@ -16,7 +16,7 @@
   <% elsif current_user.verified_status_alert? %>
     <% update_verified_status_alert(current_user) %>
     <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-      <span class="flash-message"><%== t('view.application.alerts_stripe.verified') %></span>
+      <span class="flash-message"><%== t('views.application.alerts_stripe.verified') %></span>
       <a data-dismiss="alert" aria-label="Close">
         <%= inline_svg_tag "close.svg", class: "white-close" %>
       </a>

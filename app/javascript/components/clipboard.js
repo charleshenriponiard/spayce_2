@@ -24,8 +24,7 @@ const copyToClipboard = () => {
   const button = document.getElementById("clipborad-button");
   const copyButton = () => {
     copyText(button.dataset.attribute);
-    // TODO passer le texte en dataset pour i18n
-    button.innerHTML = 'Copied !';
+    button.innerHTML = button.dataset.copied;
   }
 
   if (button) {

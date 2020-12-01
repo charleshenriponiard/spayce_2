@@ -1,7 +1,6 @@
 <% if project_sent %>
   <div class="flash flash-success alert alert-dismissible fade show" role="alert">
-    <%#= ToDo => i18n %>
-    <span class="flash-message">THE TRANSFERT HAS BEEN SENT!</span>
+    <span class="flash-message"><%= t('views.projects.email_sent_alert.alert') %></span>
     <a data-dismiss="alert" aria-label="Close">
       <%= inline_svg_tag "close.svg", class: "white-close" %>
     </a>

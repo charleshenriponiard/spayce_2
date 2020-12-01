@@ -7,7 +7,7 @@ fr:
       mark: '*'
     error_notification:
       default_message: "Merci de prendre compte des points relevés."
-  view:
+  views:
     application:
       navbar:
         new_transfer: "Nouveau transfert"
@@ -22,14 +22,60 @@ fr:
         onboarded: "Stripe a besoin de quelques documents pour valider votre compte, n'hésitez pas à les ajouter rapidement pour pouvoir utiliser <b>Spayce</b>."
         verified: "<b>Félicitations !</b> Votre compte est vérifié, vous pouvez maintenant créer un projet sur <b>Spayce</b>."
         link_alerts_stripe: " Accéder à mon profil >"
-    project:
+    clients:
+      projects:
+        show:
+          received_from: "Vous avez reçu des fichiers de la part de"
+          to_be_paid: "Pour pouvoir les télécharger, vous devez régler la somme de"
+          expiration: "Le transfert expirera le"
+          expiration_info: "Après cette date, vous n'aurez plus la possibilité de payer ou télécharger ces fichiers."
+          payemnt_successful: "Félicitations votre paiement est validé, vous pouvez télécharger les documents ci-dessous (cela peut prendre quelques secondes) :"
+          loading: "En cours de chargement..."
+          checkout: 'Payer'
+          expired: "Vous ne pouvez plus accéder au paiement de ce transfert nous vous invitons de prendre contact avec"
+          payemnt_failed: "Votre paiement n'a pas été pris en compte, veuillez réessayer."
+    invoices:
+      show:
+        for: 'Pour :'
+        invoice: Facture
+        date: "Date d'émission :"
+        taxes_included: "Prix toutes taxes comprises"
+        transfer_ref: "Transfert ref :"
+        commission: "Commission Spayce"
+        vat: TVA (20%)
+    pages:
+      account_confirmation:
+        title: "Votre email est en attente de confirmation."
+        content: "Nous vous avons envoyé un email de confirmation sur l'adresse fournie, veuillez en prendre connaissance et cliquer sur le lien fourni pour accéder aux étapes suivantes de la création de votre compte."
+    projects:
+      bill:
+        price: "Prix"
+        spayce_commission: "Commission Spayce"
+        promo_code: 'Vous avez un code promo ?'
+        promo_code_submit: 'Appliquer'
+        promo_code_invalid: "Ce coupon n'est plus valide."
+        promo_code_valid: 'La réduction de %{percent_off}% a été appliquée.'
+        tax: 'Taxe'
+        instance: "Vous allez recevoir sur votre compte bancaire"
+      email_sent_alert:
+        alert: 'LE TRANSFERT A BIEN ÉTÉ ENVOYÉ !'
+      form:
+        drag_and_drop: 'Faites glisser vos fichiers'
+        browse: 'ou cliquez pour sélectionner sur votre ordinateur'
+      confirmation:
+        title: "Your files are ready to be sent"
+        files: fichiers
+        mega_bytes: Mo
+        recipient: 'Destinataire :'
+        message: 'Message :'
+        send: 'Envoyer le projet'
+        tooltip: "Enverrra l'email directement à votre client"
+        copy: "Copier le lien"
+        copied: "Copié !"
+      edit:
+        title: Éditer le projet
       new:
         title: 'Nouveau transfert'
-        bill_price: "Prix"
-        bill_spayce_commission: "Commission Spayce"
-        bill_promo_code: 'Code promo'
-        bill_tax: 'Taxe'
-        bill_instance: "Vous allez recevoir sur votre compte bancaire"
       index:
         price: "Prix"
         client: "Client"
@@ -53,6 +99,15 @@ fr:
         sent_on: "Envoyé le"
         expiration_date: "Date d'expiration"
         status: 'Statut'
+    registration_steps:
+      user_info:
+        title: 'Créez votre compte gratuit'
+        second_title: 'Informations personnelles'
+        payment_info:
+          title: 'Informations sur le paiement'
+          content: 'Nous utilisons le service Stripe pour nous assurer que vous soyez payés dans les temps ainsi que pour garder vos informations bancaires et personnelles en sécurité. Cliquez sur Sauvegarder et Continuer pour lancer votre inscription sur Stripe.'
+        submit: "SAUVEGARDER et CONTINUER"
+        skip: 'Passer cette page'
   form:
     label:
       recipient_name: "Nom du client"

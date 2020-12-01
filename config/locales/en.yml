@@ -38,7 +38,7 @@ en:
       mark: '*'
     error_notification:
       default_message: "Please review the problems highlighted."
-  view:
+  views:
     application:
       navbar:
         new_transfer: "New transfer"
@@ -53,14 +53,60 @@ en:
         onboarded: "Stripe needs some documents to validate your account, do not hesitate to add them quickly to access <b>Spayce</b> functionalities."
         verified: '<b>Congrats!</b> Your account has been verified, you can now create your first project on <b>Spayce</b>.'
         link_alerts_stripe: 'Go to my profile >'
-    project:
+    clients:
+      projects:
+        show:
+          received_from: "You have received files from"
+          to_be_paid: "To be able to download them, you must pay"
+          expiration: "The transfer will expire on"
+          expiration_info: "After that, you will no longer be able to download the files."
+          payemnt_successful: "Congrats! Your payment was successful, you can now download the documents right here (you might have to wait a few seconds):"
+          loading: "Loading..."
+          checkout: 'Checkout'
+          expired: "Vous ne pouvez plus accéder au paiement de ce transfert nous vous invitons de prendre contact avec"
+          payemnt_failed: "Votre paiement n'a pas été pris en compte, veuillez réessayer."
+    invoices:
+      show:
+        for: 'For:'
+        invoice: Invoice
+        date: "Issue date:"
+        taxes_included: "All taxes included Price"
+        transfer_ref: "Transfer ref:"
+        commission: "Spayce Commission"
+        vat: VAT (20%)
+    pages:
+      account_confirmation:
+        title: "Your email address must be validated."
+        content: "We sent the email confirmation to your address, please look at it and click on the link provided."
+    projects:
+      bill:
+        price: "Price"
+        spayce_commission: "Spayce commission"
+        promo_code: "You have a Promo Code?"
+        promo_code_submit: 'Apply'
+        promo_code_invalid: 'This promocode is expired.'
+        promo_code_valid: 'The %{percent_off}% discount has been applied.'
+        tax: 'Tax'
+        instance: "You will receive on your bank account"
+      email_sent_alert:
+        alert: 'THE TRANSFERT HAS BEEN SENT!'
+      form:
+        drag_and_drop: 'Drag & drop your files'
+        browse: 'or click to browse files on your computer'
+      confirmation:
+        title: "Your files are ready to be sent"
+        files: files
+        mega_bytes: Mb
+        recipient: 'Recipient:'
+        message: 'Message:'
+        send: 'Send project'
+        tooltip: "Will send the email directly to your client"
+        copy: "Copy link"
+        copied: "Copied!"
+      edit:
+        title: Edit Project
       new:
         title: 'Send a new tranfer'
-        bill_price: "Price"
-        bill_spayce_commission: "Spayce commission"
-        bill_promo_code: 'Promo code'
-        bill_tax: 'Tax'
-        bill_instance: "You will receive on your bank account"
       index:
         price: "Price"
         client: "Client"
@@ -84,6 +130,15 @@ en:
         sent_on: "Sent on"
         expiration_date: "Expiration date"
         status: 'Status'
+    registration_steps:
+      user_info:
+        title: 'Create your free account'
+        second_title: 'Personal information'
+        payment_info:
+          title: 'Payment information'
+          content: 'We use Stripe to make sure you get paid on time and to keep your personal bank and details secure. Click Save and continue to set up your payments on Stripe.'
+        submit: "SAVE and CONTINUE"
+        skip: 'Skip this Page'
   form:
     label:
       recipient_name: "Recipient Name"
