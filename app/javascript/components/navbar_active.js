@@ -9,6 +9,8 @@ const navbarActive = () => {
       navLinks[1].classList.add('nav-active')
     } else if (path.includes('/users/edit')) {
       navLinks[2].classList.add('nav-active')
+    } else if (path.includes('/contact')) {
+      navLinks[3].classList.add('nav-active')
     }
   }
 }
