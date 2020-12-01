@@ -36,27 +36,15 @@
         <%= image_tag attachments['logo.jpg'].url%>
       </div>
       <div>
-        <p>Bienvenue et merci <%= @resource.email %></p>
+        <p><%= t('.welcome', email: @resource.email) %></p>
 
-        <p>Afin de finaliser votre inscription et pouvoir vous connecter à votre compte Spayce, nous devons vérifier votre adresse email. Merci !</p>
+        <p><%= t('.line1') %></p>
 
         <p><%= link_to t('.action'), confirmation_url(@resource, confirmation_token: @token), class:"btn" %></p>
         <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>"><%= confirmation_url(@resource, confirmation_token: @token)%></a>
 
-        <p>A très vite sur Spayce !</p>
-        <p><%= link_to "En savoir plus sur Spayce", "https://www.fromspayce.com/" %></p>
-
-        <hr>
-
-        <p>Welcome and thank you<%= @resource.email %></p>
-
-        <p>In order to complete your registration and be able to log into your Spayce account, we need to verify your email address. Thank you !</p>
-
-        <p><%= link_to 'Check my email', confirmation_url(@resource, confirmation_token: @token), class:"btn" %></p>
-        <a href="<%= confirmation_url(@resource, confirmation_token: @token) %>"><%= confirmation_url(@resource, confirmation_token: @token)%></a>
-
-        <p>See you soon on Spayce!</p>
-        <p><%= link_to "Learn more about Spayce", "https://www.fromspayce.com/" %></p>
+        <p><%= t('.see_you') %></p>
+        <p><%= link_to t('.know_more'), "https://www.fromspayce.com/" %></p>
       </div>
     </div>
     <div class="center footer">
