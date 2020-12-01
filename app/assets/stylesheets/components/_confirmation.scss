@@ -1,0 +1,10 @@
+.reminder-elements {
+  border: 1px dashed #E0E2DB;
+  border-radius: 10px;
+  max-height: 320px;
+  overflow: scroll;
+  div:nth-child(even) {
+    background-color: #E0E2DB;
+    border-radius: 3px;
+  }
+}
