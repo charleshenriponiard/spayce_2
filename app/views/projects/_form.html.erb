@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <%= f.input :name %>
+    <%= f.input :name, label: t('form.label.name'), placeholder: t('form.placeholder.name') %>
     <div class="row" >
       <div class="col-6">
         <%= f.input :client_last_name, label: t('form.label.recipient_name') %>
@@ -22,7 +22,7 @@
     <%= f.input :message %>
     <%= f.input :amount,
       label: t('form.label.price'),
-      placeholder: "545.00",
+      placeholder: "1545.50",
       hint: t('form.hint.price'),
       input_html: { data: { action: "keyup->bill#createBill" } }
     %>

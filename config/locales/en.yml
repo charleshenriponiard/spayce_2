@@ -141,15 +141,17 @@ en:
         skip: 'Skip this Page'
   form:
     label:
+      name: "Give a name to your transfer"
       recipient_name: "Recipient Name"
       recipient_email: "Recipient Email"
       price: "Price"
     hint:
       price: "(amount to be paid for the files)"
     placeholder:
+      name: "Monsieur Dupon logo"
       search: "Search"
     button:
-      save: "Create %{en_model}"
+      save: "Validate the transfer"
   activerecord:
     models:
       project: "Project"
