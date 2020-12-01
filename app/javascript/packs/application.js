@@ -15,12 +15,14 @@ import { triggerStripeCheckout } from "../components/stripe_checkout_button"
 import { copyToClipboard } from "components/clipboard"
 import { triggerTooltips } from "../components/trigger_tooltips"
 import { initProjectCable } from "../channels/project_channel"
-import active from "../components/active_class"
+import authActive from "../components/auth_active_class"
+import { navbarActive } from "../components/navbar_active"
 
 document.addEventListener('turbolinks:load', () => {
   triggerStripeCheckout();
   copyToClipboard();
   triggerTooltips();
-  active();
+  authActive();
   initProjectCable();
+  navbarActive();
 });

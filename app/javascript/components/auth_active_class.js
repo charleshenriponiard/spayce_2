@@ -1,6 +1,6 @@
 import { preventInsignificantClick } from "@rails/ujs";
 
-const active = () => {
+const authActive = () => {
   if(window.location.pathname.includes('/sign_up')){
     const signUp = document.getElementById("sign-up")
     signUp.classList.add("active");
@@ -10,4 +10,4 @@ const active = () => {
   }
 };
 
-export default active;
+export default authActive;
