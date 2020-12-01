@@ -7,6 +7,9 @@ fr:
       mark: '*'
     error_notification:
       default_message: "Merci de prendre compte des points relevés."
+  controllers:
+    messages:
+      sent: "Votre message a bien été envoyé ! Nous reviendrons vers vous au plus vite."
   views:
     application:
       navbar:
@@ -22,6 +25,14 @@ fr:
         onboarded: "Stripe a besoin de quelques documents pour valider votre compte, n'hésitez pas à les ajouter rapidement pour pouvoir utiliser <b>Spayce</b>."
         verified: "<b>Félicitations !</b> Votre compte est vérifié, vous pouvez maintenant créer un projet sur <b>Spayce</b>."
         link_alerts_stripe: " Accéder à mon profil >"
+    messages:
+      new:
+        title: Nous Contacter
+        subject_label: 'Sujet :'
+        subject_error: 'Le sujet est obligatoire'
+        body_label: 'Message :'
+        body_error: 'Le message est obligatoire'
+        submit: ENVOYER
     clients:
       projects:
         show:
