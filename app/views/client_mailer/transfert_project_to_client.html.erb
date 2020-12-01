@@ -34,11 +34,11 @@
     </style>
   </head>
   <body>
-    <div class="center">
-      <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
-    </div>
     <div class="background container">
-      <div class="">
+      <div class="center">
+        <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
+      </div>
+      <div>
         <h3><%= t("mailer.hello") %></h3>
         <p><%== t("mailer.sent_project.line_1", first_name: @project.user.first_name, last_name: @project.user.last_name ) %></p>
         <p><%= @project.message %></p>

@@ -34,10 +34,10 @@
     </style>
   </head>
   <body>
-    <div class="center">
-      <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
-    </div>
     <div class="background container">
+      <div class="center">
+        <%= image_tag attachments['logo.png'].url, width:"100", height:"100" %>
+      </div>
       <div>
         <h3><%= t("mailer.hello") %></h3>
         <p><%= t("mailer.user_expired.line_1", date: l(@project.created_at, format: :long)) %></p>
