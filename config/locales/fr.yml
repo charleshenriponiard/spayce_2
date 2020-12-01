@@ -33,6 +33,7 @@ fr:
         body_label: 'Message :'
         body_error: 'Le message est obligatoire'
         submit: ENVOYER
+        faq: "Vous n'avez pas trouvé la réponse dans la <a href='https://www.fromspayce.com/faq' target='_blank'>FAQ</a> ? Comment puis-je vous aider ?"
     clients:
       projects:
         show:
