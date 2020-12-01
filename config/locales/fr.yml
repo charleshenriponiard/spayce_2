@@ -430,12 +430,12 @@ fr:
       line_4: "Bonne journée et à très vite pour de nouveaux transferts en toute sécurité !"
     client_expired:
       subject: "Lien de transfert expiré"
-      line_1: "Le transfert envoyé le %{date} vient d’expirer."
+      line_1: "Le transfert envoyé le <span class=\"text-info\">%{date}</span> vient d’expirer."
       line_2: "Le lien est maintenant désactivé et le téléchargement est impossible."
       line_3: "Bonne journée et à très vite pour de nouveaux transferts en toute sécurité !"
     user_expired:
       subject: "Lien de transfert expiré"
-      line_1: "Le transfert envoyé le %{date} vient d’expirer."
+      line_1: "Le transfert envoyé le <span class=\"text-info\">%{date}</span> vient d’expirer."
       line_2: "Le lien est maintenant désactivé et le téléchargement est impossible."
       line_3: "Bonne journée et à très vite pour de nouveaux transferts en toute sécurité !"
     user_sent_project:
