@@ -127,6 +127,7 @@ en:
         project_name: "Project name"
         nbr_files: "Number of files transferred"
         transfer_link: "Upload link"
+        transfer_upload: "Upload"
         sent_on: "Sent on"
         expiration_date: "Expiration date"
         status: 'Status'

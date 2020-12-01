@@ -38,7 +38,7 @@
           <div class="font-weight-bold my-2"><%= t('views.projects.show.project_name') %></div>
           <div class="font-weight-bold my-2"><%= t('views.projects.show.nbr_files') %></div>
           <div>
-            <% unless @project.url.nil? %>
+            <% if @project.payment_succeeded? && !@project.paid_expired? %>
               <div class="font-weight-bold my-2"><%= t('views.projects.show.transfer_link') %></div>
             <% end %>
           </div>
@@ -46,6 +46,9 @@
         <div class="col-8">
           <div class="my-2"><%= @project.name %></div>
           <div class="my-2"><%= @project.documents.count %></div>
+          <% if @project.payment_succeeded? && !@project.paid_expired?%>
+            <div class="my-2"><%= link_to t('views.projects.show.transfer_upload'), @project.url, class:"btn btn-info"%></div>
+          <% end %>
         </div>
       </div>
     </section>
