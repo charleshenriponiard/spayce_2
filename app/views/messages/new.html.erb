@@ -1,0 +1,25 @@
+<h1 class='pt-3'><%= t('views.messages.new.title') %></h1>
+<p><%== t('views.messages.new.faq') %></p>
+
+<%= simple_form_for @message, url: messages_url do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs p-2">
+    <%= f.input :subject,
+      label: t('views.messages.new.subject_label'),
+      required: true,
+      error: t('views.messages.new.subject_error')
+    %>
+    <%= f.input :body,
+      as: :text,
+      label: t('views.messages.new.body_label'),
+      required: true,
+      error: t('views.messages.new.body_label')
+    %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, t('views.messages.new.submit'), class: "btn btn-primary" %>
+  </div>
+<% end %>
+

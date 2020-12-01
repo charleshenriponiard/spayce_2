@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   private
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^pages$)|(^registration_steps$)|(^stripes$)/
+    devise_controller? || params[:controller] =~ /(^pages$)|(^registration_steps$)|(^stripes$)|(^messages$)/
   end
 
   def set_locale

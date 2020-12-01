@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   scope '(:locale)', locale: /fr|en/ do
     root to: 'projects#new'
+    get '/contact', to: 'messages#new', as: :contact
+    resources :messages, only: :create
     # Routes pour multistep form
     resources :registration_steps, only: [:index, :show, :update]
 
