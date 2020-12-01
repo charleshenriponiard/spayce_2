@@ -1,25 +1,35 @@
 <div class="container" data-controller="bill">
-  <h1 class="my-md-5"> Your files are alredy be sent</h1>
+  <h1 class="my-md-5"><%= t('views.projects.confirmation.title') %></h1>
   <div class="row">
     <div class="col-md-8">
-      <%= @project.documents.count %> files / <%= @project.documents.map(&:byte_size).sum %> bytes
+      <p class="text-light-gray"><%= document_count_and_size(@project.documents) %></p>
       <div class="p-3 border">
         <% @project.documents.each do |doc| %>
           <div class="d-flex justify-content-between align-items-center">
             <span><%= doc.blob.filename %></span>
-            <span><%= doc.blob.byte_size %> Byte</span>
+            <span><%= "#{bytes_to_mb(doc.blob.byte_size)} #{t('views.projects.confirmation.mega_bytes')}" %></span>
           </div>
         <% end %>
       </div>
       <div class="card-body">
         <div>
-          <%= confirmation_card( "Recipient", @project.client_email) %>
-          <%= confirmation_card( "Messages", @project.message) %>
+          <%= confirmation_card( t('views.projects.confirmation.recipient'), @project.client_email) %>
+          <%= confirmation_card( t('views.projects.confirmation.message'), @project.message) %>
         </div>
       </div>
       <div class="d-flex justify-content-around mt-3">
-        <%= link_to "Send email", sending_project_path, class:"btn btn-primary", data: { toggle: 'tooltip', placement: 'bottom', title: 'will send the email directly to your client' } %>
-        <button id="clipborad-button" data-toggle="tooltip" data-placement="bottom" title=<%= request.host_with_port + clients_project_path%> data-attribute=<%= request.host_with_port + clients_project_path%> class="btn btn-primary">Copy link</button>
+        <%= link_to t('views.projects.confirmation.send'), sending_project_path, class:"btn btn-primary", data: { toggle: 'tooltip', placement: 'bottom', title: t('views.projects.confirmation.tooltip') } %>
+        <button
+          id="clipborad-button"
+          data-toggle="tooltip"
+          data-placement="bottom"
+          title=<%= request.host_with_port + clients_project_path %>
+          data-attribute=<%= request.host_with_port + clients_project_path %>
+          class="btn btn-primary"
+          data-copied=<%= t('views.projects.confirmation.copied') %>
+        >
+          <%= t('views.projects.confirmation.copy') %>
+        </button>
       </div>
     </div>
     <div class="col-md-4">

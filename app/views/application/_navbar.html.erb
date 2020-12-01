@@ -12,25 +12,25 @@
           <li class="nav-item mx-5">
             <div class="d-flex align-items-center">
               <%= inline_svg_tag "upload.svg" %>
-              <%= link_to t('view.application.navbar.new_transfer'), root_path, class: "nav-link" %>
+              <%= link_to t('views.application.navbar.new_transfer'), root_path, class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item mx-5">
             <div class="d-flex align-items-center">
               <%= inline_svg_tag "files.svg" %>
-              <%= link_to t('view.application.navbar.my_transfer'), projects_path, class: "nav-link" %>
+              <%= link_to t('views.application.navbar.my_transfer'), projects_path, class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item mx-5">
             <div class="d-flex align-items-center">
               <%= inline_svg_tag "config.svg" %>
-              <%= link_to t('view.application.navbar.my_account'), edit_user_registration_path, class: "nav-link" %>
+              <%= link_to t('views.application.navbar.my_account'), edit_user_registration_path, class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item mx-5">
             <div class="d-flex align-items-center">
               <%= inline_svg_tag "mail.svg" %>
-              <%= link_to t('view.application.navbar.contact_us'), "#", class: "nav-link" %>
+              <%= link_to t('views.application.navbar.contact_us'), "#", class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item mx-5">
@@ -45,12 +45,12 @@
         </ul>
       </div>
       <div>
-        <%= link_to t('view.application.navbar.sign_out'), destroy_user_session_path, method: :delete, class: "nav-btn" %>
+        <%= link_to t('views.application.navbar.sign_out'), destroy_user_session_path, method: :delete, class: "nav-btn" %>
       </div>
     <% else %>
       <div>
-        <%= link_to t('view.application.navbar.sign_in'), new_user_session_path, class: "nav-btn", id:"sign-in" %>
-        <%= link_to t('view.application.navbar.sign_up'), new_user_registration_path, class: "nav-btn", id:"sign-up" %>
+        <%= link_to t('views.application.navbar.sign_in'), new_user_session_path, class: "nav-btn", id:"sign-in" %>
+        <%= link_to t('views.application.navbar.sign_up'), new_user_registration_path, class: "nav-btn", id:"sign-up" %>
       </div>
     <% end %>
   </div>

@@ -2,7 +2,7 @@
   <div class="my-5 d-flex justify-content-around align-items-center border-bottom pb-3">
     <%= image_tag "logo.png", width: 300 %>
     <div>
-      <p class="font-weight-bolder"> SAS BRIDGE - Spayce</p>
+      <p class="font-weight-bolder">SAS BRIDGE - Spayce</p>
       <p class="text_address_spacing">54 cours Victor Hugo, 33150 Cenon</p>
       <p class="text_address_spacing">fromspayce@gmail.com</p>
       <%= link_to 'www.fromspayce.com', "https://www.fromspayce.com/", class:"text-decoration-none text_address_spacing" %>
@@ -10,12 +10,12 @@
   </div>
 
   <div class="d-flex justify-content-between align-items-center mx-5">
-    <p>For: </p>
-    <p class="text-primary">Invoice N° <%= @project.invoice.id %></p>
+    <p><%= t('views.invoices.show.for') %></p>
+    <p class="text-primary"><%= t('views.invoices.show.invoice') %> N° <%= @project.invoice.id %></p>
   </div>
   <div class="d-flex justify-content-between align-items-center mx-5">
     <p><%= @project.user.entity_name %></p>
-    <p class="font-weight-bolder">Date of issue: <%= l(@project.invoice.created_at, format: :short) %></p>
+    <p class="font-weight-bolder"><%= t('views.invoices.show.date') %> <%= l(@project.invoice.created_at, format: :short) %></p>
   </div>
   <div class="d-flex justify-content-between align-items-center mx-5">
     <div>
@@ -34,12 +34,12 @@
   <div class="row mb-1 mt-5">
     <div class="col-6 bg-light-gray p-2"></div>
     <div class="col-6 text-center bg-green text-white p-2">
-      <p>All taxes included Price</p>
+      <p><%= t('views.invoices.show.taxes_included') %></p>
     </div>
   </div>
   <div class="row mb-5">
     <div class="col-6 text-center bg-light-gray text-white p-2">
-      <p>Transfer ref: </p>
+      <p><%= t('views.invoices.show.transfer_ref') %></p>
     </div>
     <div class="col-6 text-center bg-green text-white p-2">
       <p><%= @project.id %></p>
@@ -48,7 +48,7 @@
 
   <div class="row mt-5">
     <div class="col-6 bg-light-gray p-2">
-      <p class="text-right text-white pr-2">Spayce Commision</p>
+      <p class="text-right text-white pr-2"><%= t('views.invoices.show.commission') %></p>
     </div>
     <div class="col-6 text-center bg-light-gray text-white p-2">
       <p><%= number_to_currency(@project.commission) %></p>
@@ -56,7 +56,7 @@
   </div>
   <div class="row mb-5">
     <div class="col-6 bg-light-gray text-white p-2">
-      <p class="text-right pr-2">VAT (20%) </p>
+      <p class="text-right pr-2"><%= t('views.invoices.show.vat') %></p>
     </div>
     <div class="col-6 text-center bg-light-gray text-white p-2">
       <p><%= number_to_currency(@project.tax) %></p>
@@ -64,7 +64,7 @@
   </div>
   <div class="row mb-5">
     <div class="col-6 p-2">
-      <p class="text-right text-green font-weight-bolder pr-2">TOTAL </p>
+      <p class="text-right text-green font-weight-bolder pr-2">TOTAL</p>
     </div>
     <div class=" text-center col-6 font-weight-bolder text-green p-2">
       <p><%= number_to_currency(@project.tax + @project.commission ) %></p>
