@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class=" container">
-    <div class="card-connexion">
-      <h1 class="text-center mb-5"><%= t('views.registration_steps.user_info.title') %></h1>
+    <div class="card-connexion my-5 pb-5">
+      <h1 class="text-center my-5"><%= t('views.registration_steps.user_info.title') %></h1>
       <div class="row mb-3">
         <div class="col-4 offset-2 progress-bar progress-bar-yellow ">
         </div>
@@ -10,7 +10,7 @@
       </div>
       <%= simple_form_for(current_user, wrapper: :inline_form, url: wizard_path, method: :put) do |f| %>
         <div class="form-inputs">
-          <div class="border p-3 mb-3">
+          <div class="border rounded p-3 mb-3">
           <h4 class="text-center form-headers"><%= t('views.registration_steps.user_info.second_title') %></h4>
           <%= f.input :first_name,
                       autofocus: true,
@@ -45,19 +45,14 @@
                       prompt: 'Select your country' %>
           </div>
         </div>
-        <div class="border p-3">
+        <div class="border rounded-3 p-3">
           <h4 class="text-center form-headers"><%= t('views.registration_steps.user_info.payment_info.title') %></h4>
           <p><%= t('views.registration_steps.user_info.payment_info.content') %></p>
         </div>
         <div class="form-actions text-center">
-          <%= f.button :submit, t('views.registration_steps.user_info.submit'), class: "btn btn-info button-connexion text-white mt-3" %>
+          <%= f.button :submit, t('views.registration_steps.user_info.submit'), class: "btn btn-info button-connexion text-white mt-3 py-3" %>
         </div>
       <% end %>
-      <div class="text-center mt-5">
-        <div class="d-flex align-items-center justify-content-center">
-          <%= link_to t('views.registration_steps.user_info.skip'), next_wizard_path, class: "btn btn-outline-secondary" %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
