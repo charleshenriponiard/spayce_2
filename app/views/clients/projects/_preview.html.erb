@@ -1,30 +1,21 @@
-<% project.documents.each do |document| %>
-  <% if document.variable? %>
-    <div>
-      <%= image_tag document.variant(
-          combine_options: {
-            resize_to_limit: [150, 150],
-            gravity: 'center',
-            draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
-          }
-        ), alt: document.blob.filename
-      %>
-      <p class=""><%= document.blob.filename %></p>
-    </div>
-  <% elsif document.previewable? %>
-    <div>
-      <%= image_tag document.blob.preview(
-            resize_to_limit: [150, 150],
-            gravity: 'center',
-            draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
-          ), alt: document.blob.filename
-      %>
-      <p class=""><%= document.blob.filename %></p>
-    </div>
-  <% else %>
-    <div>
-      <%= image_tag get_placeholder(document.blob), alt: document.blob.filename, width: 150 %>
-      <p class=""><%= document.blob.filename %></p>
-    </div>
-  <% end %>
+<% if document.variable? %>
+  <%= image_tag document.variant(
+      combine_options: {
+        resize_to_limit: [400, 400],
+        gravity: 'center',
+        draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
+      }
+    ), alt: document.blob.filename, width: 150, height: 175
+  %>
+<% elsif document.previewable? %>
+  <%= image_tag document.blob.preview(
+    resize_to_limit: [400, 400],
+        gravity: 'center',
+        draw: 'image Over 0,0 0,0 "'+Project::WATERMARK_PATH.to_s+'"'
+      ), alt: document.blob.filename, width: 150, height: 175
+  %>
+<% else %>
+  <%= image_tag get_placeholder(document.blob), alt: document.blob.filename, width: 150, height: 175 %>
 <% end %>
+<p class="mt-1"><%= document.blob.filename %></p>
+<p class="mb-1 text-light-grey"><%= "#{bytes_to_mb(document.blob.byte_size)} #{t('views.projects.confirmation.mega_bytes')}" %></p>

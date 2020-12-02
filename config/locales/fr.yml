@@ -41,7 +41,7 @@ fr:
           to_be_paid: "Pour pouvoir les télécharger, vous devez régler la somme de"
           expiration: "Le transfert expirera le"
           expiration_info: "Après cette date, vous n'aurez plus la possibilité de payer ou télécharger ces fichiers."
-          payemnt_successful: "Félicitations votre paiement est validé, vous pouvez télécharger les documents ci-dessous (cela peut prendre quelques secondes) :"
+          payemnt_successful: "<strong class='text-green'>Félicitations !</strong><br>Votre paiement est validé, vous pouvez télécharger les documents ci-dessous <em>(cela peut prendre quelques secondes)</em> :"
           loading: "En cours de chargement..."
           checkout: 'Payer'
           expired: "Vous ne pouvez plus accéder au paiement de ce transfert nous vous invitons de prendre contact avec"

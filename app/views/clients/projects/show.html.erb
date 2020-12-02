@@ -1,33 +1,63 @@
-<p><%= t('views.clients.projects.show.received_from') %> <%= @project.user.first_name.capitalize || "Michel" %> <%= @project.user.last_name.upcase || "DURAND" %></p>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-9">
+      <p class="mb-2"><%= t('views.clients.projects.show.received_from') %> <strong><%= @project.user.first_name.capitalize || "Michel" %> <%= @project.user.last_name.upcase || "DURAND" %></strong></p>
 
-<p><%= t('views.clients.projects.show.to_be_paid') %> <%= number_to_currency(@project.amount) %></p>
+      <p class="mb-2"><%= t('views.clients.projects.show.to_be_paid') %> <strong class="text-orange"><%= number_to_currency(@project.amount) %></strong></p>
 
-<p><%= t('views.clients.projects.show.expiration') %> <%= @project.created_at + 7 %>.</p>
-<p><%= t('views.clients.projects.show.expiration_info') %></p>
+      <p><%= t('views.clients.projects.show.expiration') %> <strong><%= l(@project.created_at + 7, format: :short) %></strong>.</p>
+      <p class="text-red mb-5 expiration-warning"><%= inline_svg_tag "warning.svg", height: '12px' %> <em><%= t('views.clients.projects.show.expiration_info') %></em></p>
 
-<div class="d-flex w-100 flex-wrap">
-  <%= render 'preview', project: @project %>
-</div>
+      <div class="d-flex preview-items-container">
+        <% @project.documents.each do |document| %>
+          <button type="button" class="preview-item d-flex flex-column justify-content-center align-items-center mb-4" data-toggle="modal" data-target="#exampleModal-<%= document.id %>">
+            <%= render 'preview', document: document %>
+          </button>
 
-<script src="https://js.stripe.com/v3/"></script>
-<% if @project.payment_succeeded? && !@project.paid_expired? %>
-  <p><%= t('views.clients.projects.show.payemnt_successful') %></p>
-  <div id="download_button" data-project-id=<%= @project.id %>>
-    <% unless @project.url.nil? %>
-      <%= render 'button', project: @project %>
-    <% else %>
-      <div class="spinner-border text-info" role="status">
-        <span class="sr-only"><%= t('views.clients.projects.show.loading') %></span>
+          <div class="modal fade" id="exampleModal-<%= document.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content preview-modal">
+                <%= render 'preview', document: document %>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+
+    <div class="col-md-3 d-flex flex-direction-column justify-content-center">
+      <script src="https://js.stripe.com/v3/"></script>
+      <% if @project.payment_succeeded? && !@project.paid_expired? %>
+        <div>
+          <p class="text-center mb-4"><%== t('views.clients.projects.show.payemnt_successful') %></p>
+          <div id="download_button" data-project-id=<%= @project.id %>>
+            <% unless @project.url.nil? %>
+              <%= render 'button', project: @project %>
+            <% else %>
+              <div class="spinner-border text-info" role="status">
+                <span class="sr-only"><%= t('views.clients.projects.show.loading') %></span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% else %>
+        <% if @project.sent? %>
+          <button
+            id="checkout-button"
+            class="checkout-button"
+            data-spk="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
+            data-uid="<%= @project.user.uid %>"
+            data-csid="<%= @project.checkout_session_id %>"
+          >
+            <%= t('views.clients.projects.show.checkout') %>
+          </button>
+        <% else %>
+          <p><%= t('views.clients.projects.show.expired') %> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
+        <% end %>
+        <% if @project.payment_failed?  %>
+          <p><%= t('views.clients.projects.show.payemnt_failed') %></p>
+        <% end %>
+      <% end %>
+      </div>
   </div>
-<% else %>
-  <% if @project.sent? %>
-    <button id="checkout-button" data-spk="<%= ENV['STRIPE_PUBLIC_KEY'] %>" data-uid="<%= @project.user.uid %>" data-csid="<%= @project.checkout_session_id %>"><%= t('views.clients.projects.show.checkout') %></button>
-  <% else %>
-    <p><%= t('views.clients.projects.show.expired') %> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
-  <% end %>
-  <% if @project.payment_failed?  %>
-    <p><%= t('views.clients.projects.show.payemnt_failed') %></p>
-  <% end %>
-<% end %>
+</div>
