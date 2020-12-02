@@ -131,9 +131,13 @@ fr:
     registrations:
       destroyed: Au revoir ! Votre compte a bien été supprimé. Nous espérons vous revoir bientôt.
       edit:
+        spayce_create_account: "Créer votre compte sur Spayce"
+        onboarded_wait: "Actualise cette page dans quelques minutes, Stripe va avoir besoin de quelques documents complémentaires"
+        stripe_documents_validated: "Vos documents personnels ont été validés par Stripe !"
+        account_verified: "Vous avez maintenant accès aux fonctionnalités de <strong>Spayce</strong> !"
         stripe_connect: "Me connecter à Stripe"
         stripe_instance: Vous devez vous connecter à votre compte Stripe
-        stripe_conected_success: Connexion à Stripe avec succès
+        stripe_conected_success: Votre compte Stripe a bien été créé
         stripe_document_validation: Cliquez ci-dessous pour valider vos documents
         stripe_dashboard: "Compte Stripe"
         title_edit: Mon compte

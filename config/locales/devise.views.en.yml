@@ -133,9 +133,13 @@ en:
     registrations:
       destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
       edit:
+        spayce_create_account: "Create your Spayce account"
+        onboarded_wait: "Update this page in a few minutes, Stripe will ask for some document verifications"
+        stripe_documents_validated: "Your documents have been successfully verified by Stripe!"
+        account_verified: "You have now full access on <strong>Spayce</strong>!"
         stripe_connect: "Connect Stripe Account"
-        stripe_instance: You need to connect spayce to your a Stripe Account
-        stripe_conected_success: Stripe connected successfuly
+        stripe_instance: You need to connect Spayce to your Stripe Account
+        stripe_conected_success: Stripe connected successfully
         stripe_document_validation: Click below to validate your documents
         stripe_dashboard: "Stripe dashboard"
         title_edit: My account
