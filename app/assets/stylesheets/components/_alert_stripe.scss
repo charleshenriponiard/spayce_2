@@ -20,7 +20,8 @@
     font-size: $headers-font;
     color: white;
     &:hover {
-      color: $info;
+      color: $light-gray;
+      text-decoration: none;
     }
   }
 }

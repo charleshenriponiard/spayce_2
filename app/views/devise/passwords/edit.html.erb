@@ -1,8 +1,8 @@
 
 <div class="wrapper">
   <div class=" container">
-    <div class="card-connexion">
-      <h1 class="text-center mb-3"><%= t('.title') %></h1>
+    <div class="card-connexion mt-5">
+      <h1 class="text-center my-5"><%= t('.title') %></h1>
       <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form, url: password_path(resource_name), html: { method: :put })  do |f| %>
         <%= f.error_notification %>
         <%= f.input :reset_password_token, as: :hidden %>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="form-actions text-center">
-          <%= f.button :submit, t('.change_my_password'), class: "btn btn-info button-connexion text-white" %>
+          <%= f.button :submit, t('.change_my_password'), class: "btn btn-info button-connexion text-white text-uppercase py-3" %>
         </div>
       <% end %>
       <div class="text-center mt-4">
