@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
-    <div class="card-connexion">
-      <h1 class="text-center mb-2"> <%= t('.title') %></h1>
+    <div class="card-connexion mt-5 px-5">
+      <h1 class="text-center my-5"> <%= t('.title') %></h1>
       <div class="row mb-3">
         <div class="col-4 offset-2 progress-bar progress-bar-yellow ">
         </div>
@@ -16,18 +16,18 @@
             <%= f.input :email,
                         required: true,
                         autofocus: true,
-                        input_html: { placeholder: t('activerecord.attributes.user.email'), autocomplete: "email" }%>
+                        input_html: { placeholder: t('activerecord.attributes.user.email'), autocomplete: "email", class: "my-2" }%>
             <%= f.input :password,
                         required: true,
                         hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length),
-                        input_html: { placeholder: t('activerecord.attributes.user.password'), autocomplete: "new-password" } %>
+                        input_html: { placeholder: t('activerecord.attributes.user.password'), autocomplete: "new-password", class: "my-2" } %>
             <%= f.input :password_confirmation,
                         required: true,
-                        input_html: { placeholder: t('activerecord.attributes.user.confirm_password'), autocomplete: "new-password" } %>
+                        input_html: { placeholder: t('activerecord.attributes.user.confirm_password'), autocomplete: "new-password", class: "my-2" } %>
           </div>
         </div>
         <div class="form-actions text-center">
-        <%= f.button :submit, t("helpers.button.continue"), class: "btn btn-info button-connexion text-white" %>
+        <%= f.button :submit, t("helpers.button.continue"), class: "btn btn-info button-connexion text-white text-uppercase py-3" %>
         </div>
       <% end %>
       <div class="text-center">
