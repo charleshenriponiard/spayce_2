@@ -41,9 +41,9 @@ en:
           to_be_paid: "To be able to download them, you must pay"
           expiration: "The transfer will expire on"
           expiration_info: "After that, you will no longer be able to download the files."
-          payemnt_successful: "Congrats! Your payment was successful, you can now download the documents right here (you might have to wait a few seconds):"
+          payemnt_successful: "<strong class='text-green'>Congrats!</strong><br>Your payment was successful, you can now download the documents right here <em>(might take a few seconds)</em>:"
           loading: "Loading..."
-          checkout: 'Checkout'
+          checkout: 'Pay now'
           expired: "Vous ne pouvez plus accéder au paiement de ce transfert nous vous invitons de prendre contact avec"
           payemnt_failed: "Votre paiement n'a pas été pris en compte, veuillez réessayer."
     invoices:

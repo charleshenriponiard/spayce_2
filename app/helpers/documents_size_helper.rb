@@ -8,6 +8,6 @@ module DocumentsSizeHelper
   end
 
   def bytes_to_mb(number)
-    (number / 1000.0).round(2)
+    (number / 1000000.0).round(2)
   end
 end
