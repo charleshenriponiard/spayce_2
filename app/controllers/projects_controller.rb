@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     else
       @projects = policy_scope(Project.all)
     end
-    @pagy, @projects = pagy(@projects, items: 10)
+    @pagy, @projects = pagy(@projects, items: 8)
     @project_sent = session[:email_sent]
     session.delete(:email_sent)
   end
