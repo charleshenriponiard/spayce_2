@@ -30,7 +30,7 @@
       <% if @project.payment_succeeded? && !@project.paid_expired? %>
         <div>
           <p class="text-center mb-4"><%== t('views.clients.projects.show.payemnt_successful') %></p>
-          <div id="download_button" data-project-id=<%= @project.id %>>
+          <div id="download_button" class="d-flex justify-content-center w-100" data-project-id=<%= @project.id %>>
             <% unless @project.url.nil? %>
               <%= render 'button', project: @project %>
             <% else %>
