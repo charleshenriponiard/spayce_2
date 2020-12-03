@@ -2,10 +2,10 @@
   <%= bill_details({ text: t('views.projects.bill.price'), price: 0.00 }, "bill.price") %>
   <%= bill_details({ text: t('views.projects.bill.spayce_commission'), price: 0.00 }, "bill.spayceCommission") %>
   <%= bill_details({ text: t('views.projects.bill.tax'), price: 0.00, class: "bill_detail border-bottom pb-3" }, "bill.billTax") %>
-  <p><%= t('views.projects.bill.instance') %></p>
+  <p class="mb-2"><%= t('views.projects.bill.instance') %></p>
   <h3 class="text-success" data-target="bill.total"><%= number_to_currency(0.00) %></h3>
   <% if confirmation %>
-    <p><%= t('views.projects.bill.promo_code') %></p>
+    <p class="mb-2"><%= t('views.projects.bill.promo_code') %></p>
     <div class="d-flex">
       <%= simple_form_for :coupon, url: promo_code_project_path(project), method: :get, html: { class: 'd-flex' } do |f| %>
         <%= f.input :code, as: :string, placeholder: 'PROMOCODE20', label: false %>

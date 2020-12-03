@@ -8,6 +8,9 @@ en:
     error_notification:
       default_message: "Please review the problems highlighted."
   controllers:
+    projects:
+      alert:
+        canceled: "Your project has just been successfully canceled"
     messages:
       sent: "Your message has been sent! We will get back to you as soon as possible."
   views:
@@ -52,7 +55,7 @@ en:
         invoice: Invoice
         date: "Issue date:"
         taxes_included: "All taxes included Price"
-        transfer_ref: "Transfer ref:"
+        transfer_ref: "Transfer ref: "
         commission: "Spayce Commission"
         vat: VAT (20%)
     pages:
@@ -107,8 +110,7 @@ en:
         your_earnings: "Your earnings"
         project_name: "Project name"
         nbr_files: "Number of files transferred"
-        transfer_link: "Upload link"
-        transfer_upload: "Upload"
+        transfer_link: "Transfer link"
         sent_on: "Sent on"
         expiration_date: "Expiration date"
         status: 'Status'
@@ -301,7 +303,7 @@ en:
       submit: Save %{model}
       update: Update %{model}
     button:
-      back: "Back"
+      back: "< Back"
       upload: "Upload now"
       edit: "Edit"
       cancel: "Cancel your transfer"
@@ -424,8 +426,7 @@ en:
       line_2: "Your transfer has been downloaded and paid for by %{client_name}"
       line_3: "The money will automatically be paid into the bank account you indicated in your "
       line_4: "The amount you will receive in your account %{amount} corresponding to the asking price minus our commission."
-      line_5: "Attached you will find the invoice for the Spayce commission."
-      line_6: "See you soon for new transfers in complete safety!"
+      line_5: "See you soon for new transfers in complete safety!"
     client_reminder:
       subject: "Reminder - The transfer expires in 24 hours"
       action: "Download link"

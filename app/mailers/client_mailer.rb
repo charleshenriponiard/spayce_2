@@ -2,7 +2,7 @@ class ClientMailer < ApplicationMailer
   default from: 'cedricsauvagetpro@gmail.com'
   layout 'mailer'
 
-  def transfert_project_to_client(project)
+  def transfer_project_to_client(project)
     @project = project
     mail(to: @project.client_email, subject: t('mailer.sent_project.subject'))
   end
