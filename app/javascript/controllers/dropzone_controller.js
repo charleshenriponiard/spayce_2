@@ -23,9 +23,14 @@ export default class extends Controller {
   // Manually added => Disable button in no file or not completed
   handleSubmitButton = () => {
     const submitButton = document.querySelector('input[type=submit]')
+    const errorArea = document.querySelector('#error-area')
     const files = document.querySelectorAll('.dz-preview')
     submitButton.disabled = true
     let status = false
+
+    const filenames = Array.from(document.querySelectorAll('.dz-filename')).map(elt => elt.innerText)
+    let unique = [...new Set(filenames)];
+
     if (files.length > 0) {
       status = true
       files.forEach((file) => {
@@ -34,7 +39,14 @@ export default class extends Controller {
           status = false
         }
       })
+      if (filenames.length > unique.length) {
+        status = false
+        errorArea.innerHTML = `<p class="text-red mb-2"><em>${filenames.length - unique.length} ${errorArea.dataset.error}</em></p>`
+      } else {
+        errorArea.innerHTML = ''
+      }
     }
+
     if (status) {
       submitButton.disabled = false
     }

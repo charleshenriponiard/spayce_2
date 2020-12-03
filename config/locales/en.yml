@@ -75,8 +75,21 @@ en:
       email_sent_alert:
         alert: 'THE TRANSFERT HAS BEEN SENT!'
       form:
+        label:
+          name: "Give a name to your transfer"
+          recipient_name: "Recipient Name"
+          recipient_email: "Recipient Email"
+          price: "Price"
+        hint:
+          price: "(amount to be paid for the files)"
+        placeholder:
+          name: "Monsieur Dupon logo"
+          search: "Search"
+        button:
+          save: "Validate the transfer"
         drag_and_drop: 'Drag & drop your files'
         browse: 'or click to browse files on your computer'
+        error: "file(s) name(s) duplicated, you have to delete them to create."
       confirmation:
         title: "Your files are ready to be sent"
         files: files
@@ -123,19 +136,6 @@ en:
           content: 'We use Stripe to make sure you get paid on time and to keep your personal bank and details secure. Click Save and continue to set up your payments on Stripe.'
         submit: "SAVE and CONTINUE"
         skip: 'Skip this Page'
-  form:
-    label:
-      name: "Give a name to your transfer"
-      recipient_name: "Recipient Name"
-      recipient_email: "Recipient Email"
-      price: "Price"
-    hint:
-      price: "(amount to be paid for the files)"
-    placeholder:
-      name: "Monsieur Dupon logo"
-      search: "Search"
-    button:
-      save: "Validate the transfer"
   activerecord:
     models:
       project: "Project"
