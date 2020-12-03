@@ -58,15 +58,22 @@
       <div class="card-connexion">
         <div class="border p-3 mb-2 text-center">
           <h4 class="form-headers">Stripe</h4>
-          <% unless current_user.no_account? %>
+          <p class="text-center my-2"><%= t('.spayce_create_account') %> ✅</p>
+          <% if current_user.no_account? %>
+            <p class="text-center my-2"><%= t('.stripe_instance') %> 🚫</p>
+            <p class="text-center my-2"><%= t('.stripe_document_validation') %> 🚫</p>
+            <%= link_to t('.stripe_connect'), stripe_sign_up_path, class:"btn btn-outline-info" %>
+          <% else %>
             <p class="text-center"><%= t('.stripe_conected_success') %> ✅</p>
-            <% if current_user.information_needed? %>
-              <p class="text-center"><%= t('.stripe_document_validation') %> 🚫</p>
+            <% if current_user.onboarded? %>
+              <p class="text-center my-2"><%= t('.onboarded_wait') %> 🚫</p>
+            <% elsif current_user.information_needed? %>
+              <p class="text-center my-2"><%= t('.stripe_document_validation') %> 🚫</p>
+            <% elsif current_user.verified? %>
+              <p class="text-center my-2"><%= t('.stripe_documents_validated') %> ✅</p>
+              <p class="text-center text-green my-2"><%== t('.account_verified')  %></p>
             <% end %>
             <%= link_to t('.stripe_dashboard'), stripe_dashboard_path, class:"btn btn-outline-info", target: "_blank" %>
-          <% else %>
-            <p><%= t('.stripe_instance') %></p>
-            <%= link_to t('.stripe_connect'), stripe_sign_up_path, class:"btn btn-outline-info" %>
           <% end %>
         </div>
       </div>
