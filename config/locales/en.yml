@@ -134,6 +134,7 @@ en:
       search: "Search"
     button:
       save: "Validate the transfer"
+    error: "file(s) name(s) duplicated, you have to delete them to create."
   activerecord:
     models:
       project: "Project"

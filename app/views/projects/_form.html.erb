@@ -25,5 +25,6 @@
       hint: t('form.hint.price'),
       input_html: { data: { action: "keyup->bill#createBill" } }
     %>
+    <div id="error-area" data-error="<%= t('form.error') %>"></div>
     <%= f.submit t('form.button.save', fr_model: "projet", en_model: "project" ), class:"btn btn-info w-100 text-white text-uppercase py-2"%>
   <% end %>

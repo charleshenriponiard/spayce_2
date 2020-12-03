@@ -134,6 +134,7 @@ fr:
       search: 'Rechercher'
     button:
       save: "Valider le transfert"
+    error: "nom(s) de fichier(s) dupliqué(s), vous devez les supprimer pour valider."
   activerecord:
     models:
       project: "Projet"
