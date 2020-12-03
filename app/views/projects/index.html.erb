@@ -10,7 +10,7 @@
     </div>
     <div class="d-flex justify-content-center">
       <%= form_tag(projects_path, method: :get) do  %>
-          <%= text_field_tag(:search, params[:search], placeholder: t('form.placeholder.search'), class: "form-control") %>
+          <%= text_field_tag(:search, params[:search], placeholder: t('views.projects.index.placeholder.search'), class: "form-control") %>
       <% end %>
       <%= link_to projects_path, class: "close ml-2" do %>
         <%= inline_svg_tag "close.svg", class:"red-close" %>

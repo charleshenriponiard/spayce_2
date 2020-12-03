@@ -25,7 +25,7 @@ RSpec.describe UpdateProjectJob, type: :job do
 
     it "should add commission spayce" do
       UpdateProjectJob.perform_now(project, hash)
-      expect(project.spayce_commission).to eq(100.0)
+      expect(project.spayce_commission).to eq(50.0)
     end
 
     it "should add tax" do
