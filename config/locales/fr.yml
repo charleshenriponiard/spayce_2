@@ -74,6 +74,19 @@ fr:
       form:
         drag_and_drop: 'Faites glisser vos fichiers'
         browse: 'ou cliquez pour sélectionner sur votre ordinateur'
+        label:
+          name: "Donnez un nom à votre transfert"
+          recipient_name: "Nom du client"
+          recipient_email: "Email du client"
+          price: "Prix (avec un point comme séparateur)"
+        hint:
+          price: "(montant à payer pour les fichiers)"
+        placeholder:
+          name: "Logo pour M Dupon"
+          search: 'Rechercher'
+        button:
+          save: "Valider le transfert"
+        error: "nom(s) de fichier(s) dupliqué(s), vous devez les supprimer pour valider."
       confirmation:
         title: "Your files are ready to be sent"
         files: fichiers
@@ -121,20 +134,6 @@ fr:
           content: 'Nous utilisons le service Stripe pour nous assurer que vous soyez payés dans les temps ainsi que pour garder vos informations bancaires et personnelles en sécurité. Cliquez sur Sauvegarder et Continuer pour lancer votre inscription sur Stripe.'
         submit: "SAUVEGARDER et CONTINUER"
         skip: 'Passer cette page'
-  form:
-    label:
-      name: "Donnez un nom à votre transfert"
-      recipient_name: "Nom du client"
-      recipient_email: "Email du client"
-      price: "Prix (avec un point comme séparateur)"
-    hint:
-      price: "(montant à payer pour les fichiers)"
-    placeholder:
-      name: "Logo pour M Dupon"
-      search: 'Rechercher'
-    button:
-      save: "Valider le transfert"
-    error: "nom(s) de fichier(s) dupliqué(s), vous devez les supprimer pour valider."
   activerecord:
     models:
       project: "Projet"
