@@ -1,5 +1,5 @@
 meta_product_name: "Spayce"
 meta_title: "Spayce"
 meta_description: "Spayce sécurise et garantit le paiement dans les délais. Envoyez vos fichiers et soyez payé tout de suite. Plus besoin d'attendre ou de courir après les paiements, ayez l'esprit tranquille et concentrez-vous sur votre travail "
-meta_image: "logo.png" # should exist in `app/assets/images/`
+meta_image: "data-picture.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
