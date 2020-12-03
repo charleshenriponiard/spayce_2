@@ -83,8 +83,7 @@ en:
         hint:
           price: "(amount to be paid for the files)"
         placeholder:
-          name: "Monsieur Dupon logo"
-          search: "Search"
+          name: "Mister Dupont's logo design"
         button:
           save: "Validate the transfer"
         drag_and_drop: 'Drag & drop your files'
@@ -110,6 +109,8 @@ en:
         send_on: "Send on"
         status: "Status"
         title: "Easily find all your transfers"
+        placeholder:
+          search: "Search"
       show:
         title: 'Transfer details'
         client_id: 'Client ID'

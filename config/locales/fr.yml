@@ -85,8 +85,7 @@ fr:
         hint:
           price: "(montant à payer pour les fichiers)"
         placeholder:
-          name: "Logo pour M Dupon"
-          search: 'Rechercher'
+          name: "Design logo pour M. Dupont"
         button:
           save: "Valider le transfert"
         error: "nom(s) de fichier(s) dupliqué(s), vous devez les supprimer pour valider."
@@ -110,6 +109,8 @@ fr:
         send_on: "Envoyé le"
         status: "Statut"
         title: "Touvez facilement vos transferts"
+        placeholder:
+          search: 'Rechercher'
       show:
         title: 'Détails du transfert'
         client_id: 'Client ID'

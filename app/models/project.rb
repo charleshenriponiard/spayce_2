@@ -48,7 +48,7 @@ class Project < ApplicationRecord
   end
 
   def commission
-    amount * 0.10 * (1 - discount)
+    amount * 0.05 * (1 - discount)
   end
 
   def total

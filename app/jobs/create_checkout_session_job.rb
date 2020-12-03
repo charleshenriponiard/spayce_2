@@ -2,7 +2,7 @@ class CreateCheckoutSessionJob < ApplicationJob
   queue_as :stripe
 
   def perform(project)
-    fees = project.amount_cents * 0.1 * (1 - project.discount)
+    fees = project.amount_cents * 0.05 * (1 - project.discount)
     session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [{
