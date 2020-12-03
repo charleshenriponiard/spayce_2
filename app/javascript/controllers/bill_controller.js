@@ -15,7 +15,7 @@ export default class extends Controller {
 
   calculate(element) {
     const amount = element / 1
-    const commission = amount * -0.1
+    const commission = amount * -0.05
     const taxes = commission * 0.2
     const total = amount + commission + taxes
     const locale = window.location.pathname.includes('/en') ? 'en-US' : 'fr-FR'
