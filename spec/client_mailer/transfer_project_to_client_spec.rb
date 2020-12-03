@@ -3,11 +3,11 @@ require 'sidekiq/testing'
 Sidekiq::Testing.inline!
 
 RSpec.describe ClientMailer, :type => :mailer do
-  describe "transfert_project_to_client" do
+  describe "transfer_project_to_client" do
     before(:all)  do
       I18n.locale = :fr
       @user = create(:user, :with_project)
-      @mail = ClientMailer.transfert_project_to_client(@user.projects.last)
+      @mail = ClientMailer.transfer_project_to_client(@user.projects.last)
     end
 
     it 'renders the subject in french' do
@@ -16,7 +16,7 @@ RSpec.describe ClientMailer, :type => :mailer do
 
     it 'renders the subject in english' do
       I18n.locale = :en
-      @mail = ClientMailer.transfert_project_to_client(@user.projects.last)
+      @mail = ClientMailer.transfer_project_to_client(@user.projects.last)
       expect(@mail.subject).to eq("New file transfer")
     end
 

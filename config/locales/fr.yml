@@ -8,6 +8,9 @@ fr:
     error_notification:
       default_message: "Merci de prendre compte des points relevés."
   controllers:
+    projects:
+      alert:
+        canceled: "Votre projet vient d'être annulé avec succès"
     messages:
       sent: "Votre message a bien été envoyé ! Nous reviendrons vers vous au plus vite."
   views:
@@ -52,7 +55,7 @@ fr:
         invoice: Facture
         date: "Date d'émission :"
         taxes_included: "Prix toutes taxes comprises"
-        transfer_ref: "Transfert ref :"
+        transfer_ref: "Transfert ref : "
         commission: "Commission Spayce"
         vat: TVA (20%)
     pages:
@@ -107,8 +110,7 @@ fr:
         your_earnings: "Vos gains"
         project_name: "Nom du projet"
         nbr_files: "Nombre de fichier envoyés"
-        transfer_link: "Lien de téléchargement"
-        transfer_upload: "Télécharger"
+        transfer_link: "Lien du transfert"
         sent_on: "Envoyé le"
         expiration_date: "Date d'expiration"
         status: 'Statut'
@@ -418,8 +420,7 @@ fr:
       line_2: "<span class=\"text-info\">%{first_name} %{last_name}</span> a reçu un mail de confirmation."
       line_3: "Le lien de téléchargement reste valide jusqu’au <span class=\"text-info\">%{date}</span>."
       line_4: "Au delà, le lien sera automatiquement désactivé."
-      line_5: "En pièce jointe, vous trouverez la facture de votre paiement."
-      line_6: "A très vite pour de nouveaux transferts en toute sécurité !"
+      line_5: "A très vite pour de nouveaux transferts en toute sécurité !"
     accepted_payment:
       subject: "Transfert téléchargé"
       action: "votre espace Spayce"

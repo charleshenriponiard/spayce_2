@@ -39,10 +39,10 @@
   </div>
   <div class="row mb-5">
     <div class="col-6 text-center bg-light-gray text-white p-2">
-      <p><%= t('views.invoices.show.transfer_ref') %></p>
+      <p><%= t('views.invoices.show.transfer_ref') %><%= @project.id %></p>
     </div>
     <div class="col-6 text-center bg-green text-white p-2">
-      <p><%= @project.id %></p>
+      <p><%= number_to_currency(@project.amount) %></p>
     </div>
   </div>
 

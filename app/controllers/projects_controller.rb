@@ -67,7 +67,7 @@ class ProjectsController < ApplicationController
     @project.canceled!
     ClientMailer.project_canceled(@project).deliver_later
     UserMailer.freelance_project_canceled(@project).deliver_later
-    redirect_to root_path
+    redirect_to root_path, alert: t('controllers.projects.alert.canceled')
   end
 
   def confirmation
@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
   end
 
   def sending
-    ClientMailer.transfert_project_to_client(@project).deliver_later
+    ClientMailer.transfer_project_to_client(@project).deliver_later
     UserMailer.user_sent_project(@project).deliver_later
     session[:email_sent] = true
     redirect_to projects_path
