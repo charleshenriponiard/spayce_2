@@ -128,6 +128,11 @@ fr:
         sent_on: "Envoyé le"
         expiration_date: "Date d'expiration"
         status: 'Statut'
+        cancel_alert:
+          title: "Annuler le transfert"
+          content: "Vous êtes sur le point d'annuler le transfert. Si vous l'annulez, votre client ne pourra plus accéder au transfert et payer les fichiers. Vous pouvez toujours leur envoyer un nouveau transfert plus tard."
+          cancel: "Retour"
+          confirm: "Annuler le projet"
     registration_steps:
       user_info:
         title: 'Créez votre compte gratuit'

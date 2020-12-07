@@ -17,6 +17,7 @@ import { triggerTooltips } from "../components/trigger_tooltips"
 import { initProjectCable } from "../channels/project_channel"
 import authActive from "../components/auth_active_class"
 import { navbarActive } from "../components/navbar_active"
+import { initSwal } from "../components/swal"
 
 document.addEventListener('turbolinks:load', () => {
   triggerStripeCheckout();
@@ -25,4 +26,5 @@ document.addEventListener('turbolinks:load', () => {
   authActive();
   initProjectCable();
   navbarActive();
+  initSwal();
 });

@@ -128,6 +128,11 @@ en:
         sent_on: "Sent on"
         expiration_date: "Expiration date"
         status: 'Status'
+        cancel_alert:
+          title: "Cancel the transfer"
+          content: "You are about to cancel the transfer. If you cancel it, your client will no longer be able to access the transfer and pay for the files. You can always send them a new transfer later."
+          cancel: "Back"
+          confirm: "Cancel the project"
     registration_steps:
       user_info:
         title: 'Create your free account'
