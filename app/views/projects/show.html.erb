@@ -77,7 +77,17 @@
   </div>
   <div class="my-3">
     <% if policy(@project).canceled? %>
-      <%= link_to t('helpers.button.cancel'), canceled_project_path(@project), method: :patch, data: { confirm: "Are you sure ?"}, class:"btn btn-danger" %>
+      <button
+        data-url=<%= canceled_project_path(@project) %>
+        data-redirect=<%= projects_path %>
+        data-title="<%= t('views.projects.show.cancel_alert.title') %>"
+        data-content="<%= t('views.projects.show.cancel_alert.content') %>"
+        data-cancel="<%= t('views.projects.show.cancel_alert.cancel') %>"
+        data-confirmation="<%= t('views.projects.show.cancel_alert.confirm') %>"
+        class="btn btn-danger"
+        id="sweet-alert-cancel">
+        <%= t('helpers.button.cancel') %>
+      </button>
     <% end %>
   </div>
 </div>
