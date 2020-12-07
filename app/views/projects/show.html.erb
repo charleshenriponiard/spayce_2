@@ -80,6 +80,7 @@
       <button
         data-url=<%= canceled_project_path(@project) %>
         data-redirect=<%= projects_path %>
+        data-method="PATCH"
         data-title="<%= t('views.projects.show.cancel_alert.title') %>"
         data-content="<%= t('views.projects.show.cancel_alert.content') %>"
         data-cancel="<%= t('views.projects.show.cancel_alert.cancel') %>"

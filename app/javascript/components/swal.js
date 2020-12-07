@@ -21,7 +21,7 @@ const initSwal = () => {
             headers: {
               "X-CSRF-Token": csrfToken()
             },
-            method: 'PATCH'
+            method: swalButton.dataset.method
           }).then(() => window.location = swalButton.dataset.redirect)
         }
       })
