@@ -73,7 +73,7 @@ en:
         action: Confirm my account
         greeting: Welcome %{recipient}!
         instruction: 'You can confirm your account email through the link below:'
-        subject: Confirmation instructions
+        subject: "Verify your email address"
         welcome: Welcome and thank you %{email},
         line1: In order to complete your registration and be able to log into your Spayce account, we need to verify your email address. Thank you !
         see_you: See you soon on Spayce!

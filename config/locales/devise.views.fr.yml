@@ -4,7 +4,7 @@ fr:
       user:
         last_name: Nom
         first_name: Prénom
-        siret: Numéro d'immatriculation
+        siret: "Numéro SIRET (14 chiffres)"
         entity_name: Nom de la société
         address_line1: Adresse - ligne 1
         address_line2: Adresse - ligne 2 (optionnel)
@@ -71,7 +71,7 @@ fr:
         action: Confirmer mon email
         greeting: Bienvenue %{recipient} !
         instruction: 'Vous pouvez confirmer votre email grâce au lien ci-dessous :'
-        subject: Instructions de confirmation
+        subject: "Vérifiez votre adresse email"
         welcome: Bienvenue et merci %{email},
         line1: Afin de finaliser votre inscription et pouvoir vous connecter à votre compte Spayce, nous devons vérifier votre adresse email. Merci !
         see_you: A très vite sur Spayce !

@@ -310,7 +310,7 @@ en:
       update: Update %{model}
     button:
       back: "< Back"
-      upload: "Upload now"
+      upload: "Download now"
       edit: "Edit"
       cancel: "Cancel your transfer"
       continue: "Continue"
