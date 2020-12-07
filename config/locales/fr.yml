@@ -30,7 +30,7 @@ fr:
         link_alerts_stripe: " Accéder à mon profil >"
     messages:
       new:
-        title: Nous Contacter
+        title: "Nous contacter"
         subject_label: 'Sujet :'
         subject_error: 'Le sujet est obligatoire'
         body_label: 'Message :'

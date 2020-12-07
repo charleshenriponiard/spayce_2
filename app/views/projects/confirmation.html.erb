@@ -1,8 +1,8 @@
 <div class="container" data-controller="bill">
-  <h1 class="my-md-5"><%= t('views.projects.confirmation.title') %></h1>
+  <h1 class="my-5"><%= t('views.projects.confirmation.title') %></h1>
   <p class="text-light-gray"><%= document_count_and_size(@project.documents) %></p>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 mb-3 mb-md-0">
       <div class="p-3 reminder-elements mb-3">
         <% @project.documents.each do |doc| %>
           <div class="d-flex justify-content-between align-items-center m-2 p-1">
@@ -16,21 +16,24 @@
           <%= confirmation_card( t('views.projects.confirmation.recipient'), @project.client_email) %>
           <%= confirmation_card( t('views.projects.confirmation.message'), @project.message) %>
         </div>
-        <div class="d-flex justify-content-around mt-5">
-          <%= link_to t('views.projects.confirmation.send'), sending_project_path, class:"btn btn-primary", data: { toggle: 'tooltip', placement: 'bottom', title: t('views.projects.confirmation.tooltip') } %>
+        <div class="d-flex flex-column flex-md-row justify-content-around mt-5">
+          <%= link_to sending_project_path, class:"btn btn-white custom-button-yellow text-info font-weight-bolder mb-3 mb-md-0", data: { toggle: 'tooltip', placement: 'bottom', title: t('views.projects.confirmation.tooltip') } do %>
+            <%= t('views.projects.confirmation.send') %>
+            <%= inline_svg "send-button.svg" %>
+          <% end %>
           <button
             id="clipborad-button"
             data-toggle="tooltip"
             data-placement="bottom"
             title=<%= request.host_with_port + clients_project_path %>
             data-attribute=<%= request.host_with_port + clients_project_path %>
-            class="btn btn-primary"
+            class="btn btn-white custom-button-orange text-orange font-weight-bolder"
             data-copied=<%= t('views.projects.confirmation.copied') %>
-          ><%= t('views.projects.confirmation.copy') %></button>
+          ><%= t('views.projects.confirmation.copy') %><%= inline_svg "link-button.svg" %></button>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 mb-3 mb-md-0">
       <div data-target="bill.amount" data-amount=<%= @project.amount %>></div>
       <%= render "bill", project: @project, confirmation: true, stripe_error: @stripe_error, retrieved_coupon: @retrieved_coupon %>
     </div>

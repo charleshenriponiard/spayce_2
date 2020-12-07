@@ -8,3 +8,36 @@
     border-radius: 3px;
   }
 }
+
+.custom-button-yellow {
+  border-radius: 20px;
+  border-left: 10px solid $info;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.04),
+  0 9px 46px 8px rgba(0, 0, 0, 0.04),
+  0 11px 15px -7px rgba(0, 0, 0, 0.04);
+  ;
+  &:hover {
+    background-color: rgba(242, 201, 76, 0.25);
+    border-left: 10px solid $info;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+  }
+}
+
+.custom-button-orange {
+  border-radius: 20px;
+  border-left: 10px solid $orange;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.04),
+  0 9px 46px 8px rgba(0, 0, 0, 0.04),
+  0 11px 15px -7px rgba(0, 0, 0, 0.04);
+  ;
+  &:hover {
+    background-color: rgba(242, 153, 75, 0.25);
+    border-left: 10px solid $orange;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+
+  }
+}
