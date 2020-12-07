@@ -30,7 +30,7 @@ en:
         link_alerts_stripe: 'Go to my profile >'
     messages:
       new:
-        title: Contact Us
+        title: "Contact us"
         subject_label: 'Subject:'
         subject_error: 'Subject is mandatory'
         body_label: 'Message:'
