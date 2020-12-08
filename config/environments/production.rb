@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "https://spayce2-staging.herokuapp.com/" }
+  config.action_mailer.default_url_options = { host: ENV["BASE_URL"] }
   # config.action_mailer.perform_deliveries = true
 
   # Settings specified here will take precedence over those in config/application.rb.
