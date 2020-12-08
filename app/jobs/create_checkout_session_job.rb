@@ -3,10 +3,11 @@ class CreateCheckoutSessionJob < ApplicationJob
 
   def perform(project)
     fees = project.amount_cents * 0.05
+    taxes = fees * 0.2
     stripe_fees = (project.amount_cents * 1.4 / 100) + 25
     discount = fees * project.discount
 
-    fees_after_stripe = fees - stripe_fees - discount
+    fees_after_stripe = fees + taxes - stripe_fees - discount
     session = Stripe::Checkout::Session.create({
       payment_method_types: ['card'],
       line_items: [{
