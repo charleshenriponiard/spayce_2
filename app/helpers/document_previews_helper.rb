@@ -28,7 +28,6 @@ module DocumentPreviewsHelper
       "video" => "video",
       "image" => "image"
     }
-    # return "/#{extension}/#{general_type}"
-    return "documents_placeholders/logo-#{formats[extension] || formats[general_type] || ''}.png"
+    return "documents_placeholders/logo-#{formats[extension] || formats[general_type] || 'default'}.png"
   end
 end
