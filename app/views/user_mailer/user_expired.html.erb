@@ -40,7 +40,7 @@
       </div>
       <div>
         <h3><%= t("mailer.hello") %></h3>
-        <p><%= t("mailer.user_expired.line_1", date: l(@project.created_at, format: :long)) %></p>
+        <p><%== t("mailer.user_expired.line_1", date: l(@project.created_at, format: :long)) %></p>
         <p><%= t("mailer.user_expired.line_2") %></p>
         <p><%= t("mailer.user_expired.line_3") %></p>
         <p><%= t("mailer.goodbye") %> <%= link_to "www.fromspayce.com", "https://www.fromspayce.com/"%></p>
