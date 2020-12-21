@@ -60,6 +60,7 @@ export default class extends Controller {
 
   bindEvents() {
     this.dropZone.on("addedfile", file => {
+      file._removeLink.innerText = file.previewElement.parentNode.dataset.remove
       setTimeout(() => {
         file.accepted && createDirectUploadController(this, file).start();
       }, 500);
@@ -160,18 +161,21 @@ class DirectUploadController {
   emitDropzoneUploading() {
     this.file.status = Dropzone.UPLOADING;
     this.source.dropZone.emit("processing", this.file);
+    this.file._removeLink.innerText = this.file.previewElement.parentNode.dataset.cancel
   }
 
   emitDropzoneError(error) {
     this.file.status = Dropzone.ERROR;
     this.source.dropZone.emit("error", this.file, error);
     this.source.dropZone.emit("complete", this.file);
+    this.file._removeLink.innerText = this.file.previewElement.parentNode.dataset.remove
   }
 
   emitDropzoneSuccess() {
     this.file.status = Dropzone.SUCCESS;
     this.source.dropZone.emit("success", this.file);
     this.source.dropZone.emit("complete", this.file);
+    this.file._removeLink.innerText = this.file.previewElement.parentNode.dataset.remove
   }
 
   replacePreviewByPlaceholder() {
@@ -194,7 +198,6 @@ class DirectUploadController {
       dotm: "word",
       dotx: "word",
       odt: "word",
-      pdf: "word",
       tiff: "tiff",
       ai: "illustrator",
       psd: "photoshop",

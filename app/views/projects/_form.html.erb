@@ -1,6 +1,6 @@
   <%= simple_form_for project do |f| %>
     <div class="mb-3">
-      <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone">
+      <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-cancel="<%= t('views.projects.form.cancel_upload') %>" data-remove="<%= t('views.projects.form.remove_file') %>">
         <%= f.input :documents, as: :file, label: false, input_html: { multiple: true, direct_upload: true, data: { target: 'dropzone.input' } }  %>
         <div class="dropzone-msg dz-message needsclick text-gray-600">
           <%= inline_svg_tag "dropzone.svg" %>
@@ -9,7 +9,9 @@
         </div>
       </div>
     </div>
-    <%= f.input :name, label: t('views.projects.form.label.name'), placeholder: t('views.projects.form.placeholder.name') %>
+    <%= f.input :name,
+        label: t('views.projects.form.label.name'),
+        placeholder: t('views.projects.form.placeholder.name') %>
     <div class="row" >
       <div class="col-6">
         <%= f.input :client_last_name, label: t('views.projects.form.label.recipient_name'), placeholder: "Michel DURAND" %>

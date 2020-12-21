@@ -89,6 +89,8 @@ fr:
         button:
           save: "Valider le transfert"
         error: "Attention, plusieurs fichiers de votre transfert portent le même nom"
+        cancel_upload: "Annuler transfert"
+        remove_file: "Retirer fichier"
       confirmation:
         title: "Vos fichiers sont prêts à être envoyés"
         files: fichiers

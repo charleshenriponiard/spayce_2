@@ -47,21 +47,25 @@
   border-radius: 5px;
 }
 
-@media(max-width: 893px) {
-  .navbar-collapse svg {
-    margin-right: 10px;
+@media(max-width: 1512px) {
+  .navbar-collapse li {
+    margin: 0 10px;
   }
 }
 
 @media(max-width: 1330px) {
   .navbar-collapse li {
-    margin: 0 20px;
+    margin: 0 5px;
+  }
+  .navbar {
+    width: 95vw;
   }
 }
 
-@media(max-width: 1093px) {
+@media(max-width: 1143px) {
   .navbar-collapse li {
-    margin: 0 20px;
+    margin: 0 5px;
+    font-size: 0.9rem;
   }
   .navbar {
     width: 100vw;
@@ -71,5 +75,11 @@
 @media(max-width: 910px) {
   .navbar-collapse li {
     margin: 0 10px;
+  }
+}
+
+@media(max-width: 893px) {
+  .navbar-collapse svg {
+    margin-right: 10px;
   }
 }
