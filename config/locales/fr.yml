@@ -90,13 +90,13 @@ fr:
           save: "Valider le transfert"
         error: "nom(s) de fichier(s) dupliqué(s), vous devez les supprimer pour valider."
       confirmation:
-        title: "Your files are ready to be sent"
+        title: "Vos fichiers sont prêts à être envoyés"
         files: fichiers
         mega_bytes: Mo
         recipient: 'Destinataire :'
         message: 'Message :'
         send: 'Envoyer le projet'
-        tooltip: "Enverrra l'email directement à votre client"
+        tooltip: "Enverra l'email directement à votre client"
         copy: "Copier le lien"
         copied: "Copié !"
       edit:

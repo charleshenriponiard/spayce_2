@@ -423,8 +423,7 @@ en:
       line_2: "<span class=\"text-info\">%{first_name} %{last_name}</span> has received a confirmation email."
       line_3: "The download link remains valid until <span class=\"text-info\">%{date}</span>."
       line_4: "Beyond that, the link will be automatically deactivated."
-      line_5: "Attached you will find the invoice for your payment."
-      line_6: "See you soon for new transfers in complete safety!"
+      line_5: "See you soon for new transfers in complete safety!"
     accepted_payment:
       subject: "Transfer downloaded"
       action: "Spayce dashboard"
@@ -432,7 +431,8 @@ en:
       line_2: "Your transfer has been downloaded and paid for by %{client_name}"
       line_3: "The money will automatically be paid into the bank account you indicated in your "
       line_4: "The amount you will receive in your account %{amount} corresponding to the asking price minus our commission."
-      line_5: "See you soon for new transfers in complete safety!"
+      line_5: "Attached you will find the invoice for the Spayce commission."
+      line_6: "See you soon for new transfers in complete safety!"
     client_reminder:
       subject: "Reminder - The transfer expires in 24 hours"
       action: "Download link"

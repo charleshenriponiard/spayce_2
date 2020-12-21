@@ -68,8 +68,17 @@
         <%= link_to t('views.application.navbar.sign_out'), destroy_user_session_path, method: :delete, class: "nav-btn" %>
       </div>
     <% else %>
-      <div>
-        <%= link_to t('views.application.navbar.sign_in'), new_user_session_path, class: "nav-btn", id:"sign-in" %>
+      <div class="d-flex">
+        <% if I18n.locale == I18n.default_locale %>
+            <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
+              <%= image_tag 'fr.png' %>
+            <% end %>
+          <% else %>
+            <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
+              <%= image_tag 'en.png' %>
+            <% end %>
+        <% end %>
+        <%= link_to t('views.application.navbar.sign_in'), new_user_session_path, class: "nav-btn mr-2", id:"sign-in" %>
         <%= link_to t('views.application.navbar.sign_up'), new_user_registration_path, class: "nav-btn", id:"sign-up" %>
       </div>
     <% end %>
