@@ -71,7 +71,7 @@ en:
         promo_code_invalid: 'This promocode is expired.'
         promo_code_valid: 'The %{percent_off}% discount has been applied.'
         tax: 'Tax'
-        instance: "You will receive on your bank account"
+        instance: "You will receive on your bank account (net amount)"
       email_sent_alert:
         alert: 'THE TRANSFERT HAS BEEN SENT!'
       form:
@@ -88,7 +88,7 @@ en:
           save: "Validate the transfer"
         drag_and_drop: 'Drag & drop your files'
         browse: 'or click to browse files on your computer'
-        error: "file(s) name(s) duplicated, you have to delete them to create."
+        error: "Please note, several files in your transfer have the same name"
       confirmation:
         title: "Your files are ready to be sent"
         files: files
@@ -121,7 +121,7 @@ en:
         spayce_commission: "Spayce commission"
         spayce_taxes: "Taxes"
         promo_code: "Promo Code"
-        your_earnings: "Your earnings"
+        your_earnings: "Your net income"
         project_name: "Project name"
         nbr_files: "Number of files transferred"
         transfer_link: "Transfer link"
@@ -323,7 +323,7 @@ en:
         separator: "."
         significant: false
         strip_insignificant_zeros: false
-        unit: "$"
+        unit: "€"
     format:
       delimiter: ","
       precision: 3
@@ -379,6 +379,7 @@ en:
   mailer:
     hello: "Hello"
     goodbye: "Learn more about Spayce"
+    footer: "Spayce team"
     sent_project:
       subject: "New file transfer"
       action: "Download your files"

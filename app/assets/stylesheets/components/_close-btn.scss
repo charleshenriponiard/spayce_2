@@ -2,6 +2,20 @@
   fill: $red;
 }
 
+#search-form {
+  position: relative;
+}
+.close {
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 2px;
+}
+
+.close.active {
+  display: block;
+}
+
 .white-close {
   fill: white;
 }

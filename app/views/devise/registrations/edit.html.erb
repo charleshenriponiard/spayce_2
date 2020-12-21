@@ -35,6 +35,10 @@
               </div>
               <div class="border p-3">
                 <h4 class="text-center form-headers"><%= t('.custom_password') %></h4>
+                <%= f.input :current_password,
+                            hint: t(".we_need_your_current_password_to_confirm_your_changes"),
+                            required: true,
+                            input_html: { placeholder: t('activerecord.attributes.user.current_password'), autocomplete: "current-password" } %>
                 <%= f.input :password,
                             hint: t(".leave_blank_if_you_don_t_want_to_change_it"),
                             required: false,
@@ -42,10 +46,6 @@
                 <%= f.input :password_confirmation,
                             required: false,
                             input_html: { placeholder: t('activerecord.attributes.user.confirm_password'), autocomplete: "new-password" } %>
-                <%= f.input :current_password,
-                            hint: t(".we_need_your_current_password_to_confirm_your_changes"),
-                            required: true,
-                            input_html: { placeholder: t('activerecord.attributes.user.current_password'), autocomplete: "current-password" } %>
               </div>
             </div>
             <div class="form-actions text-center mt-2">
