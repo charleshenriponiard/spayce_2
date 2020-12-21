@@ -89,6 +89,8 @@ en:
         drag_and_drop: 'Drag & drop your files'
         browse: 'or click to browse files on your computer'
         error: "file(s) name(s) duplicated, you have to delete them to create."
+        cancel_upload: "Cancel upload"
+        remove_file: "Remove file"
       confirmation:
         title: "Your files are ready to be sent"
         files: files

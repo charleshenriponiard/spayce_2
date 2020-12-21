@@ -89,6 +89,8 @@ fr:
         button:
           save: "Valider le transfert"
         error: "nom(s) de fichier(s) dupliqué(s), vous devez les supprimer pour valider."
+        cancel_upload: "Annuler transfert"
+        remove_file: "Retirer fichier"
       confirmation:
         title: "Your files are ready to be sent"
         files: fichiers
