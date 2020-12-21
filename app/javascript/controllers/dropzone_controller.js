@@ -41,7 +41,7 @@ export default class extends Controller {
       })
       if (filenames.length > unique.length) {
         status = false
-        errorArea.innerHTML = `<p class="text-red mb-2"><em>${filenames.length - unique.length} ${errorArea.dataset.error}</em></p>`
+        errorArea.innerHTML = `<p class="text-red mb-2"><em>${errorArea.dataset.error}</em></p>`
       } else {
         errorArea.innerHTML = ''
       }

@@ -18,6 +18,7 @@ import { initProjectCable } from "../channels/project_channel"
 import authActive from "../components/auth_active_class"
 import { navbarActive } from "../components/navbar_active"
 import { initSwal } from "../components/swal"
+import { triggerFilter } from "../components/remove_filter"
 
 document.addEventListener('turbolinks:load', () => {
   triggerStripeCheckout();
@@ -27,4 +28,5 @@ document.addEventListener('turbolinks:load', () => {
   initProjectCable();
   navbarActive();
   initSwal();
+  triggerFilter();
 });

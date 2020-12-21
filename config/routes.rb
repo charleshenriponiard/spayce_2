@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # Routes pour devise
   devise_for :users, controllers: { registrations: "registrations",
-                                    confirmations: "confirmations" }
+                                  confirmations: "confirmations" }
+
   get '/account_confirmation', to: 'pages#account_confirmation', as: 'account_confirmation'
 
   require "sidekiq/web"

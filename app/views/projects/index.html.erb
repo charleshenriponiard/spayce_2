@@ -3,17 +3,17 @@
   <h1 class="my-5"><%= t('views.projects.index.title') %></h1>
   <div class="d-flex justify-content-between my-4">
     <div>
-      <%= link_to t('activerecord.attributes.project.status.all'), projects_path, class:"btn btn-outline-purple mr-2" %>
-      <%= link_to t('activerecord.attributes.project.status.sent'), projects_path({ filter: "sent" }), class:"btn btn-outline-blue mr-2" %>
-      <%= link_to t('activerecord.attributes.project.status.paid'), projects_path({ filter: "paid_or_paid_expired" }), class:"btn btn-outline-green mr-2" %>
-      <%= link_to t('activerecord.attributes.project.status.canceled_expired'), projects_path({ filter: "canceled_or_unpaid_expired" }), class:"btn btn-outline-red mt-3 mt-md-0" %>
+      <%= link_to t('activerecord.attributes.project.status.all'), projects_path, class:"btn btn-outline-purple mr-2 rounded-lg" %>
+      <%= link_to t('activerecord.attributes.project.status.sent'), projects_path({ filter: "sent" }), class:"btn btn-outline-blue mr-2 rounded-lg" %>
+      <%= link_to t('activerecord.attributes.project.status.paid'), projects_path({ filter: "paid_or_paid_expired" }), class:"btn btn-outline-green mr-2 rounded-lg" %>
+      <%= link_to t('activerecord.attributes.project.status.canceled_expired'), projects_path({ filter: "canceled_or_unpaid_expired" }), class:"btn btn-outline-red mt-3 mt-md-0 rounded-lg" %>
     </div>
     <div class="d-flex justify-content-center">
-      <%= form_tag(projects_path, method: :get) do  %>
-          <%= text_field_tag(:search, params[:search], placeholder: t('views.projects.index.placeholder.search'), class: "form-control") %>
-      <% end %>
-      <%= link_to projects_path, class: "close ml-2" do %>
-        <%= inline_svg_tag "close.svg", class:"red-close" %>
+      <%= form_tag(projects_path, method: :get, id: "search-form") do  %>
+        <%= text_field_tag(:search, params[:search], placeholder: t('views.projects.index.placeholder.search'), class: "form-control") %>
+        <%= link_to projects_path, class: "close ml-2" do %>
+          <%= inline_svg_tag "close.svg", class:"red-close" %>
+        <% end %>
       <% end %>
     </div>
   </div>

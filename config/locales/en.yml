@@ -71,7 +71,7 @@ en:
         promo_code_invalid: 'This promocode is expired.'
         promo_code_valid: 'The %{percent_off}% discount has been applied.'
         tax: 'Tax'
-        instance: "You will receive on your bank account"
+        instance: "You will receive on your bank account (net amount)"
       email_sent_alert:
         alert: 'THE TRANSFERT HAS BEEN SENT!'
       form:
@@ -88,7 +88,7 @@ en:
           save: "Validate the transfer"
         drag_and_drop: 'Drag & drop your files'
         browse: 'or click to browse files on your computer'
-        error: "file(s) name(s) duplicated, you have to delete them to create."
+        error: "Please note, several files in your transfer have the same name"
         cancel_upload: "Cancel upload"
         remove_file: "Remove file"
       confirmation:
@@ -123,7 +123,7 @@ en:
         spayce_commission: "Spayce commission"
         spayce_taxes: "Taxes"
         promo_code: "Promo Code"
-        your_earnings: "Your earnings"
+        your_earnings: "Your net income"
         project_name: "Project name"
         nbr_files: "Number of files transferred"
         transfer_link: "Transfer link"
@@ -325,7 +325,7 @@ en:
         separator: "."
         significant: false
         strip_insignificant_zeros: false
-        unit: "$"
+        unit: "€"
     format:
       delimiter: ","
       precision: 3
@@ -381,6 +381,7 @@ en:
   mailer:
     hello: "Hello"
     goodbye: "Learn more about Spayce"
+    footer: "Spayce team"
     sent_project:
       subject: "New file transfer"
       action: "Download your files"
@@ -425,8 +426,7 @@ en:
       line_2: "<span class=\"text-info\">%{first_name} %{last_name}</span> has received a confirmation email."
       line_3: "The download link remains valid until <span class=\"text-info\">%{date}</span>."
       line_4: "Beyond that, the link will be automatically deactivated."
-      line_5: "Attached you will find the invoice for your payment."
-      line_6: "See you soon for new transfers in complete safety!"
+      line_5: "See you soon for new transfers in complete safety!"
     accepted_payment:
       subject: "Transfer downloaded"
       action: "Spayce dashboard"
@@ -434,7 +434,8 @@ en:
       line_2: "Your transfer has been downloaded and paid for by %{client_name}"
       line_3: "The money will automatically be paid into the bank account you indicated in your "
       line_4: "The amount you will receive in your account %{amount} corresponding to the asking price minus our commission."
-      line_5: "See you soon for new transfers in complete safety!"
+      line_5: "Attached you will find the invoice for the Spayce commission."
+      line_6: "See you soon for new transfers in complete safety!"
     client_reminder:
       subject: "Reminder - The transfer expires in 24 hours"
       action: "Download link"

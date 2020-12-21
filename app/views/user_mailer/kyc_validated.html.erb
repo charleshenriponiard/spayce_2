@@ -33,7 +33,7 @@
   <body>
     <div class="background container">
       <div class="center">
-        <%= image_tag attachments['logo.jpg'].url, width:"200" %>
+        <%= image_tag attachments['logo.png'].url, width:"200" %>
       </div>
       <div>
         <h3><%= t("mailer.kyc_validated.line_1", first_name: @user.first_name) %></h3>
@@ -55,10 +55,7 @@
       </div>
     </div>
     <div class="center footer">
-      <p>From Spayce</p>
-      <p>N° siret :84423490600015</p>
-      <p>Forme juridique: Société par actions simplifiée</p>
-      <p>Date immatriculation RCS : 29-11-2018</p>
+      <p><%= t('email.footer') %></p>
     </div>
   </body>
 </html>

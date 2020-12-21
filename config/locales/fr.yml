@@ -56,8 +56,8 @@ fr:
         date: "Date d'émission :"
         taxes_included: "Prix toutes taxes comprises"
         transfer_ref: "Transfert ref : "
-        commission: "Commission Spayce"
-        vat: TVA (20%)
+        commission: "Frais de gestion Spayce"
+        vat: TVA sur frais de gestion (20%)
     pages:
       account_confirmation:
         title: "Votre email est en attente de confirmation."
@@ -65,13 +65,13 @@ fr:
     projects:
       bill:
         price: "Prix"
-        spayce_commission: "Commission Spayce"
+        spayce_commission: "Frais de gestion Spayce"
         promo_code: 'Vous avez un code promo ?'
         promo_code_submit: 'Appliquer'
         promo_code_invalid: "Ce coupon n'est plus valide."
         promo_code_valid: 'La réduction de %{percent_off}% a été appliquée.'
-        tax: 'TVA'
-        instance: "Vous allez recevoir sur votre compte bancaire"
+        tax: 'TVA sur frais de gestion'
+        instance: "Vous allez recevoir sur votre compte bancaire (montant net)"
       email_sent_alert:
         alert: 'LE TRANSFERT A BIEN ÉTÉ ENVOYÉ !'
       form:
@@ -88,17 +88,17 @@ fr:
           name: "Design logo pour M. Dupont"
         button:
           save: "Valider le transfert"
-        error: "nom(s) de fichier(s) dupliqué(s), vous devez les supprimer pour valider."
+        error: "Attention, plusieurs fichiers de votre transfert portent le même nom"
         cancel_upload: "Annuler transfert"
         remove_file: "Retirer fichier"
       confirmation:
-        title: "Your files are ready to be sent"
+        title: "Vos fichiers sont prêts à être envoyés"
         files: fichiers
         mega_bytes: Mo
         recipient: 'Destinataire :'
         message: 'Message :'
         send: 'Envoyer le projet'
-        tooltip: "Enverrra l'email directement à votre client"
+        tooltip: "Enverra l'email directement à votre client"
         copy: "Copier le lien"
         copied: "Copié !"
       edit:
@@ -120,10 +120,10 @@ fr:
         email_address: "Email du client"
         message: 'Message'
         price_asked: 'Prix demandé'
-        spayce_commission: "Commission Spayce"
-        spayce_taxes: "TVA"
+        spayce_commission: "Frais de gestion Spayce"
+        spayce_taxes: "TVA sur frais de gestion"
         promo_code: "Code promo"
-        your_earnings: "Vos gains"
+        your_earnings: "Votre revenu net"
         project_name: "Nom du projet"
         nbr_files: "Nombre de fichier envoyés"
         transfer_link: "Lien du transfert"
@@ -132,7 +132,7 @@ fr:
         status: 'Statut'
         cancel_alert:
           title: "Annuler le transfert"
-          content: "Vous êtes sur le point d'annuler le transfert. Si vous l'annulez, votre client ne pourra plus accéder au transfert et payer les fichiers. Vous pouvez toujours leur envoyer un nouveau transfert plus tard."
+          content: "Vous êtes sur le point d'annuler le transfert. Si vous l'annulez, votre client ne pourra plus accéder au transfert et payer les fichiers. Vous pouvez toujours lui envoyer un nouveau transfert plus tard."
           cancel: "Retour"
           confirm: "Annuler le projet"
     registration_steps:
@@ -385,6 +385,7 @@ fr:
   mailer:
     hello: "Bonjour,"
     goodbye: 'En savoir plus sur Spayce'
+    footer: "L'équipe Spayce"
     sent_project:
       subject: "Nouveau transfert de fichiers"
       action: "Récupérez vos fichiers"
