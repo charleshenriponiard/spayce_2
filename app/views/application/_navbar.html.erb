@@ -6,11 +6,11 @@
     <div class="d-flex d-lg-none">
       <div class="d-flex align-items-center mr-5">
         <% if I18n.locale == I18n.default_locale %>
-          <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
+          <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
             <%= image_tag 'fr.png' %>
           <% end %>
         <% else %>
-          <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
+          <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
             <%= image_tag 'en.png' %>
           <% end %>
         <% end %>
@@ -56,11 +56,11 @@
       <div class="d-none d-lg-flex">
         <div class="d-flex align-items-center mr-2">
           <% if I18n.locale == I18n.default_locale %>
-            <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
+            <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
               <%= image_tag 'fr.png' %>
             <% end %>
           <% else %>
-            <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
+            <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
               <%= image_tag 'en.png' %>
             <% end %>
           <% end %>
@@ -70,11 +70,11 @@
     <% else %>
       <div class="d-flex">
         <% if I18n.locale == I18n.default_locale %>
-            <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
+            <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
               <%= image_tag 'fr.png' %>
             <% end %>
           <% else %>
-            <%= link_to url_for(locale: 'en'), class: "nav-link" do %>
+            <%= link_to url_for(locale: 'fr'), class: "nav-link" do %>
               <%= image_tag 'en.png' %>
             <% end %>
         <% end %>
