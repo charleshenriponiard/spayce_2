@@ -36,6 +36,15 @@ class Project < ApplicationRecord
   scope :filter_by_unpaid_expired, ->  { where status: "unpaid_expired" }
   scope :filter_by_canceled_or_unpaid_expired, -> { filter_by_canceled.or(filter_by_unpaid_expired) }
   scope :filter_by_paid_or_paid_expired, -> { filter_by_paid.or(filter_by_paid_expired) }
+  scope :will_expire, lambda {
+    date = Date.today.prev_day(6)
+    Project.filter_by_sent.where(created_at: date.midnight..date.end_of_day)
+  }
+  scope :expired, lambda {
+    date = Date.today.prev_day(7)
+    Project.filter_by_sent.where(created_at: date.midnight..date.end_of_day)
+  }
+
 
   WATERMARK_PATH = Rails.root.join('lib', 'assets', 'images', 'watermark.png')
 
