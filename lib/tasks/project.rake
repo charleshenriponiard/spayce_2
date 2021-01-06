@@ -1,7 +1,7 @@
 namespace :project do
   desc "send message one day before expiry project and when the project it's just expired"
   task expired: :environment do
-    projects = Project.will_expiry
+    projects = Project.will_expire
     projects.map do |project|
       ClientMailer.client_reminder(project).deliver_later
       UserMailer.user_reminder(project).deliver_later
