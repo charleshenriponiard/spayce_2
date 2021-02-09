@@ -13,7 +13,7 @@ module Admin
     # actions.
     #
     def valid_action?(name, resource = resource_class)
-      %w[edit].exclude?(name.to_s) && super
+      %w[edit new create].exclude?(name.to_s) && super
     end
 
     def find_resource(param)

@@ -9,7 +9,7 @@ module Admin
     # end
 
     def valid_action?(name, resource = resource_class)
-      %w[edit destroy].exclude?(name.to_s) && super
+      %w[edit destroy new create].exclude?(name.to_s) && super
     end
 
 

@@ -21,7 +21,14 @@ class UserDashboard < Administrate::BaseDashboard
     confirmed_at: Field::DateTime,
     verification_status: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     verified_status_alert: Field::Boolean,
-    confirmation_sent_at: Field::DateTime
+    confirmation_sent_at: Field::DateTime,
+    siret: Field::String,
+    address_line1: Field::String,
+    address_line2: Field::String,
+    zipcode: Field::String,
+    city: Field::String,
+    state: Field::String,
+    entity_name: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -53,6 +60,13 @@ class UserDashboard < Administrate::BaseDashboard
   confirmed_at
   verification_status
   verified_status_alert
+  siret
+  address_line1
+  address_line2
+  zipcode
+  city
+  state
+  entity_name
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -62,6 +76,13 @@ class UserDashboard < Administrate::BaseDashboard
   email
   first_name
   last_name
+  siret
+  address_line1
+  address_line2
+  zipcode
+  city
+  state
+  entity_name
   ].freeze
 
   # COLLECTION_FILTERS

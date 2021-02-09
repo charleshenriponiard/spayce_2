@@ -75,23 +75,23 @@ class ProjectDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
-  user
-  name
-  description
-  amount_cents
-  client_email
-  url
-  client_first_name
-  client_last_name
-  message
-  documents_count
-  discount
-  spayce_commission
-  tax
-  total
-  zipped_key
-  ].freeze
+  # FORM_ATTRIBUTES = %i[
+  # user
+  # name
+  # description
+  # amount_cents
+  # client_email
+  # url
+  # client_first_name
+  # client_last_name
+  # message
+  # documents_count
+  # discount
+  # spayce_commission
+  # tax
+  # total
+  # zipped_key
+  # ].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search

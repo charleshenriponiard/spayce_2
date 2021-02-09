@@ -38,9 +38,9 @@ class InvoiceDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = %i[
-  project
-  ].freeze
+  # FORM_ATTRIBUTES = %i[
+  # project
+  # ].freeze
 
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
