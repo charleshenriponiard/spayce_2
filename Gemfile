@@ -67,6 +67,10 @@ gem 'friendly_id'
 
 gem 'money-rails', '~>1.12'
 
+#admin
+gem "administrate"
+gem "administrate-field-active_storage"
+
 #pagination
 gem 'pagy'
 
