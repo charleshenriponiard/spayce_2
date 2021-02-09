@@ -35,3 +35,8 @@ textarea {
 abbr {
   text-decoration: none !important;
 }
+
+span.email > .invalid-feedback {
+  display: flex;
+  justify-content: center;
+}
