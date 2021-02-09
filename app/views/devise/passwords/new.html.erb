@@ -5,20 +5,15 @@
       <p class= "text-center my-3"><%= t('.instance_one') %></p>
       <p class= "text-center my-3"><%= t('.instance_two') %></p>
       <%= simple_form_for(resource, as: resource_name, wrapper: :inline_form, url: password_path(resource_name), html: { method: :post })  do |f| %>
-        <%= f.error_notification %>
 
         <div class="form-inputs">
           <%= f.input :email,
                       required: true,
                       autofocus: true,
                       input_html: { placeholder: "Email", autocomplete: "email", class:"xl-input" } %>
-          <% resource.errors.full_messages.each do |msg| %>
-            <p class= "alert-error"><%= msg %></p>
-          <% end %>
         </div>
         <div class="form-actions text-center">
           <%= f.button :submit, t('.reset_password'), class: "btn btn-info button-connexion text-white text-uppercase py-3" %>
-          <%= f.error_notification %>
         </div>
       <% end %>
       <div class="text-center mt-4 mb-5">
