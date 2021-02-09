@@ -2,7 +2,7 @@
 
 
 ## User => verification_status
-[![YourActionName Actions Status](https://github.com/{userName}/{repoName}/workflows/{workflowName}/badge.svg)](https://github.com/{userName}/{repoName}/actions)
+[![YourActionName Actions Status](https://github.com/charleshenriponiard/spayce_2/workflows/CIRSpecTests/badge.svg)](https://github.com/charleshenriponiard/spayce_2/actions)
 
 La colonne `verification status` correspond au statut sur Stripe, c'est un enum comportant quatre statuts, ceux-ci sont modifiés via une écoute des Webhooks de Stripe :
 
