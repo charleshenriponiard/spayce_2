@@ -1,7 +1,5 @@
 # Spayce - Readme
 
-
-## User => verification_status
 [![CI Actions Status](https://github.com/charleshenriponiard/spayce_2/workflows/CI%20RSpec%20Tests/badge.svg)](https://github.com/charleshenriponiard/spayce_2/actions)
 
 La colonne `verification status` correspond au statut sur Stripe, c'est un enum comportant quatre statuts, ceux-ci sont modifiés via une écoute des Webhooks de Stripe :
