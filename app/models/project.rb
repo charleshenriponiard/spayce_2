@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   monetize :amount_cents
 
   validates :amount_cents, presence: true
+  validates :amount, numericality: { greater_than_or_equal_to: 10 }
   validates :name, presence: true
   validates :client_email, presence: true
   validates :client_last_name, presence: true
