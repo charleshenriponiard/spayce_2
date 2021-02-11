@@ -3,4 +3,7 @@ class PagesController < ApplicationController
 
   def account_confirmation
   end
+
+  def cookie
+  end
 end

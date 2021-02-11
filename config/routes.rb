@@ -11,6 +11,7 @@ Rails.application.routes.draw do
                                   confirmations: "confirmations" }
 
   get '/account_confirmation', to: 'pages#account_confirmation', as: 'account_confirmation'
+  get '/cookies', to: "pages#cookie", as: "cookies"
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
