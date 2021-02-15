@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def account_confirmation
   end
 
-  def cgv
+  def cgu
   end
 
   def mentions_legales

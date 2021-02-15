@@ -11,7 +11,7 @@ Rails.application.routes.draw do
                                   confirmations: "confirmations" }
 
   get '/account_confirmation', to: 'pages#account_confirmation', as: 'account_confirmation'
-  get '/cgv', to: 'pages#cgv', as: 'cgv'
+  get '/cgu', to: 'pages#cgu', as: 'cgu'
   get '/mentions_legales', to: 'pages#mentions_legales', as: 'mentions_legales'
   get '/politique_confidentialite', to: 'pages#politique_confidentialite', as: 'politique_confidentialite'
 
