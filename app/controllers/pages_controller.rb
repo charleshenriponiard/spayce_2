@@ -4,6 +4,12 @@ class PagesController < ApplicationController
   def account_confirmation
   end
 
-  def cookie
+  def cgv
+  end
+
+  def mentions_legales
+  end
+
+  def politique_confidentialite
   end
 end
