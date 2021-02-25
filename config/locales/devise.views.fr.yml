@@ -154,7 +154,7 @@ fr:
         we_need_your_current_password_to_confirm_your_changes: Nous avons besoin de votre mot de passe actuel pour valider ces modifications
       new:
         instance: "Vous avez déjà un compte ?"
-        title: "Créer ton compte gratuit"
+        title: "Créer un compte gratuit"
         sign_up: Inscription
         sign_in: Connexion
       signed_up: Bienvenue ! Vous vous êtes bien enregistré(e).
