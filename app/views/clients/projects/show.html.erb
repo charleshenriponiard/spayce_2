@@ -5,7 +5,7 @@
 
       <p class="mb-2"><%= t('views.clients.projects.show.to_be_paid') %> <strong class="text-orange"><%= number_to_currency(@project.amount) %></strong></p>
 
-      <p><%= t('views.clients.projects.show.expiration') %> <strong><%= l(@project.created_at + 7, format: :short) %></strong>.</p>
+      <p><%= t('views.clients.projects.show.expiration') %> <strong><%= l(@project.created_at + 7.days, format: :short) %></strong>.</p>
       <p class="text-red mb-5 expiration-warning"><%= inline_svg_tag "warning.svg", height: '12px' %> <em><%= t('views.clients.projects.show.expiration_info') %></em></p>
 
       <div class="d-flex preview-items-container">
@@ -13,7 +13,6 @@
           <button type="button" class="preview-item d-flex flex-column justify-content-center align-items-center mb-4" data-toggle="modal" data-target="#exampleModal-<%= document.id %>">
             <%= render 'preview', document: document %>
           </button>
-
           <div class="modal fade" id="exampleModal-<%= document.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content preview-modal">
