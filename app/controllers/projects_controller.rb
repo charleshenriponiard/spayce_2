@@ -35,7 +35,6 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     authorize(@project)
     if @project.save && current_user.verified?
-      CreateCheckoutSessionJob.perform_later(@project)
       redirect_to confirmation_project_path(@project)
     else
       render :new
@@ -50,7 +49,6 @@ class ProjectsController < ApplicationController
       if @retrieved_coupon.valid
         discount = @retrieved_coupon.percent_off / 100
         @project.update(discount: discount)
-        CreateCheckoutSessionJob.perform_later(@project)
       end
     rescue Stripe::InvalidRequestError => e
       @stripe_error = e.error

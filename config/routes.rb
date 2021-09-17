@@ -3,7 +3,6 @@ Rails.application.routes.draw do
       resources :users
       resources :invoices
       resources :projects
-
       root to: "users#index"
     end
   # Routes pour devise
@@ -39,7 +38,11 @@ Rails.application.routes.draw do
     end
 
     namespace :clients do
-      resources :projects, only: :show, param: :slug
+      resources :projects, only: :show, param: :slug do
+        member do
+          get :create_checkout_session
+        end
+      end
     end
 
     # Routes pour Stripe

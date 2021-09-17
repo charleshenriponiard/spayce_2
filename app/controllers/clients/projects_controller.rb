@@ -1,8 +1,15 @@
 class Clients::ProjectsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_project, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :create_checkout_session]
+  before_action :set_project, only: [:show, :create_checkout_session]
 
-  def show
+  def show; end
+
+  def create_checkout_session
+    ::Stripe::CheckoutSessionCreator.call(@project)
+    render json: {
+      sucess: true,
+      data: @project
+    }, status: 200
   end
 
   private
