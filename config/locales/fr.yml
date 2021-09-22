@@ -44,11 +44,12 @@ fr:
           to_be_paid: "Pour pouvoir les télécharger, vous devez régler la somme de"
           expiration: "Le transfert expirera le"
           expiration_info: "Après cette date, vous n'aurez plus la possibilité de payer ou télécharger ces fichiers."
-          payemnt_successful: "<strong class='text-green'>Félicitations !</strong><br>Votre paiement est validé, vous pouvez télécharger les documents ci-dessous <em>(cela peut prendre quelques secondes)</em> :"
+          payment_successful: "<strong class='text-green'>Félicitations !</strong><br>Votre paiement est validé, vous pouvez télécharger les documents ci-dessous <em>(cela peut prendre quelques secondes)</em> :"
           loading: "En cours de chargement..."
           checkout: 'Payer'
           expired: "Vous ne pouvez plus accéder au paiement de ce transfert nous vous invitons de prendre contact avec"
-          payemnt_failed: "Votre paiement n'a pas été pris en compte, veuillez réessayer."
+          payment_failed: "Votre paiement n'a pas été pris en compte, veuillez réessayer."
+          confirm_message: "Si vous validez vous disposerez de 24h pour payer, après quoi le lien sera obsolète."
     invoices:
       show:
         for: 'Pour :'
