@@ -7,4 +7,8 @@ class Clients::ProjectPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def create_checkout_session?
+    true
+  end
 end

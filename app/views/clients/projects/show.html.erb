@@ -28,7 +28,7 @@
       <script src="https://js.stripe.com/v3/"></script>
       <% if @project.payment_succeeded? && !@project.paid_expired? %>
         <div>
-          <p class="text-center mb-4"><%== t('views.clients.projects.show.payemnt_successful') %></p>
+          <p class="text-center mb-4"><%== t('views.clients.projects.show.payment_successful') %></p>
           <div id="download_button" class="d-flex justify-content-center w-100" data-project-id=<%= @project.id %>>
             <% unless @project.url.nil? %>
               <%= render 'button', project: @project %>
@@ -46,7 +46,7 @@
             class="checkout-button"
             data-spk="<%= ENV['STRIPE_PUBLIC_KEY'] %>"
             data-uid="<%= @project.user.uid %>"
-            data-csid="<%= @project.checkout_session_id %>"
+            data-confirm="<%= t('views.clients.projects.show.confirm_message') %>"
           >
             <%= t('views.clients.projects.show.checkout') %>
           </button>
@@ -54,7 +54,7 @@
           <p><%= t('views.clients.projects.show.expired') %> <%= @project.user.first_name %> <%= @project.user.last_name %></p>
         <% end %>
         <% if @project.payment_failed?  %>
-          <p><%= t('views.clients.projects.show.payemnt_failed') %></p>
+          <p><%= t('views.clients.projects.show.payment_failed') %></p>
         <% end %>
       <% end %>
       </div>
